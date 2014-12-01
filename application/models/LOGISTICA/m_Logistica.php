@@ -4,7 +4,7 @@
 * @todo         : Modulo de Logistica 
 * @author       : Gianpiere Ramo Bernuy.
 * @subpackage   : LOGISTICA 
-* @package      : m_Logisitica
+* @package      : m_Logistica
 * @copyright    : CASTRO & GARCIA.
 **************************************************************************
 */ # 

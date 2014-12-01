@@ -200,8 +200,8 @@ if(!function_exists('menulateral'))
                             'submenu'   =>  array(
                                                 'routes'    =>  array(
                                                                     'Logistica/Logistica/Entrada',
-                                                                    'Logistica/Logisitica/Salida',
-                                                                    'Logisitica/Logistica/Transferencias'
+                                                                    'Logistica/Logistica/Salida',
+                                                                    'Logistica/Logistica/Transferencias'
                                                                 ),
                                                 'labels'    =>  array(
                                                                     'Entrada',
