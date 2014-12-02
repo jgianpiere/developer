@@ -79,7 +79,7 @@ class Producto extends MY_Controller {
             $RutaGuia = $this->htmltemplate->HTML_RutaGuia($rutas,'Agregar Producto');
             $this->RutaGuia = $RutaGuia;
 
-            $this->load->view('modules/COMPRASYGASTOS/view_Compras_Producto_Nuevo.php');
+            $this->load->view('modules/LOGISTICA/view_Producto_Nuevo_landing.php');
         elseif($_SERVER['REQUEST_METHOD'] == 'GET'):
             redirect(base_url('Compras#/Producto/Agregar'));
         endif;
