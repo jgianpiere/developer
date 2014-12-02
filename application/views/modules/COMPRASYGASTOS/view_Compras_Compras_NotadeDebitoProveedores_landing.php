@@ -398,7 +398,7 @@ var $descripcion;
                 $.ajax({
                     type    : 'POST',
                     data    : $form.serialize(),
-                    url     : "<?=site_url('/Compras/Compras/OrdendeCompra/Buscar');?>",
+                    url     : "<?=site_url('/Compras/Compras/ProNotadeDebito/Buscar');?>",
                     success : function(data){
                         try{
                             $data = $.parseJSON(data);
@@ -457,7 +457,7 @@ var $descripcion;
                     $.ajax({
                         type    : 'POST',
                         data    : $form.serialize()+'&detalles='+jQuery.stringify($detalles),
-                        url     : "<?=site_url('/Compras/Compras/OrdendeCompra/Agregar');?>",
+                        url     : "<?=site_url('/Compras/Compras/ProNotadeDebito/Agregar');?>",
                         success : function(data){
                             try{
                                 $data = $.parseJSON(data);
@@ -542,7 +542,7 @@ var $descripcion;
                 $.ajax({
                     type        : 'POST',
                     data        : 'ordenid='+$($this.parent()).attr('data-id'),
-                    url         : "<?=site_url('/Compras/Compras/OrdendeCompra/Eliminar');?>",
+                    url         : "<?=site_url('/Compras/Compras/ProNotadeDebito/Eliminar');?>",
                     success     : function(data){
                         try{
                             $data = $.parseJSON(data);
@@ -568,7 +568,7 @@ var $descripcion;
                 $.ajax({
                     type        : 'POST',
                     data        : 'ordenid='+$($this.parent()).attr('data-id'),
-                    url         : "<?=site_url('/Compras/Compras/OrdendeCompra/Converir');?>",
+                    url         : "<?=site_url('/Compras/Compras/ProNotadeDebito/Converir');?>",
                     success     : function(data){
                         try{
                             $data = $.parseJSON(data);
