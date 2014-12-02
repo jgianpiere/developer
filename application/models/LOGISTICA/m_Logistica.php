@@ -182,6 +182,16 @@ class m_Logistica extends MY_Model{
         return $Results;
     }
 
+    
+    public function Query_Buscar_CP_TransferenciaMercaderia($Params){
+        $sql = "SP_Buscar_CP_TransferenciaMercaderia ?,?,?,?";
+        $QueryRpt = $this->db->query($sql,$Params);
+        $Resultado = $QueryRpt->result_array();
+        $this->db->close();
+        $Results = $this->QueryResult($Resultado);
+        return $Results;
+    }
+
     /**
      * @todo        : Insertar Transferencia
      * @param       : @NumeroComprobante  varchar(10)
@@ -212,10 +222,12 @@ class m_Logistica extends MY_Model{
      * @param       : @MotivoTraslado   varchar(150)
      * @param       : @ID_Almacen_Destino  int
      * @param       : @ID_Almacen_Origen   int 
+     * @param       : @AlmaceOrigen  int
+     * @param       : @AlmaceDestino int
      * @return      : 
      */
     public function Query_Insertar_CP_Transferencia($Params){
-        $sql = "SP_Insertar_CP_Transferencia ?,?,?,?,?,?,?";
+        $sql = "SP_Insertar_CP_Transferencia ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
         $QueryRpt = $this->db->query($sql,$Params);
         $Resultado = $QueryRpt->row_array();
         $this->db->close();
@@ -223,11 +235,25 @@ class m_Logistica extends MY_Model{
         return $Results;
     }
 
-    public function Query_Insertar_Detalle_CP_TransferenciaMercaderia(){
-        // SP_Insertar_Detalle_CP_TransferenciaMercaderia + 2 datos ..
+    /**
+    * @todo         : Insertar Guia de entrada
+    * @param        : @ID_ComprobanteCompra.- INT ID de la orden de compra.
+    * @param        : @ID_Producto.- INT ID del Producto.
+    * @param        : @Cantidad.- INT La cantidad a guardar.
+    * @param        : @Valor_Unitario.- DECIMAL(10,4) Valor unitario para el producto.
+    * @param        : @ID_CentroCosto.- INT El ID del centro del costo. (Para ver más detalles de los centros de costos ver CENTRO DE COSTO.)
+    * @param        : @Total_Descuento.- DECIMAL(10,4) Total descuento unitario por cada producto.
+    * @param        : @Costo.- DECIMAL(10,4) El costo del producto si hubiera.
+    * @return       : []
+    */
+    public function Query_Insertar_Detalle_CP_TransferenciaMercaderia($Params){
+        $sql = "SP_Insertar_Detalle_CP_TransferenciaMercaderia ?,?,?,?,?,?,?";
+        $QueryRpt = $this->db->query($sql,$Params);
+        $Resultado = $QueryRpt->row_array();
+        $this->db->close();
+        $Results = $this->QueryRows($Resultado);
+        return $Results;
     }
-
-    // SP_Buscar_CP_TransferenciaMercaderia
 
 
 }

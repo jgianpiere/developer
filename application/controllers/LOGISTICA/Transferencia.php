@@ -153,7 +153,7 @@ class Transferencia extends MY_Controller {
                     'num_cp'            => ($buscar_serie != '' ? $buscar_serie : 22)
                 );
 
-                $insert_result = $this->m_Logistica->Query_Buscar_CP_GuiaTransferencia($Params);
+                $insert_result = $this->m_Logistica->Query_Buscar_CP_TransferenciaMercaderia($Params);
 
                 $html = $this->htmltemplate->HTML_TransferenciaInventario($insert_result);
                 echo json_encode(array('OK',$insert_result,$html));
@@ -203,7 +203,8 @@ class Transferencia extends MY_Controller {
                 array('field' => 'agre_Total_OrdenCompra_total',         'label' => 'agre_Total_OrdenCompra_total',       'rules' => 'trim|xss_clean'),                          
                 array('field' => 'detalles',                             'label' => 'detalles',                           'rules' => 'trim|xss_clean'),
                 array('field' => 'agre_credito_OrdenCompra',             'label' =>  'agre_credito_OrdenCompra',          'rules' =>  'trim|xss_clean'),
-                array('field' => 'agre_modalidad_OrdenCompra',           'label' =>  'agre_modalidad_OrdenCompra',        'rules' =>  'trim|xss_clean')
+                array('field' => 'agre_modalidad_OrdenCompra',           'label' =>  'agre_modalidad_OrdenCompra',        'rules' =>  'trim|xss_clean'),
+                array('field' => 'agre_almacen_OrdenCompraDestino',      'label' => 'agre_almacen_OrdenCompraDestino',    'rules' => 'trim|xss_clean')
             );
 
             $this->form_validation->set_rules($Campos);
@@ -240,6 +241,7 @@ class Transferencia extends MY_Controller {
                $detalles                            = $this->input->post('detalles');
                $agre_credito_OrdenCompra            = $this->input->post('agre_credito_OrdenCompra');
                $agre_modalidad_OrdenCompra          = $this->input->post('agre_modalidad_OrdenCompra'); 
+               $agre_almacen_OrdenCompraDestino     = $this->input->post('agre_almacen_OrdenCompraDestino'); 
 
                 $usuariosis     = $this->session->userdata('usr_prf_name');
                 if(!empty($usuariosis)):
@@ -277,10 +279,12 @@ class Transferencia extends MY_Controller {
                     'Licencia'                      => $agre_licencia,
                     'Transporte'                    => $agre_transportistas,
                     'RucTransporte'                 => $agre_ruc_transportista,
-                    'MotivoTraslado'                => $agre_motivo_traslado
+                    'MotivoTraslado'                => $agre_motivo_traslado,
+                    'AlmacenOrigen'                 => $agre_almacen_OrdenCompra,
+                    'AlmacenDestino'                => $agre_almacen_OrdenCompraDestino
                 );
 
-                $insert_result = $this->m_Logistica->Query_Insertar_CP_GuiaTransferencia($Params);
+                $insert_result = $this->m_Logistica->Query_Insertar_CP_Transferencia($Params);
                 if(isset($insert_result) && !empty($insert_result) && is_array($insert_result)):
 
                     // ingresar los detalles: 
@@ -305,7 +309,7 @@ class Transferencia extends MY_Controller {
                                     'costo'             => $value->detalle->total
                                 );
 
-                                $rslt = $this->m_Compras->Query_Insertar_Detalle_CP_GuiaTransferencia($Params_detalle);
+                                $rslt = $this->m_Compras->Query_Insertar_Detalle_CP_TransferenciaMercaderia($Params_detalle);
                                 $insert_detalle[$key] = $rslt;
                             }
                         endif;

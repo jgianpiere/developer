@@ -144,6 +144,15 @@
                                         </div>
 
                                         <div class="form-group">
+                                            <label class="control-label col-xs-3">Almacén Destino :</label>
+                                            <div class="col-xs-5">
+                                                <select class="form-control" required id="agre_almacen_OrdenCompraDestino" name="agre_almacen_OrdenCompraDestino"> 
+                                                    <?=isset($this->listaalmacenes) ? $this->listaalmacenes : '<option value="0"> - </option>';?>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
                                             <input type="hidden" name="proveedorid" id="proveedorid" value="" />
                                             <label class="control-label col-xs-3">Destinatario :</label>
                                             <div class="col-xs-6">
