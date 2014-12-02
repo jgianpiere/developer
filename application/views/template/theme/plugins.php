@@ -472,13 +472,10 @@ $(document).on('change','[type="checkbox"][ischeck]',function(){ $$ = this; $thi
     $(document).on('mousedown','[plan-selected] option',function(e){ $$ = this; $this = $(this);
       $exist_items = $('[item]').length;
       if($exist_items > 0){
-        console.log($$.selected);
-        if($$.selected){
-          console.log('seleccionado');
-        }else if(confirm('existen items creados, al Cambiar de Plan, se eliminaran.\nDeseas continuar?')){
+        if(confirm('existen items creados, al Cambiar de Plan, se eliminaran.\nDeseas continuar?')){
           $('[item]').remove();
           $this.parent().children('[selected]').removeAttr('selected');
-          $this.attr('selected','selected').select();
+          $this.attr('selected','selected').selected();
           $('#btn-additem').focus();
           $("[plan-selected]").attr('selectedIndex',(parseInt($this.val())));
         }else{
