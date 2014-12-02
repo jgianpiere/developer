@@ -477,7 +477,7 @@ $(document).on('change','[type="checkbox"][ischeck]',function(){ $$ = this; $thi
           $this.parent().children('[selected]').removeAttr('selected');
           $this.attr('selected','selected').select();
           $('#btn-additem').focus();
-          $("[plan-selected] option[value='"+$(this).val()+"']").attr("selected","selected");
+          $("[plan-selected]").selectedIndex($this.val());
         }else{
           e.preventDefault();
           $('#btn-additem').focus();
