@@ -476,6 +476,7 @@ $(document).on('change','[type="checkbox"][ischeck]',function(){ $$ = this; $thi
           $('[item]').remove(); $this.attr('selected','selected'); $this.parent().select(); return true; 
         }else{
           e.preventDefault();
+          $('#btn-additem').focus();
           return false;
         }
       }
