@@ -284,7 +284,10 @@ class Transferencia extends MY_Controller {
                     'AlmacenDestino'                => $agre_almacen_OrdenCompraDestino
                 );
 
+                echo "antes del insert\n";
+
                 $insert_result = $this->m_Logistica->Query_Insertar_CP_Transferencia($Params);
+                echo "despues del insert\n";
                 if(isset($insert_result) && !empty($insert_result) && is_array($insert_result)):
 
                     // ingresar los detalles: 
@@ -299,6 +302,7 @@ class Transferencia extends MY_Controller {
                             $documento_list = $this->m_Compras->Query_Documento_GET($Params);
                             $centroCosto    = $documento_list[0][2];
                             foreach ($Detalles as $key => $value) {
+                                echo "detalle insert: $key \n";
                                 $Params_detalle = array(
                                     'idcomprobante'     => $insert_result[2],
                                     'idproducto'        => $value->detalle->id,
