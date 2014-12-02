@@ -408,7 +408,9 @@ var $descripcion;
     (function(){
         $('#btn-additem').on('click',function(e){ $$ = $('#addItemsOrdenesdeCompra');
             $plan = $('[plan-selected]').val();
-            if(!$plan>0){
+            if($plan>0){
+                
+            }else{
                 e.preventDefault();
                 alert('debe escoger un Plan para poder agregar productos.');
                 $('[plan-selected]').focus();
