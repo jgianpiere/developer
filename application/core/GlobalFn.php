@@ -187,7 +187,7 @@ if(!function_exists('menulateral'))
                             'submenu'   =>  array(
                                                 'routes'    =>  array(
                                                                     'RecursosHumanos/Producto/Nuevo',
-                                                                    'RecursosHumanos/Producto/Nuevo',
+                                                                    'RecursosHumanos/Producto/Buscar',
                                                                 ),
                                                 'labels'    =>  array(
                                                                     'Nuevo Producto',
