@@ -274,7 +274,7 @@
 
                                             <label class="control-label col-xs-2">SUB TOTAL :</label>
                                             <div class="col-xs-2">
-                                                <input type="text" readonly="" all-subtotal="" required="" placeholder="0" class="form-control" name="agre_Total_CG_subtotal" id="agre_Total_CG_subtotal">
+                                                <input type="text" readonly="" all-subtotal="" required="" placeholder="0" value="0" class="form-control" name="agre_Total_CG_subtotal" id="agre_Total_CG_subtotal">
                                             </div>
                                         </div>
 
@@ -294,7 +294,7 @@
 
                                             <label class="control-label col-xs-2">IMPUESTO :</label>
                                             <div class="col-xs-2">
-                                                <input type="text" readonly="" impuesto="" required="" placeholder="0" class="form-control" name="agre_Total_CG_totalimpuesto" id="agre_Total_CG_totalimpuesto">
+                                                <input type="text" readonly="" impuesto="" required="" placeholder="0" value="0" class="form-control" name="agre_Total_CG_totalimpuesto" id="agre_Total_CG_totalimpuesto">
                                             </div>
                                         </div>
 
