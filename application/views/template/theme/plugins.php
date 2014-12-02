@@ -469,11 +469,12 @@ $(document).on('change','[type="checkbox"][ischeck]',function(){ $$ = this; $thi
 
 <script> // cambio de plan
   (function(){
-    $(document).on('mousedown','[plan-selected] option',function(e){ $this = $(this);
+    $(document).on('mousedown','[plan-selected] option',function(e){ $$ = this; $this = $(this);
       $exist_items = $('[item]').length;
-      if($exist_items > 0){ console.log($this.is(':selected'));
-        if($this.is(':selected')>-1){
-          console.log('no pasa nada...');
+      if($exist_items > 0){
+        console.log($$.selected);
+        if($$.selected){
+          console.log('seleccionado');
         }else if(confirm('existen items creados, al Cambiar de Plan, se eliminaran.\nDeseas continuar?')){
           $('[item]').remove();
           $this.parent().children('[selected]').removeAttr('selected');
