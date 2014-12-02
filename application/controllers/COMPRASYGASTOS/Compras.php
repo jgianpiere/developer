@@ -676,34 +676,44 @@ class Compras extends MY_Controller {
     public function Gastos_Buscar(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST'):
             $Campos = array(
-                array('field' =>  'datepicker_OC_Desde',    'label' =>  'Fecha Inicio',     'rules' =>  'trim|max_length[10]|xss_clean'),
-                array('field' =>  'datepicker_OC_Hasta',    'label' =>  'Fecha Fin',        'rules' =>  'trim|max_length[10]|xss_clean'),
-                array('field' =>  'buscar_OC_serie',        'label' =>  'Sucursal',         'rules' =>  'trim|number|xss_clean'),
-                array('field' =>  'buscar_OC_numcp',        'label' =>  'Num. CP',          'rules' =>  'trim|number|xss_clean')
+                array('field' =>  'fecha_CG_Desde',         'label' =>  'Desde',               'rules' =>  'trim|required|max_length[10]|xss_clean'),
+                array('field' =>  'fecha_CG_Hasta',         'label' =>  'Hasta',               'rules' =>  'trim|required|max_length[10]|xss_clean'),
+                array('field' =>  'buscar_CG_serie',        'label' =>  'Sucursal',            'rules' =>  'trim|required|xss_clean'),
+                array('field' =>  'buscar_CG_numcp',        'label' =>  'Codigo Proveedor',    'rules' =>  'trim|xss_clean')
             );
 
             $this->form_validation->set_rules($Campos);
 
             if($this->form_validation->run() == TRUE):
-                $fecha_Desde    = $this->input->post('datepicker_OC_Desde');
-                $fecha_Hasta    = $this->input->post('datepicker_OC_Hasta');
-                $buscar_serie   = $this->input->post('buscar_OC_serie');
-                $buscar_numcp   = $this->input->post('buscar_OC_numcp');
+
+                $fecha_CG_Desde             = $this->input->post('fecha_CG_Desde');
+                $fecha_CG_Hasta             = $this->input->post('fecha_CG_Hasta');
+                $buscar_CG_serie            = $this->input->post('buscar_CG_serie');
+                $buscar_CG_numcp            = $this->input->post('buscar_CG_numcp');
                 
+                $this->load->model('m_Compras');
                 $Params = array(
-                    'buscar_OC_numcp'       => $buscar_numcp,
-                    'datepicker_OC_Desde'   => $fecha_Desde,
-                    'datepicker_OC_Hasta'   => $fecha_Hasta,
-                    'buscar_OC_serie'       => ($buscar_serie != '' ? $buscar_serie : 22)
+                    'buscar_CG_numcp'   => $buscar_CG_numcp,
+                    'fecha_CG_Desde'    => $fecha_CG_Desde,
+                    'fecha_CG_Hasta'    => $fecha_CG_Hasta,
+                    'buscar_CG_serie'   => $buscar_CG_serie
                 );
 
-                $insert_result = $this->m_Compras->Query_Buscar_CP_OrdenCompra($Params);
+                $result = $this->m_Compras->Query_Buscar_Comprobante_Compra($Params);
 
-                $html = $this->htmltemplate->HTML_OrdenesdeCompra($insert_result);
-                echo json_encode(array('OK',$insert_result,$html));
+                if(isset($result) && !empty($result) && is_array($result) && $result[0] != '00' && $result[0]!='ERROR'):
+                    $html = $this->htmltemplate->HTML_ComprobantesdeCompra($lista_monedas);
+                else:
+                    echo json_encode(array('ERROR','01','NO HAY RESULTADOS'));
+                endif;
                 # return data table 
             else:
                 echo json_encode(array('ERROR','01',validation_errors()));
+                /*# RutaGuia
+                $RutaGuia = $this->htmltemplate->HTML_RutaGuia(rutaguia(),'Home');
+                $this->RutaGuia = $RutaGuia;
+
+                $this->load->view('modules/COMPRASYGASTOS/view_Compras_Compras_OrdendeCompra_Buscar.php');*/
             endif;
         elseif($_SERVER['REQUEST_METHOD'] == 'GET'):
             show_404();
@@ -717,53 +727,111 @@ class Compras extends MY_Controller {
     public function Gastos_Agregar(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST'):
             $Campos = array(
-                array('field' =>  'agre_Total_gasto_1',         'label' =>  'Desde',               'rules' =>  'trim|required|max_length[10]|fehca|xss_clean'),
-                array('field' =>  'agre_cant_gasto_1',          'label' =>  'Hasta',                 'rules' =>  'trim|required|max_length[10]|fecha|xss_clean'),
-                array('field' =>  'agre_cod_gasto_1',           'label' =>  'Sucursal',            'rules' =>  'trim|required|xss_clean'),
-                array('field' =>  'agre_credito_Gasto',         'label' =>  'Sucursal',            'rules' =>  'trim|required|xss_clean'),
-                array('field' =>  'agre_des_gasto_1',           'label' =>  'Sucursal',            'rules' =>  'trim|required|xss_clean'),
-                array('field' =>  'agre_documento_Gasto',       'label' =>  'Sucursal',            'rules' =>  'trim|required|xss_clean'),
-                array('field' =>  'agre_fecha_entrega_Gasto',   'label' =>  'Sucursal',            'rules' =>  'trim|required|xss_clean'),
-                array('field' =>  'agre_fecha_ingreso_Gasto',   'label' =>  'Sucursal',            'rules' =>  'trim|required|xss_clean'),
-                array('field' =>  'agre_modalidad_Gasto',       'label' =>  'Sucursal',            'rules' =>  'trim|required|xss_clean'),
-                array('field' =>  'agre_moneda_Gasto',          'label' =>  'Sucursal',            'rules' =>  'trim|required|xss_clean'),
-                array('field' =>  'agre_num_gasto',             'label' =>  'Sucursal',            'rules' =>  'trim|required|xss_clean'),
-                array('field' =>  'agre_obs_Gasto',             'label' =>  'Sucursal',            'rules' =>  'trim|required|xss_clean'),
-                array('field' =>  'agre_pre_gasto_1',           'label' =>  'Sucursal',            'rules' =>  'trim|required|xss_clean'),
-                array('field' =>  'agre_responsable_Gasto',     'label' =>  'Sucursal',            'rules' =>  'trim|required|xss_clean'),
-                array('field' =>  'contador',                   'label' =>  'Sucursal',            'rules' =>  'trim|required|xss_clean')
+                array('field' =>  'agre_documento_CompraGasto',         'label' =>  'Documento',                        'rules' =>  'trim|required|xss_clean'),
+                array('field' =>  'agre_serie_documento_sol_coti',      'label' =>  'Serie Documento Solicitud',        'rules' =>  'trim|required|xss_clean'),
+                array('field' =>  'agre_num_documento_sol_coti',        'label' =>  'Numero Documento Solicitud',       'rules' =>  'trim|required|xss_clean'),
+                array('field' =>  'agre_moneda_CompraGasto',            'label' =>  'Tipo de Moneda',                   'rules' =>  'trim|required|xss_clean'),
+                array('field' =>  'agre_fecha_ingreso_compragasto',     'label' =>  'fecha ingreso',                    'rules' =>  'trim|required|fehca|xss_clean'),
+                array('field' =>  'agre_fecha_entrega_compragasto',     'label' =>  'fecha entrega',                    'rules' =>  'trim|required|fehca|xss_clean'),
+                array('field' =>  'agre_almacen_CompraGasto',           'label' =>  'almacen',                          'rules' =>  'trim|required|xss_clean'),
+                array('field' =>  'agre_proveedor_CompraGasto',         'label' =>  'Proveedor',                        'rules' =>  'trim|required|xss_clean'),
+                array('field' =>  'agre_credito_CG',                    'label' =>  'credito',                          'rules' =>  'trim|required|xss_clean'),
+                array('field' =>  'agre_modalidad_CG',                  'label' =>  'modalidad',                        'rules' =>  'trim|xss_clean'),
+                array('field' =>  'agre_obs_CG',                        'label' =>  'Observacion',                      'rules' =>  'trim|xss_clean'),
+                array('field' =>  'agre_Total_CG_total',                'label' =>  'Total',                            'rules' =>  'trim|xss_clean'),
+                array('field' =>  'incluye_impuesto',                   'label' =>  'Incluye Impuesto',                 'rules' =>  'trim|xss_clean'),
+                array('field' =>  'agre_plan_OrdenCompra',              'label' =>  'agre_plan_OrdenCompra',            'rules' =>  'trim|is_natural_no_zero|xss_clean')
             );
 
             $this->form_validation->set_rules($Campos);
 
-            if($this->form_validation->run() == FALSE):
+            if($this->form_validation->run() == TRUE):
+                $agre_documento_CompraGasto         = $this->input->post('agre_documento_CompraGasto');
+                $agre_num_documento_sol_coti        = $this->input->post('agre_num_documento_sol_coti');
+                $agre_serie_documento_sol_coti      = $this->input->post('agre_serie_documento_sol_coti');
+                $agre_moneda_CompraGasto            = $this->input->post('agre_moneda_CompraGasto');
+                $agre_fecha_ingreso_compragasto     = $this->input->post('agre_fecha_ingreso_compragasto');
+                $agre_fecha_entrega_compragasto     = $this->input->post('agre_fecha_entrega_compragasto');
+                $agre_almacen_CompraGasto           = $this->input->post('agre_almacen_CompraGasto');
+                $agre_proveedor_CompraGasto         = $this->input->post('agre_proveedor_CompraGasto');
+                $agre_credito_CG                    = $this->input->post('agre_credito_CG');
+                $agre_dias_CG                       = $this->input->post('agre_dias_CG');
+                $agre_modalidad_CG                  = $this->input->post('agre_modalidad_CG');
+                $agre_obs_CG                        = $this->input->post('agre_obs_CG');
+                $agre_Total_CG_total                = $this->input->post('agre_Total_CG_total');
+                $incluye_impuesto                   = $this->input->post('incluye_impuesto');
+                $plan                               = $this->input->post('agre_plan_OrdenCompra');
 
-                $agre_Total_gasto_1             = $this->input->post('agre_Total_gasto_1');
-                $agre_cant_gasto_1              = $this->input->post('agre_cant_gasto_1');
-                $agre_cod_gasto_1               = $this->input->post('agre_cod_gasto_1');
-                $agre_credito_Gasto             = $this->input->post('agre_credito_Gasto');
-                $agre_des_gasto_1               = $this->input->post('agre_des_gasto_1');
-                $agre_documento_Gasto           = $this->input->post('agre_documento_Gasto');
-                $agre_fecha_entrega_Gasto       = $this->input->post('agre_fecha_entrega_Gasto');
-                $agre_fecha_ingreso_Gasto       = $this->input->post('agre_fecha_ingreso_Gasto');
-                $agre_modalidad_Gasto           = $this->input->post('agre_modalidad_Gasto');
-                $agre_moneda_Gasto              = $this->input->post('agre_moneda_Gasto');
-                $agre_num_gasto                 = $this->input->post('agre_num_gasto');
-                $agre_obs_Gasto                 = $this->input->post('agre_obs_Gasto');
-                $agre_pre_gasto_1               = $this->input->post('agre_pre_gasto_1');
-                $agre_responsable_Gasto         = $this->input->post('agre_responsable_Gasto');
-                $contador                       = $this->input->post('contador');
+                $this->load->model('m_Compras');
+
+                $usuariosis     = $this->session->userdata('usr_prf_name');
+                if(!empty($usuariosis)):
+                    $usuariosis = explode('/', $usuariosis);
+                    $usuariosis = $usuariosis[2];
+                else:
+                    $usuariosis = '';
+                endif;
+
+                if(!is_numeric($agre_Total_CG_total)):
+                    echo json_encode(array('ERROR','01','No existen Items.'));
+                endif;
+                    $Calc_impuesto = calcular_impuesto($agre_Total_CG_total);
+
+                $Params = array(
+                    'NumeroComprobante'                     => $agre_num_documento_sol_coti,            
+                    'Serie'                                 => $agre_serie_documento_sol_coti,
+                    'Total'                                 => $agre_Total_CG_total,
+                    'TotalImpuesto'                         => $Calc_impuesto['impuesto'],      
+                    'FechaEmision'                          => $agre_fecha_entrega_compragasto,     
+                    'FechaIngreso'                          => date('d-m-Y'),       
+                    'ID_Proveedor'                          => $agre_proveedor_CompraGasto,     
+                    'ID_Moneda'                             => $agre_moneda_CompraGasto,    
+                    'ID_Tipo_Comprobante'                   => $agre_documento_CompraGasto,             
+                    'ID_Tipo_Operacion'                     => 6,           
+                    'FechaVencimiento'                      => (String) date('d-m-Y'),          
+                    'ID_ModalidadCredito'                   => $agre_credito_CG,                
+                    'Observacion'                           => $agre_obs_CG,        
+                    'TotalDescuento'                        => $Calc_impuesto['monto'],     
+                    'ID_Almacen'                            => $agre_almacen_CompraGasto,   
+                    'Usuario'                               => $usuariosis,
+                    'plan'                                  => $plan    
+                );
+
+                $insert_result = $this->m_Compras->Query_Insertar_Comprobante_Compra($Params);
                 
-                #$this->load->model('');
-                #$Params = array(NULL);
-                #$insert_result = $this->m_->SQL_FQuery($Params);
+                if(isset($insert_result) && !empty($insert_result) && is_array($insert_result)):
+                    echo json_encode($insert_result);
 
-                # return data table 
+                    // ingresar los detalles: 
+                    $Detalles = $this->input->post('detalles');
+                    if(!empty($Detalles)):
+                        $Detalles = json_encode($Detalles);
+                        $insert_detalle;
+                        foreach ($Detalles as $key => $value) {
+                            $Params_detalle = array(
+                                'idcomprobante'     => $insert_result[0],
+                                'idproducto'        => $value[0],
+                                'cantidad'          => $value[2],
+                                'valorunitario'     => $value[3],
+                                'idcentrodecosto'   => 1,
+                                'descuento'         => 0,
+                                'total'             => $value[4]
+                            );
+
+                            $insert_detalle[] = $this->m_Compras->Query_Insertar_Detalle_Comprobante_Compra($Params_detalle);
+                        }
+
+                        # echo json_encode($insert_detalle);
+                    endif;
+
+                else:
+                    echo json_encode(array('ERROR','01','ERROR AL INGRESAR LOS DATOS'));
+                endif;
             else:
-                # return error msg  validation_errors();
+               echo json_encode(array('ERROR','02',validation_errors()));
             endif;
         elseif($_SERVER['REQUEST_METHOD'] == 'GET'):
-            $this->Theme('modules/COMPRASYGASTOS/view_Compras_Compras_Gastos_Nuevo.php');
+            show_404();
         endif;
     }
 
