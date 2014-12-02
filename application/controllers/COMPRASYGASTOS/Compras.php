@@ -1088,7 +1088,6 @@ class Compras extends MY_Controller {
     *   @author     : Gianpiere Ramos Bernuy. 
     */
     public function NotadeCreditoProveedores_Buscar(){
-
         if ($_SERVER['REQUEST_METHOD'] == 'POST'):
             $Campos = array(
                 array('field' =>  'datepicker_OC_Desde',    'label' =>  'Fecha Inicio',     'rules' =>  'trim|max_length[10]|xss_clean'),
@@ -1112,7 +1111,7 @@ class Compras extends MY_Controller {
                     'buscar_OC_serie'       => ($buscar_serie != '' ? $buscar_serie : 22)
                 );
 
-                $insert_result = $this->m_Compras->Query_Buscar_CP_OrdenCompra($Params);
+                $insert_result = $this->m_Compras->Query_Buscar_CP_NotaCredito_Proveedor($Params);
 
                 $html = $this->htmltemplate->HTML_OrdenesdeCompra($insert_result);
                 echo json_encode(array('OK',$insert_result,$html));
@@ -1130,7 +1129,6 @@ class Compras extends MY_Controller {
     *   @author     : Gianpiere Ramos Bernuy. 
     */
     public function NotadeCreditoProveedores_Agregar(){
-
         if ($_SERVER['REQUEST_METHOD'] == 'POST'):
             $Campos = array(    
                 array('field' =>  'agre_documento_OrdenCompra',         'label' =>  'agre_documento_OrdenCompra',       'rules' =>  'trim|required|xss_clean'),
@@ -1147,9 +1145,7 @@ class Compras extends MY_Controller {
                 array('field' =>  'agre_modalidad_OrdenCompra',         'label' =>  'agre_modalidad_OrdenCompra',       'rules' =>  'trim|xss_clean'),
                 array('field' =>  'agre_obs_OrdenCompra',               'label' =>  'agre_obs_OrdenCompra',             'rules' =>  'trim|xss_clean'),
                 array('field' =>  'incluye_impuesto',                   'label' =>  'incluye_impuesto',                 'rules' =>  'trim|is_bool|xss_clean'),
-                array('field' =>  'agre_plan_OrdenCompra',              'label' =>  'agre_plan_OrdenCompra',            'rules' =>  'trim|is_natural_no_zero|xss_clean'),
-                array('field' =>  'agre_credito_OrdenCompra',           'label' =>  'agre_credito_OrdenCompra',         'rules' =>  'trim|xss_clean'),
-                array('field' =>  'agre_modalidad_OrdenCompra',         'label' =>  'agre_modalidad_OrdenCompra',       'rules' =>  'trim|xss_clean')
+                array('field' =>  'agre_plan_OrdenCompra',              'label' =>  'agre_plan_OrdenCompra',            'rules' =>  'trim|is_natural_no_zero|xss_clean')
             );
 
             $this->form_validation->set_rules($Campos);
@@ -1178,7 +1174,7 @@ class Compras extends MY_Controller {
                 $ID_Proveedor                 =  $this->input->post('proveedorid');
                 $ID_Moneda                    =  $this->input->post('agre_moneda_OrdenCompra');
                 $ID_Tipo_Comprobante          =  $this->input->post('agre_documento_OrdenCompra');
-                $ID_Tipo_Operacion            =  3;
+                $ID_Tipo_Operacion            =  7;
                 $FechaVencimiento             =  $this->input->post('agre_fecha_ingreso_OrdenCompra');
                 $ID_ModalidadCredito          =  $this->input->post('agre_modalidad_OrdenCompra');
                 $Observacion                  =  $this->input->post('agre_obs_OrdenCompra');
@@ -1220,7 +1216,7 @@ class Compras extends MY_Controller {
                     'ID_Proveedor'              => $ID_Proveedor,
                     'ID_Moneda'                 => $ID_Moneda,
                     'ID_Tipo_Comprobante'       => $ID_Tipo_Comprobante,
-                    'ID_Tipo_Operacion'         => 3,
+                    'ID_Tipo_Operacion'         => 7,
                     'FechaVencimiento'          => $FechaVencimiento,
                     'ID_ModalidadCredito'       => $ID_ModalidadCredito,
                     'Observacion'               => $Observacion,
@@ -1230,7 +1226,7 @@ class Compras extends MY_Controller {
                     'plan'                      => $plan_OrdenCompra //,'subtotal' => $calc['monto']
                 );
 
-                $insert_result = $this->m_Compras->Query_Insertar_CP_OrdenCompra($Params);
+                $insert_result = $this->m_Compras->Query_Insertar_CP_NotaCredito_Proveedor($Params);
 
                 if(isset($insert_result) && !empty($insert_result) && is_array($insert_result)):
 
@@ -1241,8 +1237,8 @@ class Compras extends MY_Controller {
                         $Detalles = json_decode($Detalles);
                         if(!empty($Detalles) && is_array($Detalles)):
 
-                            // Operacion Compra : 3
-                            $Params = array('idOperacion' => 3);
+                            // Operacion Compra : 7
+                            $Params = array('idOperacion' => 7);
                             $documento_list = $this->m_Compras->Query_Documento_GET($Params);
                             $centroCosto    = $documento_list[0][2];
                             foreach ($Detalles as $key => $value) {
@@ -1256,7 +1252,7 @@ class Compras extends MY_Controller {
                                     'costo'             => $value->detalle->total
                                 );
 
-                                $rslt = $this->m_Compras->Query_Insertar_Detalle_CP_OrdenCompra($Params_detalle);
+                                $rslt = $this->m_Compras->Query_Insertar_Detalle_CP_NotaCredito_Proveedor($Params_detalle);
                                 $insert_detalle[$key] = $rslt;
                             }
                         endif;
@@ -1274,60 +1270,6 @@ class Compras extends MY_Controller {
             endif;
         elseif($_SERVER['REQUEST_METHOD'] == 'GET'):
             show_404();
-        endif;
-    
-
-
-        if ($_SERVER['REQUEST_METHOD'] == 'POST'):
-            $Campos = array(
-
-                array('field' =>  'agre_Total_nc_1',         'label' =>  'agre_Total_nc_1',         'rules' =>  'trim|required|max_length[10]|fehca|xss_clean'),
-                array('field' =>  'agre_almacen_nc',         'label' =>  'agre_almacen_nc',         'rules' =>  'trim|required|max_length[10]|fecha|xss_clean'),
-                array('field' =>  'agre_cant_nc_1',          'label' =>  'agre_cant_nc_1',          'rules' =>  'trim|required|max_length[10]|fecha|xss_clean'),
-                array('field' =>  'agre_cod_nc_1',           'label' =>  'agre_cod_nc_1',           'rules' =>  'trim|required|max_length[10]|fecha|xss_clean'),
-                array('field' =>  'agre_des_nc_1',           'label' =>  'agre_des_nc_1',           'rules' =>  'trim|required|max_length[10]|fecha|xss_clean'),
-                array('field' =>  'agre_documento_nc',       'label' =>  'agre_documento_nc',       'rules' =>  'trim|required|max_length[10]|fecha|xss_clean'),
-                array('field' =>  'agre_fecha_entrega_nc',   'label' =>  'agre_fecha_entrega_nc',   'rules' =>  'trim|required|max_length[10]|fecha|xss_clean'),
-                array('field' =>  'agre_fecha_ingreso_nc',   'label' =>  'agre_fecha_ingreso_nc',   'rules' =>  'trim|required|max_length[10]|fecha|xss_clean'),
-                array('field' =>  'agre_moneda_nc',          'label' =>  'agre_moneda_nc',          'rules' =>  'trim|required|max_length[10]|fecha|xss_clean'),
-                array('field' =>  'agre_num_nc',             'label' =>  'agre_num_nc',             'rules' =>  'trim|required|max_length[10]|fecha|xss_clean'),
-                array('field' =>  'agre_obs_nc',             'label' =>  'agre_obs_nc',             'rules' =>  'trim|required|max_length[10]|fecha|xss_clean'),
-                array('field' =>  'agre_pre_nc_1',           'label' =>  'agre_pre_nc_1',           'rules' =>  'trim|required|max_length[10]|fecha|xss_clean'),
-                array('field' =>  'agre_proveedor_nc',       'label' =>  'agre_proveedor_nc',       'rules' =>  'trim|required|max_length[10]|fecha|xss_clean'),
-                array('field' =>  'agre_referencia_nc',      'label' =>  'agre_referencia_nc',      'rules' =>  'trim|required|xss_clean'),
-                array('field' =>  'contador',                'label' =>  'contador',                'rules' =>  'trim|required|xss_clean')
-            );
-
-            $this->form_validation->set_rules($Campos);
-
-            if($this->form_validation->run() == FALSE):
-
-                $agre_Total_nc_1        = $this->input->post('agre_Total_nc_1');
-                $agre_almacen_nc        = $this->input->post('agre_almacen_nc');
-                $agre_cant_nc_1         = $this->input->post('agre_cant_nc_1');
-                $agre_cod_nc_1          = $this->input->post('agre_cod_nc_1');
-                $agre_des_nc_1          = $this->input->post('agre_des_nc_1');
-                $agre_documento_nc      = $this->input->post('agre_documento_nc');
-                $agre_fecha_entrega_nc  = $this->input->post('agre_fecha_entrega_nc');
-                $agre_fecha_ingreso_nc  = $this->input->post('agre_fecha_ingreso_nc');
-                $agre_moneda_nc         = $this->input->post('agre_moneda_nc');
-                $agre_num_nc            = $this->input->post('agre_num_nc');
-                $agre_obs_nc            = $this->input->post('agre_obs_nc');
-                $agre_pre_nc_1          = $this->input->post('agre_pre_nc_1');
-                $agre_proveedor_nc      = $this->input->post('agre_proveedor_nc');
-                $agre_referencia_nc     = $this->input->post('agre_referencia_nc');
-                $contador               = $this->input->post('contador');
-                
-                #$this->load->model('');
-                #$Params = array(NULL);
-                #$insert_result = $this->m_->SQL_FQuery($Params);
-
-                # return data table 
-            else:
-                # return error msg  validation_errors();
-            endif;
-        elseif($_SERVER['REQUEST_METHOD'] == 'GET'):
-            $this->Theme('modules/COMPRASYGASTOS/view_Compras_Compras_NotadeCreditoProveedores_Agregar.php');
         endif;
     }
 
