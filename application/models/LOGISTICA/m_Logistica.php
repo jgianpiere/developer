@@ -114,7 +114,7 @@ class m_Logistica extends MY_Model{
     * @return       : Almacen de Entrada
     */
     public function Query_Buscar_CP_GuiaSalida($Params){
-        $sql = "SP_Buscar_CP_GuiaSalida ?,?,?,?";
+        $sql = "SP_Buscar_CP_Salida_Inventario ?,?,?,?";
         $QueryRpt = $this->db->query($sql,$Params);
         $Resultado = $QueryRpt->result_array();
         $this->db->close();
@@ -154,7 +154,7 @@ class m_Logistica extends MY_Model{
     * @return       : []
     */
     public function Query_Insertar_CP_GuiaSalida($Params){
-        $sql = "SP_Insertar_CP_GuiaSalida ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+        $sql = "SP_Insertar_CP_Salida_Inventario ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
         $QueryRpt = $this->db->query($sql,$Params);
         $Resultado = $QueryRpt->row_array();
         $this->db->close();
@@ -174,11 +174,60 @@ class m_Logistica extends MY_Model{
     * @return       : []
     */
     public function Query_Insertar_Detalle_CP_GuiaSalida($Params){
-        $sql = "SP_Insertar_Detalle_CP_GuiaSalida ?,?,?,?,?,?,?";
+        $sql = "SP_Insertar_Detalle_CP_Salida_Inventario ?,?,?,?,?,?,?";
         $QueryRpt = $this->db->query($sql,$Params);
         $Resultado = $QueryRpt->row_array();
         $this->db->close();
         $Results = $this->QueryRows($Resultado);
         return $Results;
     }
+
+    /**
+     * @todo        : Insertar Transferencia
+     * @param       : @NumeroComprobante  varchar(10)
+     * @param       : @Serie     varchar(10)
+     * @param       : @Total     decimal(10,4)
+     * @param       : @TotalImpuesto   decimal(10,4)  
+     * @param       : @FechaEmision   datetime
+     * @param       : @FechaIngreso   datetime
+     * @param       : @ID_Proveedor   int
+     * @param       : @ID_Moneda    int
+     * @param       : @ID_Tipo_Comprobante int
+     * @param       : @ID_Tipo_Operacion  int
+     * @param       : @FechaVencimiento  datetime
+     * @param       : @ID_ModalidadCredito int
+     * @param       : @Observacion   varchar(250)
+     * @param       : @TotalDescuento  decimal(10,4)
+     * @param       : @ID_Almacen   int
+     * @param       : @Usuario    varchar(50)
+     * @param       : @Tipo_Plan    int
+     * @param       : @Direccion    varchar(100)
+     * @param       : @ID_ResponsableDoc  int
+     * @param       : @MarcaVeh     varchar(50)
+     * @param       : @PlacaVeh     varchar(50)
+     * @param       : @Conductor     varchar(50)
+     * @param       : @Licencia     varchar(50)
+     * @param       : @Transporte     varchar(50)
+     * @param       : @RucTransporte    varchar(50)
+     * @param       : @MotivoTraslado   varchar(150)
+     * @param       : @ID_Almacen_Destino  int
+     * @param       : @ID_Almacen_Origen   int 
+     * @return      : 
+     */
+    public function Query_Insertar_CP_Transferencia($Params){
+        $sql = "SP_Insertar_CP_Transferencia ?,?,?,?,?,?,?";
+        $QueryRpt = $this->db->query($sql,$Params);
+        $Resultado = $QueryRpt->row_array();
+        $this->db->close();
+        $Results = $this->QueryRows($Resultado);
+        return $Results;
+    }
+
+    public function Query_Insertar_Detalle_CP_TransferenciaMercaderia(){
+        // SP_Insertar_Detalle_CP_TransferenciaMercaderia + 2 datos ..
+    }
+
+    // SP_Buscar_CP_TransferenciaMercaderia
+
+
 }

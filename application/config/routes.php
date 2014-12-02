@@ -173,7 +173,9 @@ $route[$LOGISTICA.'/Logistica/Salida']                             = 'LOGISTICA/
 $route[$LOGISTICA.'/Logistica/Salida/Buscar']                        = 'LOGISTICA/Salida/Salida_Buscar';
 $route[$LOGISTICA.'/Logistica/Salida/Agregar']                       = 'LOGISTICA/Salida/Salida_Agregar';
 
-
+$route[$LOGISTICA.'/Logistica/Transferencia']                       = 'LOGISTICA/Transferencia/Transferencia_Landing';
+$route[$LOGISTICA.'/Logistica/Transferencia/Buscar']                 = 'LOGISTICA/Transferencia/Transferencia_Buscar';
+$route[$LOGISTICA.'/Logistica/Transferencia/Agregar']                = 'LOGISTICA/Transferencia/Transferencia_Agregar';
 
 /**
 *   @see    : SERVICIOS
