@@ -474,11 +474,8 @@ $(document).on('change','[type="checkbox"][ischeck]',function(){ $$ = this; $thi
       if($exist_items > 0){
         if(confirm('existen items creados, al Cambiar de Plan, se eliminaran.\nDeseas continuar?')){
           $('[item]').remove(); 
-          $this.attr('selected','selected'); 
-          $this.parent().select();
-          var text = $this.text();
-          var vall = $this.val();
-          $this.parent().val(vall).text(text);
+          $this.parent().children('[selected]').removeAttr('selected');
+          $this.attr('selected','selected').select();
           $('#btn-additem').focus();
           
         }else{

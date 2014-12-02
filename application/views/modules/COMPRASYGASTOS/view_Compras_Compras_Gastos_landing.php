@@ -85,7 +85,7 @@
                                             <label class="control-label col-xs-3">Operación :</label>
                                             <div class="col-xs-3">
                                                 <select class="form-control" required readonly>
-                                                    <option>ORDEN DE COMPRA</option>
+                                                    <option>GASTOS</option>
                                                 </select>
                                             </div>
                                         </div>
