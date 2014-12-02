@@ -676,31 +676,37 @@ class Compras extends MY_Controller {
     public function Gastos_Buscar(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST'):
             $Campos = array(
-                array('field' =>  'datepicker_Gasto_Desde',  'label' =>  'Desde',     'rules' =>  'trim|required|max_length[10]|xss_clean'),
-                array('field' =>  'datepicker_Gasto_Hasta',  'label' =>  'Hasta',     'rules' =>  'trim|required|max_length[10]|xss_clean'),
-                array('field' =>  'buscar_Gasto_serie',      'label' =>  'Sucursal',  'rules' =>  'trim|required|xss_clean'),
-                array('field' =>  'buscar_Gasto_numcp',      'label' =>  'Num. CP',   'rules' =>  'trim|required|xss_clean')
+                array('field' =>  'datepicker_OC_Desde',    'label' =>  'Fecha Inicio',     'rules' =>  'trim|max_length[10]|xss_clean'),
+                array('field' =>  'datepicker_OC_Hasta',    'label' =>  'Fecha Fin',        'rules' =>  'trim|max_length[10]|xss_clean'),
+                array('field' =>  'buscar_OC_serie',        'label' =>  'Sucursal',         'rules' =>  'trim|number|xss_clean'),
+                array('field' =>  'buscar_OC_numcp',        'label' =>  'Num. CP',          'rules' =>  'trim|number|xss_clean')
             );
 
             $this->form_validation->set_rules($Campos);
 
-            if($this->form_validation->run() == FALSE):
-
-                $datepicker_Gasto_Desde            = $this->input->post('datepicker_Gasto_Desde');
-                $datepicker_Gasto_Hasta            = $this->input->post('datepicker_Gasto_Hasta');
-                $buscar_Gasto_serie                = $this->input->post('buscar_Gasto_serie');
-                $buscar_Gasto_numcp                = $this->input->post('buscar_Gasto_numcp');
+            if($this->form_validation->run() == TRUE):
+                $fecha_Desde    = $this->input->post('datepicker_OC_Desde');
+                $fecha_Hasta    = $this->input->post('datepicker_OC_Hasta');
+                $buscar_serie   = $this->input->post('buscar_OC_serie');
+                $buscar_numcp   = $this->input->post('buscar_OC_numcp');
                 
-                #$this->load->model('');
-                #$Params = array(NULL);
-                #$insert_result = $this->m_->SQL_FQuery($Params);
+                $Params = array(
+                    'buscar_OC_numcp'       => $buscar_numcp,
+                    'datepicker_OC_Desde'   => $fecha_Desde,
+                    'datepicker_OC_Hasta'   => $fecha_Hasta,
+                    'buscar_OC_serie'       => ($buscar_serie != '' ? $buscar_serie : 22)
+                );
 
+                $insert_result = $this->m_Compras->Query_Buscar_CP_OrdenCompra($Params);
+
+                $html = $this->htmltemplate->HTML_OrdenesdeCompra($insert_result);
+                echo json_encode(array('OK',$insert_result,$html));
                 # return data table 
             else:
-                # return error msg  validation_errors();
+                echo json_encode(array('ERROR','01',validation_errors()));
             endif;
         elseif($_SERVER['REQUEST_METHOD'] == 'GET'):
-            $this->Theme('modules/COMPRASYGASTOS/view_Compras_Compras_Gastos_Buscar.php');
+            show_404();
         endif;
     }
 
