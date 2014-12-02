@@ -472,12 +472,14 @@ $(document).on('change','[type="checkbox"][ischeck]',function(){ $$ = this; $thi
     $(document).on('mousedown','[plan-selected] option',function(e){ $this = $(this);
       $exist_items = $('[item]').length;
       if($exist_items > 0){
-        if(confirm('existen items creados, al Cambiar de Plan, se eliminaran.\nDeseas continuar?')){
+        if($this.is(':selected')){
+          console.log('no pasa nada...');
+        }else if(confirm('existen items creados, al Cambiar de Plan, se eliminaran.\nDeseas continuar?')){
           $('[item]').remove();
           $this.parent().children('[selected]').removeAttr('selected');
           $this.attr('selected','selected').select();
           $('#btn-additem').focus();
-          $("[plan-selected]").attr('selectedIndex',(parseInt($this.val()) - 1));
+          $("[plan-selected]").attr('selectedIndex',(parseInt($this.val())));
         }else{
           e.preventDefault();
           $('#btn-additem').focus();
