@@ -406,7 +406,7 @@ var $descripcion;
     }
 
     (function(){
-        $('#btn-additem').on('click',function(){ $$ = $('#addItemsOrdenesdeCompra');
+        $('#btn-additem').on('click',function(e){ $$ = $('#addItemsOrdenesdeCompra');
             $plan = $('[plan-selected]').val();
             if(!$plan>0){
                 e.preventDefault();
