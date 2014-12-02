@@ -233,7 +233,7 @@ class Transferencia extends MY_Controller {
                $agre_transportistas                 = $this->input->post('agre_transportistas');
                $agre_ruc_transportista              = $this->input->post('agre_ruc_transportista');
                $incluye_impuesto                    = $this->input->post('incluye_impuesto');
-               $impuesto                            = $this->input->post('impuesto');
+               $impuesto                            = str_replace('%', '', $this->input->post('impuesto'));
                $agre_Total_CG_subtotal              = $this->input->post('agre_Total_CG_subtotal');
                $agre_Total_CG_totalimpuesto         = $this->input->post('agre_Total_CG_totalimpuesto');
                $agre_obs_OrdenCompra                = $this->input->post('agre_obs_OrdenCompra');
