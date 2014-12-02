@@ -489,7 +489,7 @@ $(document).on('change','[type="checkbox"][ischeck]',function(){ $$ = this; $thi
 
 <script>
   (function(){
-    $('#btn-additem').on('click',function(e){ $$ = this; $this = $(this);
+    $('#btn-additem').on('mousedown',function(e){ $$ = this; $this = $(this);
       $plan = $('[plan-selected]').val();
       if($plan>0){
         return true;
