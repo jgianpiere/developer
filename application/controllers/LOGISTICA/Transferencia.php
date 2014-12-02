@@ -309,8 +309,8 @@ class Transferencia extends MY_Controller {
                                     'costo'             => $value->detalle->total
                                 );
 
-                                echo 'insert';
-                                $rslt = $this->m_Compras->Query_Insertar_Detalle_CP_TransferenciaMercaderia($Params_detalle);
+
+                                $rslt = $this->m_Logistica->Query_Insertar_Detalle_CP_TransferenciaMercaderia($Params_detalle);
                                 $insert_detalle[$key] = $rslt;
 
                                 echo json_encode($insert_detalle);
