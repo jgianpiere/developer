@@ -465,7 +465,7 @@ var $descripcion;
                                 if($data[0][0] != 'ERROR' && $data[0][0] != '00'){
                                     if($data[0][0] == 'OK'){
                                         // alert($data[0][2]);
-                                        alert("se guardo correctamente la Orden.");
+                                        alert("se guardo correctamente la Guia.");
                                     }
                                 }else{
                                     alert($data[2]);
