@@ -471,8 +471,8 @@ $(document).on('change','[type="checkbox"][ischeck]',function(){ $$ = this; $thi
   (function(){
     $(document).on('mousedown','[plan-selected] option',function(e){ $this = $(this);
       $exist_items = $('[item]').length;
-      if($exist_items > 0){
-        if($this.is(':selected')){
+      if($exist_items > 0){ console.log($this.is(':selected'));
+        if($this.is(':selected')>-1){
           console.log('no pasa nada...');
         }else if(confirm('existen items creados, al Cambiar de Plan, se eliminaran.\nDeseas continuar?')){
           $('[item]').remove();
