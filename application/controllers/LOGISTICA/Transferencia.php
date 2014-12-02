@@ -263,7 +263,7 @@ class Transferencia extends MY_Controller {
                     'ID_Proveedor'                  => $proveedorid,
                     'ID_Moneda'                     => $agre_moneda_OrdenCompra,
                     'ID_Tipo_Comprobante'           => $agre_documento_OrdenCompra,
-                    'ID_Tipo_Operacion'             => 4,
+                    'ID_Tipo_Operacion'             => 9,
                     'FechaVencimiento'              => $agre_fecha_entrega_OrdenCompra,
                     'ID_ModalidadCredito'           => (isset($agre_credito_OrdenCompra) && !empty($agre_credito_OrdenCompra) && $agre_credito_OrdenCompra == 1 ? $agre_modalidad_OrdenCompra : 0),
                     'Observacion'                   => $agre_obs_OrdenCompra,
@@ -294,8 +294,8 @@ class Transferencia extends MY_Controller {
                         $Detalles = json_decode($Detalles);
                         if(!empty($Detalles) && is_array($Detalles)):
                             $this->load->model('COMPRASYGASTOS/m_Compras');
-                            // Operacion Compra : 4
-                            $Params = array('idOperacion' => 4);
+                            // Operacion transferencia : 9
+                            $Params = array('idOperacion' => 9);
                             $documento_list = $this->m_Compras->Query_Documento_GET($Params);
                             $centroCosto    = $documento_list[0][2];
                             foreach ($Detalles as $key => $value) {
