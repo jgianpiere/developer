@@ -152,7 +152,7 @@ class Compras extends MY_Controller {
                     'buscar_OC_numcp'       => $buscar_numcp,
                     'datepicker_OC_Desde'   => $fecha_Desde,
                     'datepicker_OC_Hasta'   => $fecha_Hasta,
-                    'buscar_OC_serie'       => ($buscar_serie != 22 ? $buscar_serie : '')
+                    'buscar_OC_serie'       => ($buscar_serie != '' ? $buscar_serie : 22)
                 );
 
                 $insert_result = $this->m_Compras->Query_Buscar_CP_OrdenCompra($Params);
@@ -992,7 +992,7 @@ class Compras extends MY_Controller {
                     'buscar_OC_numcp'       => $buscar_numcp,
                     'datepicker_OC_Desde'   => $fecha_Desde,
                     'datepicker_OC_Hasta'   => $fecha_Hasta,
-                    'buscar_OC_serie'       => ($buscar_serie != 22 ? $buscar_serie : '')
+                    'buscar_OC_serie'       => ($buscar_serie != '' ? $buscar_serie : 22)
                 );
 
                 $insert_result = $this->m_Compras->Query_Buscar_CP_OrdenCompra($Params);
