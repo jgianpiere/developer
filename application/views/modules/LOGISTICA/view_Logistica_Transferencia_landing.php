@@ -16,7 +16,7 @@
             <div id="myTabContent" class="tab-content">
                 <div class="tab-pane fade active in" id="tab_01">
                     <div style="padding-top:15px;" >
-                        <div class="row tab-pane-title col-xs-12 col-sm-12 col-md-12 col-lg-12">Buscar Entrada - Inventario</div>
+                        <div class="row tab-pane-title col-xs-12 col-sm-12 col-md-12 col-lg-12">Buscar Transferencia - Inventario</div>
                             <!-- Formulario -->
                             <div class="content">
                                 <div class="row">
@@ -75,7 +75,7 @@
                 <div class="tab-pane fade" id="tab_02">
                     <div style="padding-top:15px;" >
                         <form class="form-horizontal" id="form_agregarOrdendeCompra" name="form_agregarOrdendeCompra">
-                            <div class="row tab-pane-title col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom:30px;">Registro de Entrada - Inventario</div>
+                            <div class="row tab-pane-title col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom:30px;">Registro de Transferencia - Inventario</div>
                             <!-- Formulario -->
                             <div class="content">
                                 <div class="row">
@@ -443,7 +443,7 @@ var $descripcion;
                 $.ajax({
                     type    : 'POST',
                     data    : $form.serialize(),
-                    url     : "<?=site_url('/Logistica/Logistica/Entrada/Buscar');?>",
+                    url     : "<?=site_url('/Logistica/Logistica/Transferencia/Buscar');?>",
                     success : function(data){
                         try{
                             $data = $.parseJSON(data);
@@ -502,7 +502,7 @@ var $descripcion;
                     $.ajax({
                         type    : 'POST',
                         data    : $form.serialize()+'&detalles='+jQuery.stringify($detalles),
-                        url     : "<?=site_url('/Logistica/Logistica/Entrada/Agregar');?>",
+                        url     : "<?=site_url('/Logistica/Logistica/Transferencia/Agregar');?>",
                         success : function(data){
                             try{
                                 $data = $.parseJSON(data);
@@ -587,7 +587,7 @@ var $descripcion;
                 $.ajax({
                     type        : 'POST',
                     data        : 'ordenid='+$($this.parent()).attr('data-id'),
-                    url         : "<?=site_url('/Logistica/Logistica/Entrada/Eliminar');?>",
+                    url         : "<?=site_url('/Logistica/Logistica/Transferencia/Eliminar');?>",
                     success     : function(data){
                         try{
                             $data = $.parseJSON(data);
