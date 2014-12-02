@@ -21,27 +21,27 @@
                                 <div class="row">
                                     <form action="" method="POST" class="form-horizontal" id="form_agregar_producto" name="form_agregar_producto">
                                     	<div class="form-group">
-                                            <label class="control-label col-lg-2 col-sm-5 col-md-3 col-xs-12 mtop-7">Codigo :</label>
-                                            <div class="col-lg-4 col-sm-6 col-md-3 col-xs-12 mtop-7">
+                                            <label class="control-label col-lg-3 col-sm-5 col-md-3 col-xs-12 mtop-7">Codigo :</label>
+                                            <div class="col-lg-3 col-sm-6 col-md-3 col-xs-12 mtop-7">
                                                 <input type="text" placeholder="" name="agre_codigo" id="agre_codigo" class="form-control">
                                             </div>
 
-                                            <label class="control-label col-lg-2 col-sm-5 col-md-3 col-xs-12 mtop-7">Codigo Claro :</label>
-                                            <div class="col-lg-4 col-sm-6 col-md-3 col-xs-12 mtop-7">
+                                            <label class="control-label col-lg-3 col-sm-5 col-md-3 col-xs-12 mtop-7">Codigo Claro :</label>
+                                            <div class="col-lg-3 col-sm-6 col-md-3 col-xs-12 mtop-7">
                                                 <input type="text" placeholder="" name="agre_codigo_claro" id="agre_codigo_claro" class="form-control">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-lg-9 col-sm-5 col-md-3 col-xs-12 mtop-7">Descripción :</label>
-                                            <div class="col-lg-4 col-sm-6 col-md-3 col-xs-12 mtop-7">
+                                            <label class="control-label col-lg-3 col-sm-5 col-md-3 col-xs-12 mtop-7">Descripción :</label>
+                                            <div class="col-lg-9 col-sm-6 col-md-3 col-xs-12 mtop-7">
                                                 <input type="text" placeholder="" name="agre_descripcion" id="agre_descripcion" class="form-control">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-lg-9 col-sm-5 col-md-3 col-xs-12 mtop-7">Desp. Resumida :</label>
-                                            <div class="col-lg-4 col-sm-6 col-md-3 col-xs-12 mtop-7">
+                                            <label class="control-label col-lg-3 col-sm-5 col-md-3 col-xs-12 mtop-7">Desp. Resumida :</label>
+                                            <div class="col-lg-9 col-sm-6 col-md-3 col-xs-12 mtop-7">
                                                 <input type="text" placeholder="" name="agre_desp_resumida" id="agre_desp_resumida" class="form-control">
                                             </div>
                                         </div>
