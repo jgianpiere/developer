@@ -488,23 +488,6 @@ $(document).on('change','[type="checkbox"][ischeck]',function(){ $$ = this; $thi
 </script>
 
 <script>
-  (function(){
-    $('#btn-additem').on('mousedown',function(e){ $$ = this; $this = $(this);
-      $plan = $('[plan-selected]').val();
-      if($plan>0){
-        return true;
-      }else{
-        e.preventDefault();
-        alert('debe escoger un Plan para poder agregar productos.');
-        $('[plan-selected]').focus();
-        return false;
-      }
-
-    });
-  })(jQuery);
-</script>
-
-<script>
   function _popup(tipo){
     switch(tipo){
       case 'newProveedor' : 
