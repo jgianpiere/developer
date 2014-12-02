@@ -443,7 +443,7 @@ var $descripcion;
                 $.ajax({
                     type    : 'POST',
                     data    : $form.serialize(),
-                    url     : "<?=site_url('/Logistica/Logistica/Transferencia/Buscar');?>",
+                    url     : "<?=site_url('/Logistica/Logistica/Transferencias/Buscar');?>",
                     success : function(data){
                         try{
                             $data = $.parseJSON(data);
@@ -502,7 +502,7 @@ var $descripcion;
                     $.ajax({
                         type    : 'POST',
                         data    : $form.serialize()+'&detalles='+jQuery.stringify($detalles),
-                        url     : "<?=site_url('/Logistica/Logistica/Transferencia/Agregar');?>",
+                        url     : "<?=site_url('/Logistica/Logistica/Transferencias/Agregar');?>",
                         success : function(data){
                             try{
                                 $data = $.parseJSON(data);
@@ -587,7 +587,7 @@ var $descripcion;
                 $.ajax({
                     type        : 'POST',
                     data        : 'ordenid='+$($this.parent()).attr('data-id'),
-                    url         : "<?=site_url('/Logistica/Logistica/Transferencia/Eliminar');?>",
+                    url         : "<?=site_url('/Logistica/Logistica/Transferencias/Eliminar');?>",
                     success     : function(data){
                         try{
                             $data = $.parseJSON(data);
