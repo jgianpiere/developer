@@ -186,8 +186,8 @@ if(!function_exists('menulateral'))
                             'Menu'      =>  'PRODUCTO',
                             'submenu'   =>  array(
                                                 'routes'    =>  array(
-                                                                    'RecursosHumanos/Producto/Nuevo',
-                                                                    'RecursosHumanos/Producto/Buscar',
+                                                                    'Logistica/Producto/Nuevo',
+                                                                    'Logistica/Producto/Buscar',
                                                                 ),
                                                 'labels'    =>  array(
                                                                     'Nuevo Producto',
