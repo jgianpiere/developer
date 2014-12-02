@@ -16,7 +16,7 @@
             <div id="myTabContent" class="tab-content">
                 <div class="tab-pane fade active in" id="tab_01">
                     <div style="padding-top:15px;" >
-                        <div class="row tab-pane-title col-xs-12 col-sm-12 col-md-12 col-lg-12">Buscar Orden de Compra</div>
+                        <div class="row tab-pane-title col-xs-12 col-sm-12 col-md-12 col-lg-12">Buscar Gastos</div>
                             <!-- Formulario -->
                             <div class="content">
                                 <div class="row">
@@ -77,7 +77,7 @@
                 <div class="tab-pane fade" id="tab_02">
                     <div style="padding-top:15px;" >
                         <form class="form-horizontal" id="form_agregarOrdendeCompra" name="form_agregarOrdendeCompra">
-                            <div class="row tab-pane-title col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom:30px;">Registro de Orden de Compra</div>
+                            <div class="row tab-pane-title col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom:30px;">Registro de Gastos</div>
                             <!-- Formulario -->
                             <div class="content">
                                 <div class="row">
@@ -402,7 +402,7 @@ var $descripcion;
                 $.ajax({
                     type    : 'POST',
                     data    : $form.serialize(),
-                    url     : "<?=site_url('/Compras/Compras/OrdendeCompra/Buscar');?>",
+                    url     : "<?=site_url('/Compras/Compras/Gastos/Buscar');?>",
                     success : function(data){
                         try{
                             $data = $.parseJSON(data);
@@ -461,7 +461,7 @@ var $descripcion;
                     $.ajax({
                         type    : 'POST',
                         data    : $form.serialize()+'&detalles='+jQuery.stringify($detalles),
-                        url     : "<?=site_url('/Compras/Compras/OrdendeCompra/Agregar');?>",
+                        url     : "<?=site_url('/Compras/Compras/Gastos/Agregar');?>",
                         success : function(data){
                             try{
                                 $data = $.parseJSON(data);
@@ -546,7 +546,7 @@ var $descripcion;
                 $.ajax({
                     type        : 'POST',
                     data        : 'ordenid='+$($this.parent()).attr('data-id'),
-                    url         : "<?=site_url('/Compras/Compras/OrdendeCompra/Eliminar');?>",
+                    url         : "<?=site_url('/Compras/Compras/Gastos/Eliminar');?>",
                     success     : function(data){
                         try{
                             $data = $.parseJSON(data);
@@ -572,7 +572,7 @@ var $descripcion;
                 $.ajax({
                     type        : 'POST',
                     data        : 'ordenid='+$($this.parent()).attr('data-id'),
-                    url         : "<?=site_url('/Compras/Compras/OrdendeCompra/Converir');?>",
+                    url         : "<?=site_url('/Compras/Compras/Gastos/Converir');?>",
                     success     : function(data){
                         try{
                             $data = $.parseJSON(data);
