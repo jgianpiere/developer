@@ -1,6 +1,10 @@
 
         <?= isset($this->RutaGuia) && !empty($this->RutaGuia) ? $this->RutaGuia : '';?>
-
+            <style type="text/css">
+                .fila:hover{
+                    background: rgba(200, 2, 2, 0.2);
+                }
+            </style>
             <!-- tabs bar -->
             <ul id="tab" class="nav nav-tabs">
                 <li class="active"><a href="#tab_01" data-toggle="tab" style="min-width:140px;margin-right:10px;">Buscar</a></li>
@@ -12,28 +16,28 @@
             <div id="myTabContent" class="tab-content">
                 <div class="tab-pane fade active in" id="tab_01">
                     <div style="padding-top:15px;" >
-                        <div class="row tab-pane-title col-xs-12 col-sm-12 col-md-12 col-lg-12">Buscar Gastos</div>
+                        <div class="row tab-pane-title col-xs-12 col-sm-12 col-md-12 col-lg-12">Buscar Orden de Compra</div>
                             <!-- Formulario -->
                             <div class="content">
                                 <div class="row">
-                                    <form class="form-horizontal" id="form_buscarGastos" name="form_buscarGastos" style="padding:7px 7px 7px 7px;margin-top:30px;">
+                                    <form class="form-horizontal" id="form_buscarOrdendeCompra" name="form_buscarOrdendeCompra" style="padding:7px 7px 7px 7px;margin-top:30px;">
                                         <div class="form-group">
                                             <label class="control-label col-lg-2 col-sm-5 col-md-3 col-xs-12 mtop-7">Fecha Inicio :</label>
                                             <div class="col-lg-4 col-sm-6 col-md-3 col-xs-12 mtop-7">
-                                                <input type="date" class="form-control" fechamin-to="#datepicker_Gasto_Hasta" value="<?=date('d-m-Y');?>" id="datepicker_Gasto_Desde" name="datepicker_Gasto_Desde" placeholder="" required datepicker>
+                                                <input type="date" value="<?=date('d-m-Y');?>" class="form-control" id="datepicker_OC_Desde" name="datepicker_OC_Desde" placeholder="" datepicker fechamin-to="#datepicker_OC_Hasta">
                                             </div>
 
                                             <label class="control-label col-lg-2 col-sm-5 col-md-3 col-xs-12 mtop-7">Fecha Fin :</label>
                                             <div class="col-lg-4 col-sm-6 col-md-3 col-xs-12 mtop-7">
-                                                <input type="date" class="form-control" value="<?=date('d-m-Y');?>" id="datepicker_Gasto_Hasta" name="datepicker_Gasto_Hasta" placeholder="" required datepicker>
+                                                <input type="date" value="<?=date('d-m-Y');?>" class="form-control" id="datepicker_OC_Hasta" name="datepicker_OC_Hasta" placeholder="" datepicker>
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="control-label col-lg-2 col-sm-5 col-md-3 col-xs-12 mtop-7">Sucursal :</label>
                                             <div class="col-lg-10 col-sm-6 col-md-9 col-xs-12 mtop-7">
-                                                <select class="form-control" id="buscar_Gasto_serie" name="buscar_Gasto_serie" required>
-                                                    <?=isset($this->sucursal) ? $this->sucursal : '<option value="0"> - </option>'; ?>
+                                                <select class="form-control" id="buscar_OC_serie" name="buscar_OC_serie">
+                                                    <?= isset($this->sucursal) ? $this->sucursal : '<option value="0"> - </option>'; ?>
                                                 </select>
                                             </div>
                                         </div>
@@ -41,13 +45,28 @@
                                         <div class="form-group">
                                             <label class="control-label col-lg-2 col-sm-5 col-md-3 col-xs-12 mtop-7">Num. CP :</label>
                                             <div class="col-lg-4 col-sm-5 col-md-3 col-xs-10 mtop-7">
-                                                <input type="text" class="form-control" id="buscar_Gasto_numcp" name="buscar_Gasto_numcp" placeholder="Buscar.." required>
+                                                <input type="text" class="form-control" id="buscar_OC_numcp" name="buscar_OC_numcp" placeholder="Documento">
                                             </div>
 
-                                            <a class="btn btn-search control-label col-xs-1 mtop-7" data-type="submit"></a>
+                                            <button class="btn btn-search control-label col-xs-1 mtop-7"></button>
                                             
                                         </div>
 
+                                        <div class="row">
+                                            <div class="header" style="display:none;">
+                                                <span style="background:red;color:white;border:1px solid white;padding:2px;" class="col-lg-2 col-md-12">NUMERO</span>
+                                                <span style="background:red;color:white;border:1px solid white;padding:2px;" class="col-lg-3 col-md-12">RESPONSABLE</span>
+                                                <span style="background:red;color:white;border:1px solid white;padding:2px;" class="col-lg-2 col-md-12">FECHA</span>
+                                                <span style="background:red;color:white;border:1px solid white;padding:2px;" class="col-lg-3 col-md-12">ALMACEN</span>
+                                                <span style="background:red;color:white;border:1px solid white;padding:2px;" class="col-lg-1 col-md-12">TOTAL</span>
+                                                <span style="background:red;color:white;border:1px solid white;padding:2px;" class="col-lg-1 col-md-12">MENU</span>
+                                            </div>
+                                            <div class="result">
+                                                
+                                            </div>
+                                        </div>
+
+                                        
                                     </form>
                                 </div>
                             </div>
@@ -55,16 +74,10 @@
                     </div>
                 </div>
 
-
-
-
-
-
-
                 <div class="tab-pane fade" id="tab_02">
                     <div style="padding-top:15px;" >
-                        <form class="form-horizontal" id="form_agregarGastos" name="form_agregarGastos">
-                            <div class="row tab-pane-title col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom:30px;">Registro de Gastos</div>
+                        <form class="form-horizontal" id="form_agregarOrdendeCompra" name="form_agregarOrdendeCompra">
+                            <div class="row tab-pane-title col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom:30px;">Registro de Orden de Compra</div>
                             <!-- Formulario -->
                             <div class="content">
                                 <div class="row">
@@ -72,7 +85,7 @@
                                             <label class="control-label col-xs-3">Operación :</label>
                                             <div class="col-xs-3">
                                                 <select class="form-control" required readonly>
-                                                    <option>GASTOS</option>
+                                                    <option>ORDEN DE COMPRA</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -126,7 +139,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-xs-3">Almacén :</label>
                                             <div class="col-xs-5">
-                                                <select disabled class="form-control" required id="agre_almacen_OrdenCompra" name="agre_almacen_OrdenCompra"> 
+                                                <select class="form-control" required id="agre_almacen_OrdenCompra" name="agre_almacen_OrdenCompra"> 
                                                     <?=isset($this->listaalmacenes) ? $this->listaalmacenes : '<option value="0"> - </option>';?>
                                                 </select>
                                             </div>
@@ -164,8 +177,22 @@
                                             <div class="col-xs-2">Total</div>
                                         </div>
                                         <div id="addItemsOrdenesdeCompra">
-                                            
+                                            <!-- <div item class="form-group">
+                                                <div class="col-xs-1 text-center">1.- </div>
+                                                <div class="col-xs-2"><input name="codigo" class="form-control" type="text" placeholder="Codigo" /></div>
+                                                <div class="col-xs-3"><input name="descri" class="form-control" type="text" placeholder="Descripción" /></div>
+                                                <div class="col-xs-2"><input calc-cant name="cantid" class="form-control" type="number" placeholder="Cantidad" /></div>
+                                                <div class="col-xs-2"><input calc-prec calc="" name="precio" class="form-control" type="number" placeholder="Precio" /></div>
+                                                <div class="col-xs-2"><input calc-tota name="total" class="form-control pull-right " type="number" placeholder="Total" /></div>
+                                            </div> -->
                                         </div>
+
+                                        <!-- <div class="form-group">
+                                            <label class="control-label col-xs-10">TOTAL :</label>
+                                            <div class="col-xs-2">
+                                                <input type="text" class="form-control" id="agre_Total_OrdenCompra_total" name="agre_Total_OrdenCompra_total" placeholder="Total" required all-total validate="float" readonly="" value="0">
+                                            </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -173,7 +200,6 @@
                             <div class="row tab-pane-title col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom:30px;">---</div>
 
                             <div class="content">
-                                
                                 <div class="row">
                                     <div class="container-fluid">
                                         <div class="form-group">
@@ -196,7 +222,7 @@
 
                                             <label class="control-label col-xs-2">SUB TOTAL :</label>
                                             <div class="col-xs-2">
-                                                <input type="text" readonly="" all-subtotal="" required="" placeholder="0" class="form-control" name="agre_Total_CG_subtotal" id="agre_Total_CG_subtotal">
+                                                <input type="text" readonly="" all-subtotal="" required="" placeholder="0" value="0" class="form-control" name="agre_Total_CG_subtotal" id="agre_Total_CG_subtotal">
                                             </div>
                                         </div>
 
@@ -216,7 +242,7 @@
 
                                             <label class="control-label col-xs-2">IMPUESTO :</label>
                                             <div class="col-xs-2">
-                                                <input type="text" readonly="" impuesto="" required="" placeholder="0" class="form-control" name="agre_Total_CG_totalimpuesto" id="agre_Total_CG_totalimpuesto">
+                                                <input type="text" readonly="" impuesto="" required="" placeholder="0" value="0" class="form-control" name="agre_Total_CG_totalimpuesto" id="agre_Total_CG_totalimpuesto">
                                             </div>
                                         </div>
 
@@ -234,7 +260,7 @@
 
                                         <div class="form-group mtop-7">
                                             <div class="col-lg-offset-2 col-lg-10 col-md-12 col-sm-12 col-xs-12 mtop-7">
-                                                <input type="reset" value="Limpiar" class="btn btn-reset resetitems">
+                                                <input type="reset" value="Limpiar" class="btn btn-reset">
                                                 <input type="submit" value="Guardar" class="btn btn-send">
                                             </div>
                                         </div>
@@ -249,152 +275,9 @@
                     </div>
                 </div>
           </div>
-        
+
 <script type="text/javascript">  
-    (function(){
-        $('#btn-additem').on('click',function(e){ $$ = $('#addItemsOrdenesdeCompra');
-            $plan = $('[plan-selected]').val();
-            if($plan>0){
-                
-            }else{
-                e.preventDefault();
-                alert('debe escoger un Plan para poder agregar productos.');
-                $('[plan-selected]').focus();
-                return false;
-            }
-            $numeracion = parseInt($('#addItemsOrdenesdeCompra [item]').length || 0);
-            $numeracion += 1;
-            $$.append('<div item class="form-group"><div class="col-xs-1 text-center numeracion">'+$numeracion+'.- </div><div class="col-xs-2"><input type="hidden" value="" name="id"><input name="codigo" class="form-control" type="text" placeholder="Codigo" /></div><div class="col-xs-3"><input name="descri" class="form-control" type="text" placeholder="Descripción" /></div><div class="col-xs-2"><input calc-cant name="cantid" class="form-control" type="text" placeholder="Cantidad" validate="number" /></div><div class="col-xs-2"><input calc-prec calc="" name="precio" class="form-control" type="text" placeholder="Precio" validate="float" /></div><div class="col-xs-2"><input calc-tota name="total" class="form-control pull-right " type="text" placeholder="Total" readonly /><span style="position:absolute; right:0px;top:5px;cursor:pointer;" data-item-remove="">x</span></div></div>');
-            _fnVerificCalc();
-
-            listar_productos($($('[name="descri"]').get(-1)));
-
-            return false;
-        });
-    })('NuevoItem',jQuery);
-
-    (function(){
-        $('[data-type="submit"]').on('click',function(e){
-            $this = $(this);
-            e.preventDefault();
-            $$ = $($this.parent().parent()).submit();
-        });
-    })('lupasubmit',jQuery);
-
-    (function(){
-        $('#addItemsOrdenesdeCompra').on('click','.form-group div [data-item-remove]',function(){ $$ = this; $this = $(this); console.log('delete');
-            
-            if($($this.prev()).val() != '' && $($this.prev()).val() != '0' && confirm('Realmente deseas Eliminar este Item')){
-              $this.parent().parent().remove();
-              $('[calc-cant],[calc-prec],[calc-tota]').trigger('keyup');
-              _fnVerificCalc();
-
-              if($('[item]').length <= 0){$('[all-total]').val(0);}
-              $('.numeracion').each(function(i,e){$(e).text(String(i+1)+'.- ')});
-            }else{
-              $this.parent().parent().remove();
-              $('[calc-cant],[calc-prec],[calc-tota]').trigger('keyup');
-              _fnVerificCalc();
-
-              if($('[item]').length <= 0){$('[all-total]').val(0);}
-              $('.numeracion').each(function(i,e){$(e).text(String(i+1)+'.- ')});
-            }else{
-              $this.parent().parent().remove();
-              $('[calc-cant],[calc-prec],[calc-tota]').trigger('keyup');
-              _fnVerificCalc();
-
-              if($('[item]').length <= 0){$('[all-total]').val(0);}
-              $('.numeracion').each(function(i,e){$(e).text(String(i+1)+'.- ')});
-            }
-        });
-    })('RemoveItem',jQuery);
-
-    (function(){
-        $('form#form_buscarGastos').on('submit',function(e){ $$ = this; $this = $(this); $form = $this; e.preventDefault();
-            if(1==1){
-                $.ajax({
-                    type    : 'POST',
-                    data    : $form.serialize(),
-                    url     : "<?=site_url('/Compras/Compras/Gastos/Buscar');?>",
-                    success : function(data){
-                        try{
-                            $data = $.parseJSON(data);
-                            if($data[0] != 'ERROR' && $data[0] != '00'){
-                                if($data[0] == 'OK'){
-                                    alert($data[2]);
-                                }
-                            }else{
-                                alert($data[2]);
-                            }
-                        }catch(e){
-                            console.log(data);
-                        }
-                        console.log(data);
-                    },
-                    error   : function(){
-
-                    }
-                });
-            }
-        });
-
-        $('form#form_agregarGastos').on('submit',function(e){ $$ = this; $this = $(this); $form = $this; e.preventDefault();
-            if(1==1){
-
-                $total = parseInt($('#agre_Total_CG_total').val());
-                if(parseInt($total)>= 0){
-                    var $detalles = [];
-                    var arrFila = new Object();
-
-                    if($('#addItemsOrdenesdeCompra [item]').length <= 0){
-                        // no se cargo ningun dato.
-                    }else{
-                        $('#addItemsOrdenesdeCompra [item]').each(function(i,e){
-                            arrFila = {
-                                detalle : {
-                                    codigo        : $($($(e).children('div').get(1)).children('input').get(1)).val(),
-                                    descripcion   : $($($(e).children('div').get(2)).children('input')).val(),
-                                    cantidad      : $($($(e).children('div').get(3)).children('input')).val(),
-                                    precio        : $($($(e).children('div').get(4)).children('input')).val(),
-                                    total         : $($($(e).children('div').get(5)).children('input')).val(),
-                                    id            : $($($(e).children('div').get(1)).children('input').get(0)).val()
-                                }
-                            }; $detalles.push(arrFila);
-                        });
-                    }
-                    $.ajax({
-                        type    : 'POST',
-                        data    : $form.serialize()+'&detalles='+jQuery.stringify($detalles),
-                        url     : "<?=site_url('/Compras/Compras/Gastos/Agregar');?>",
-                        success : function(data){
-                            try{
-                                $data = $.parseJSON(data);
-                                if($data[0] != 'ERROR' && $data[0] != '00'){
-                                    if($data[0] == 'OK'){
-                                        alert($data[2]);
-                                    }
-                                }else{
-                                    alert($data[2]);
-                                }
-                            }catch(e){
-                                console.log(data);
-                            }
-                            console.log(data);
-                        },
-                        error   : function(){
-
-                        }
-                    });
-                }
-            }
-        });
-
-        
-    })('FormsAJAX',jQuery);
-</script>
-
-<script>
-    var $lista;
+var $lista;
 var $descripcion;
 
     function listar_productos($this){
@@ -443,7 +326,8 @@ var $descripcion;
                                                 try{
                                                     $data = $.parseJSON(data);
                                                     if($data[0]!='ERROR' && $data[0]!='00'){
-                                                        $($this.parent().next().next().children()).val($data[2]);
+                                                        $($this.parent().next().next().children()).val($data[2][1]);
+                                                        $($this.parent().next().children()).attr('data-maxcant',$data[2][2]);
                                                     }else{
                                                         console.log('codigo de error: ' +$data[1]);
                                                         alert($data[2]);
@@ -452,10 +336,7 @@ var $descripcion;
                                                     console.warn('error: '+e);
                                                 }
 
-                                                $($this.parent().next().children()).focus().val('1').select();
-                                                $($this.parent().next().children()).on('focusout',function(){
-                                                    _fnVerificCalc();
-                                                });
+                                                $($this.parent().next().children()).focus();
                                             },
                                             error   : function(){
                                                 console.error('error de AJAX');
@@ -465,7 +346,7 @@ var $descripcion;
                                 });
                             }else{
                                 console.log('codigo de error: '+$data[1]);
-                                //alert($data[2]);
+                                // alert($data[2]);
                             }
                         }catch(e){
                             console.warn('error:' + e);
@@ -481,10 +362,238 @@ var $descripcion;
             },700);
         });
     }
-</script>
 
-<script>
     (function(){
+        $('#btn-additem').on('click',function(e){ $$ = $('#addItemsOrdenesdeCompra');
+            
+            $plan = $('[plan-selected]').val();
+            if($plan>0){
+                
+            }else{
+                e.preventDefault();
+                alert('debe escoger un Plan para poder agregar productos.');
+                $('[plan-selected]').focus();
+                return false;
+            }
+
+            $numeracion = parseInt($('#addItemsOrdenesdeCompra [item]').length || 0);
+            $numeracion += 1;
+            $$.append('<div item class="form-group"><div class="col-xs-1 text-center numeracion">'+$numeracion+'.- </div><div class="col-xs-2"><input type="hidden" value="" name="id"><input name="codigo" class="form-control" type="text" placeholder="Codigo" /></div><div class="col-xs-3"><input name="descri" class="form-control" type="text" placeholder="Descripción" /></div><div class="col-xs-2"><input calc-cant name="cantid" class="form-control" type="text" placeholder="Cantidad" validate="number" /></div><div class="col-xs-2"><input calc-prec calc="" name="precio" class="form-control" type="text" placeholder="Precio" validate="float" /></div><div class="col-xs-2"><input calc-tota name="total" class="form-control pull-right " type="text" placeholder="Total" readonly /><span style="position:absolute; right:0px;top:5px;cursor:pointer;" data-item-remove="">x</span></div></div>');
+            _fnVerificCalc();
+
+            listar_productos($($('[name="descri"]').get(-1)));
+            /*listar_productos($($('[name="codigo"]').get(-1)));*/
+
+            return false;
+        });
+    })('NuevoItem',jQuery);
+
+    (function(){
+        $('[data-type="submit"]').on('click',function(e){
+            $this = $(this);
+            e.preventDefault();
+            $$ = $($this.parent().parent()).submit();
+        });
+    })('lupasubmit',jQuery);
+
+    (function(){
+        $('form#form_buscarOrdendeCompra').on('submit',function(e){ $$ = this; $this = $(this); $form = $this; e.preventDefault();
+            if(1==1){
+                $.ajax({
+                    type    : 'POST',
+                    data    : $form.serialize(),
+                    url     : "<?=site_url('/Compras/Compras/OrdendeCompra/Buscar');?>",
+                    success : function(data){
+                        try{
+                            $data = $.parseJSON(data);
+                            if($data[0] != 'ERROR' && $data[0] != '00'){
+                                if($data[0] == 'OK'){
+                                    $('.result').html($data[2]);
+                                    $('.header').show(0);
+
+                                    // Activar editar.
+                                    $('.result .fila').off('dblclick').on('dblclick',function(){
+                                        alert('cargar el editar');
+                                    });
+                                }
+                            }else{
+                                alert($data[2]);
+                            }
+                        }catch(e){
+                            console.log(data);
+                        }
+                        console.log(data);
+                    },
+                    error   : function(){
+
+                    }
+                });
+            }
+        });
+
+        $('form#form_agregarOrdendeCompra').on('submit',function(e){ $$ = this; $this = $(this); $form = $this; e.preventDefault();
+            if(1==1){
+
+                $total = parseFloat($('#agre_Total_OrdenCompra_total').val());
+                if(parseFloat($total)>= 0){
+                    var $detalles = [];
+                    var arrFila = new Object();
+
+                    if($('#addItemsOrdenesdeCompra [item]').length <= 0){
+                        // no se cargo ningun dato.
+                        console.log('no hay items');
+                    }else{
+                        
+                        $('#addItemsOrdenesdeCompra [item]').each(function(i,e){
+                            arrFila = {
+                                detalle : {
+                                    codigo        : $($($(e).children('div').get(1)).children('input').get(1)).val(),
+                                    descripcion   : $($($(e).children('div').get(2)).children('input')).val(),
+                                    cantidad      : $($($(e).children('div').get(3)).children('input')).val(),
+                                    precio        : $($($(e).children('div').get(4)).children('input')).val(),
+                                    total         : $($($(e).children('div').get(5)).children('input')).val(),
+                                    id            : $($($(e).children('div').get(1)).children('input').get(0)).val()
+                                }
+                            }; $detalles.push(arrFila);
+                        });
+                    }
+                    
+                    $.ajax({
+                        type    : 'POST',
+                        data    : $form.serialize()+'&detalles='+jQuery.stringify($detalles),
+                        url     : "<?=site_url('/Compras/Compras/OrdendeCompra/Agregar');?>",
+                        success : function(data){
+                            try{
+                                $data = $.parseJSON(data);
+                                if($data[0][0] != 'ERROR' && $data[0][0] != '00'){
+                                    if($data[0][0] == 'OK'){
+                                        // alert($data[0][2]);
+                                        alert("se guardo correctamente la Orden.");
+                                    }
+                                }else{
+                                    alert($data[2]);
+                                }
+                            }catch(e){
+                                console.log(data);
+                            }
+                            console.log(data);
+                        },
+                        error   : function(){
+
+                        }
+                    });
+                }
+            }
+        });
+        
+    })('FormsAJAX',jQuery);
+
+    (function(){
+        $('#addItemsOrdenesdeCompra').on('click','.form-group div [data-item-remove]',function(){ $$ = this; $this = $(this); console.log('delete');
+            if($($this.prev()).val() != '' && $($this.prev()).val() != '0' && confirm('Realmente deseas Eliminar este Item')){
+              $this.parent().parent().remove();
+              $('[calc-cant],[calc-prec],[calc-tota]').trigger('keyup');
+              _fnVerificCalc();
+
+              if($('[item]').length <= 0){$('[all-total]').val(0);}
+              $('.numeracion').each(function(i,e){$(e).text(String(i+1)+'.- ')});
+            }else{
+              $this.parent().parent().remove();
+              $('[calc-cant],[calc-prec],[calc-tota]').trigger('keyup');
+              _fnVerificCalc();
+
+              if($('[item]').length <= 0){$('[all-total]').val(0);}
+              $('.numeracion').each(function(i,e){$(e).text(String(i+1)+'.- ')});
+            }
+        });
+    })('RemoveItem',jQuery);
+
+    (function(){
+        $('[typeDocSerie]').on('change',function(){ $$ = this; $this = $(this);
+            if($this.val() > 0){
+                $.ajax({
+                    type        : 'POST',
+                    url         : "<?=site_url('/Compras/Compras/OrdendeCompra/NumeracionDoc/');?>/"+$this.val(),
+                    success     : function(data){
+                        try{
+                            $data = $.parseJSON(data);
+                            if($data[0] != 0){
+                                $('#agre_serie_documento_OrdenCompra').val($data[1]).attr('readonly','true');
+                                $('#agre_num_documento_OrdenCompra').val(('0000000'+String($data[2])).slice(-7)).attr('readonly','true');
+                            }else{
+                                $('#agre_serie_documento_OrdenCompra').val('').removeAttr('readonly');
+                                $('#agre_num_documento_OrdenCompra').val('').removeAttr('readonly');
+                            }
+
+                            $('#impuesto').val(parseFloat($data[3]).toFixed(2)+' %');
+                            
+                        }catch(e){
+                            console.log('error: '+e);
+                        }
+                    },
+                    error       : function(){
+
+                    }
+                });
+            }
+        });
+    })(jQuery);
+
+    (function(){
+        // Activar el eliminar.
+        $(document).on('click','.delete_row',function(){ $$ = this; $this = $(this);
+            if(confirm('Eliminar Orden de Compra ?')){
+                $.ajax({
+                    type        : 'POST',
+                    data        : 'ordenid='+$($this.parent()).attr('data-id'),
+                    url         : "<?=site_url('/Compras/Compras/OrdendeCompra/Eliminar');?>",
+                    success     : function(data){
+                        try{
+                            $data = $.parseJSON(data);
+                            if($data[0]!='ERROR' && $data[0] != '00'){
+                                $this.parent().parent().remove();
+                            }else{
+                                console.log('codigo de error: '+$data[1]);
+                                alert($data[2]);
+                            }
+                        }catch(e){
+                            alert('ocurrio un error');
+                        }
+                    },
+                    error       : function(){
+
+                    }
+                });
+            }
+        });
+
+        $('.result').on('click','.covert_comprobante',function(){ $$ = this; $this = $(this);
+            if(confirm('Convertir en Comprobante de Compra?')){
+                $.ajax({
+                    type        : 'POST',
+                    data        : 'ordenid='+$($this.parent()).attr('data-id'),
+                    url         : "<?=site_url('/Compras/Compras/OrdendeCompra/Converir');?>",
+                    success     : function(data){
+                        try{
+                            $data = $.parseJSON(data);
+                            if($data[0]!='ERROR' && $data[0]!='00'){
+                                alert($data[2]); // OK
+                            }else{
+                                console.log('Codigo de error: '+$data[1]);
+                                alert($data[2]);
+                            }
+                        }catch(e){
+                            $('.siderbar_content').html(data);
+                        }
+                    },
+                    error       : function(){
+
+                    }
+                });
+            }
+        });
+        
+
         // Buscar Proveedores por descripcion.
         
         $('#agre_proveedor_OrdenCompra').on('keyup',function(e){ $$ = this; $this = $(this);
@@ -563,7 +672,7 @@ var $descripcion;
                                 });
                             }else{
                                 console.log('codigo de error: '+$data[1]);
-                                // alert($data[2]);
+                                alert($data[2]);
                             }
                         }catch(e){
                             console.warn('error: '+e);
@@ -575,9 +684,12 @@ var $descripcion;
                 });
             }
         });
-    })(jQuery);
-</script>
 
+
+    })(jQuery);
+
+</script>
+        
 <script>
     (function(){ // reset items delete
         $('.btn-reset').on('click',function(e){ $$ = this; $this = $(this);
