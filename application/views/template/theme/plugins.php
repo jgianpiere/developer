@@ -473,11 +473,11 @@ $(document).on('change','[type="checkbox"][ischeck]',function(){ $$ = this; $thi
       $exist_items = $('[item]').length;
       if($exist_items > 0){
         if(confirm('existen items creados, al Cambiar de Plan, se eliminaran.\nDeseas continuar?')){
-          $('[item]').remove(); 
+          $('[item]').remove();
           $this.parent().children('[selected]').removeAttr('selected');
           $this.attr('selected','selected').select();
           $('#btn-additem').focus();
-          
+          $("[plan-selected] option[value='"+$(this).val()+"']").attr("selected","selected");
         }else{
           e.preventDefault();
           $('#btn-additem').focus();
