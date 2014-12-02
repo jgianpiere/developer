@@ -473,7 +473,14 @@ $(document).on('change','[type="checkbox"][ischeck]',function(){ $$ = this; $thi
       $exist_items = $('[item]').length;
       if($exist_items > 0){
         if(confirm('existen items creados, al Cambiar de Plan, se eliminaran.\nDeseas continuar?')){
-          $('[item]').remove(); $this.attr('selected','selected'); $this.parent().select(); 
+          $('[item]').remove(); 
+          $this.attr('selected','selected'); 
+          $this.parent().select();
+          var text = $this.text();
+          var vall = $this.val();
+          $this.parent().val(vall).text(text);
+          $('#btn-additem').focus();
+          
         }else{
           e.preventDefault();
           $('#btn-additem').focus();
