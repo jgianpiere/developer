@@ -863,44 +863,155 @@ class Compras extends MY_Controller {
     */
     public function GuiadeEntrada_Agregar(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST'):
-            $Campos = array(
-                array('field' =>  'agre_credito_Gasto',         'label' =>  'agre_credito_Gasto',           'rules' =>  'trim|required|max_length[10]|fehca|xss_clean'),
-                array('field' =>  'agre_documento_Gasto',       'label' =>  'agre_documento_Gasto',         'rules' =>  'trim|required|max_length[10]|fecha|xss_clean'),
-                array('field' =>  'agre_fecha_entrega_Gasto',   'label' =>  'agre_fecha_entrega_Gasto',     'rules' =>  'trim|required|xss_clean'),
-                array('field' =>  'agre_fecha_ingreso_Gasto',   'label' =>  'agre_fecha_ingreso_Gasto',     'rules' =>  'trim|required|xss_clean'),
-                array('field' =>  'agre_modalidad_Gasto',       'label' =>  'agre_modalidad_Gasto',         'rules' =>  'trim|required|xss_clean'),
-                array('field' =>  'agre_moneda_Gasto',          'label' =>  'agre_moneda_Gasto',            'rules' =>  'trim|required|xss_clean'),
-                array('field' =>  'agre_num_gasto',             'label' =>  'agre_num_gasto',               'rules' =>  'trim|required|xss_clean'),
-                array('field' =>  'agre_obs_Gasto',             'label' =>  'agre_obs_Gasto',               'rules' =>  'trim|required|xss_clean'),
-                array('field' =>  'agre_responsable_Gasto',     'label' =>  'agre_responsable_Gasto',       'rules' =>  'trim|required|xss_clean'),
-                array('field' =>  'contador',                   'label' =>  'contador',                     'rules' =>  'trim|required|xss_clean'),
+            $Campos = array(    
+                array('field' =>  'agre_documento_OrdenCompra',         'label' =>  'agre_documento_OrdenCompra',       'rules' =>  'trim|required|xss_clean'),
+                array('field' =>  'agre_serie_documento_OrdenCompra',   'label' =>  'agre_serie_documento_OrdenCompra', 'rules' =>  'trim|required|xss_clean'),
+                array('field' =>  'agre_num_documento_OrdenCompra',     'label' =>  'agre_num_documento_OrdenCompra',   'rules' =>  'trim|required|xss_clean'),
+                array('field' =>  'agre_moneda_OrdenCompra',            'label' =>  'agre_moneda_OrdenCompra',          'rules' =>  'trim|required|xss_clean'),
+                array('field' =>  'agre_fecha_ingreso_OrdenCompra',     'label' =>  'agre_fecha_ingreso_OrdenCompra',   'rules' =>  'trim|required|xss_clean'),
+                array('field' =>  'agre_fecha_entrega_OrdenCompra',     'label' =>  'agre_fecha_entrega_OrdenCompra',   'rules' =>  'trim|required|xss_clean'),
+                array('field' =>  'agre_almacen_OrdenCompra',           'label' =>  'agre_almacen_OrdenCompra',         'rules' =>  'trim|required|xss_clean'),
+                array('field' =>  'proveedorid',                        'label' =>  'proveedorid',                      'rules' =>  'trim|required|xss_clean'),
+                array('field' =>  'detalles',                           'label' =>  'Items',                            'rules' =>  'trim|required|xss_clean'),
+                array('field' =>  'agre_Total_OrdenCompra_total',       'label' =>  'agre_Total_OrdenCompra_total',     'rules' =>  'trim|required|xss_clean'),
+                array('field' =>  'agre_credito_OrdenCompra',           'label' =>  'agre_credito_OrdenCompra',         'rules' =>  'trim|xss_clean'),
+                array('field' =>  'agre_modalidad_OrdenCompra',         'label' =>  'agre_modalidad_OrdenCompra',       'rules' =>  'trim|xss_clean'),
+                array('field' =>  'agre_obs_OrdenCompra',               'label' =>  'agre_obs_OrdenCompra',             'rules' =>  'trim|xss_clean'),
+                array('field' =>  'incluye_impuesto',                   'label' =>  'incluye_impuesto',                 'rules' =>  'trim|is_bool|xss_clean'),
+                array('field' =>  'agre_plan_OrdenCompra',              'label' =>  'agre_plan_OrdenCompra',            'rules' =>  'trim|is_natural_no_zero|xss_clean')
             );
 
             $this->form_validation->set_rules($Campos);
 
-            if($this->form_validation->run() == FALSE):
+            if($this->form_validation->run() == TRUE):
 
-                $agre_credito_Gasto         = $this->input->post('agre_credito_Gasto');
-                $agre_documento_Gasto       = $this->input->post('agre_documento_Gasto');
-                $agre_fecha_entrega_Gasto   = $this->input->post('agre_fecha_entrega_Gasto');
-                $agre_fecha_ingreso_Gasto   = $this->input->post('agre_fecha_ingreso_Gasto');
-                $agre_modalidad_Gasto       = $this->input->post('agre_modalidad_Gasto');
-                $agre_moneda_Gasto          = $this->input->post('agre_moneda_Gasto');
-                $agre_num_gasto             = $this->input->post('agre_num_gasto');
-                $agre_obs_Gasto             = $this->input->post('agre_obs_Gasto');
-                $agre_responsable_Gasto     = $this->input->post('agre_responsable_Gasto');
-                $contador                   = $this->input->post('contador');
+                $calc; $total = $this->input->post('agre_Total_OrdenCompra_total');
+                if(is_numeric($total)):
+                   $calc = calcular_impuesto($total);
+                endif;
+
+                $agre_documento_OrdenCompra     = $this->input->post('agre_documento_OrdenCompra');
                 
-                #$this->load->model('');
-                #$Params = array(NULL);
-                #$insert_result = $this->m_->SQL_FQuery($Params);
+                # Cargar formato numeracion 
+                $format = $this->m_Compras->Query_Cargar_Numeracion($agre_documento_OrdenCompra);
+
+                # calcular el impuesto.
+                $calc_impuesto = calcular_impuesto($total,$format[3]);
+
+                $NumeroComprobante            =  $this->input->post('agre_num_documento_OrdenCompra');
+                $Serie                        =  $this->input->post('agre_serie_documento_OrdenCompra'); 
+
+                $TotalImpuesto                =  isset($incluye_impuesto) && !empty($incluye_impuesto) && $incluye_impuesto == 1 ? $calc_impuesto['impuesto'] : 0;
+                $FechaEmision                 =  $this->input->post('agre_fecha_entrega_OrdenCompra');
+                $FechaIngreso                 =  $this->input->post('agre_fecha_ingreso_OrdenCompra');
+                $ID_Proveedor                 =  $this->input->post('proveedorid');
+                $ID_Moneda                    =  $this->input->post('agre_moneda_OrdenCompra');
+                $ID_Tipo_Comprobante          =  $this->input->post('agre_documento_OrdenCompra');
+                $ID_Tipo_Operacion            =  3;
+                $FechaVencimiento             =  $this->input->post('agre_fecha_ingreso_OrdenCompra');
+                $ID_ModalidadCredito          =  $this->input->post('agre_modalidad_OrdenCompra');
+                $Observacion                  =  $this->input->post('agre_obs_OrdenCompra');
+                $TotalDescuento               =  0;
+                $ID_Almacen                   =  $this->input->post('agre_almacen_OrdenCompra');
+                $incluye_impuesto             =  $this->input->post('incluye_impuesto');
+                $plan_OrdenCompra             =  $this->input->post('agre_plan_OrdenCompra');
+
+                $usuariosis     = $this->session->userdata('usr_prf_name');
+                if(!empty($usuariosis)):
+                    $usuariosis = explode('/', $usuariosis);
+                    $usuariosis = $usuariosis[2];
+                else:
+                    $usuariosis = '';
+                endif;
+
+                $Usuario                      =  $usuariosis;
+
+                $usuariosis     = $this->session->userdata('usr_prf_name');
+                if(!empty($usuariosis)):
+                    $usuariosis = explode('/', $usuariosis);
+                    $usuariosis = $usuariosis[2];
+                else:
+                    $usuariosis = '';
+                endif;
+
+                $calc;
+                if(isset($agre_Total_OrdenCompra_total) && !empty($agre_Total_OrdenCompra_total)):
+                    $calc = calcular_impuesto($agre_Total_OrdenCompra_total);
+                endif;
+
+                $Params = array(
+                    'NumeroComprobante'     => $NumeroComprobante,
+                    'Serie'                 => $Serie,
+                    'Total'                 => $total,
+                    'TotalImpuesto'         => $calc['impuesto'],
+                    'FechaEmision'          => $FechaEmision,
+                    'FechaIngreso'          => $FechaIngreso,
+                    'ID_Proveedor'          => $ID_Proveedor,
+                    'ID_Moneda'             => $ID_Moneda,
+                    'ID_Tipo_Comprobante'   => $ID_Tipo_Comprobante,
+                    'ID_Tipo_Operacion'     => 4,
+                    'FechaVencimiento'      => $FechaVencimiento,
+                    'ID_ModalidadCredito'   => $ID_ModalidadCredito,
+                    'Observacion'           => $Observacion,
+                    'TotalDescuento'        => 0,
+                    'ID_Almacen'            => $ID_Almacen,
+                    'Usuario'               => $usuariosis,
+                    'Tipo_Plan'             => $plan_OrdenCompra,
+                    'Direccion'             => '',
+                    'ID_Responsable'        => '',
+                    'MarcaVeh'              => '',
+                    'PlacaVeh'              => '',
+                    'Conductor'             => '',
+                    'Licencia'              => '',
+                    'Transporte'            => '',
+                    'RucTransporte'         => '',
+                    'MotivoTraslado'        => ''
+                );
+
+                $insert_result = $this->m_Compras->Query_Insertar_CP_GuiaEntrada($Params);
+
+                if(isset($insert_result) && !empty($insert_result) && is_array($insert_result)):
+
+                    // ingresar los detalles: 
+                    $Detalles = $this->input->post('detalles');
+                    $insert_detalle = [];
+                    if(!empty($Detalles)):
+                        $Detalles = json_decode($Detalles);
+                        if(!empty($Detalles) && is_array($Detalles)):
+
+                            // Operacion Compra : 3
+                            $Params = array('idOperacion' => 3);
+                            $documento_list = $this->m_Compras->Query_Documento_GET($Params);
+                            $centroCosto    = $documento_list[0][2];
+                            foreach ($Detalles as $key => $value) {
+                                $Params_detalle = array(
+                                    'idcomprobante'     => $insert_result[2],
+                                    'idproducto'        => $value->detalle->id,
+                                    'cantidad'          => $value->detalle->cantidad,
+                                    'valorunitario'     => $value->detalle->precio,
+                                    'idcentrodecosto'   => $centroCosto,
+                                    'descuento'         => 0,
+                                    'costo'             => $value->detalle->total
+                                );
+
+                                $rslt = $this->m_Compras->Query_Insertar_Detalle_CP_GuiaEntrada($Params_detalle);
+                                $insert_detalle[$key] = $rslt;
+                            }
+                        endif;
+                    endif;
+
+                    echo json_encode(array($insert_result,$insert_detalle));
+
+                else:
+                    echo json_encode(array('ERROR','01','ERROR AL INGRESAR LOS DATOS'));
+                endif;
 
                 # return data table 
             else:
-                # return error msg  validation_errors();
+                echo json_encode(array('ERROR','01',validation_errors()));
             endif;
         elseif($_SERVER['REQUEST_METHOD'] == 'GET'):
-            $this->Theme('modules/COMPRASYGASTOS/view_Compras_Compras_GuiadeEntrada_Nuevo.php');
+            show_404();
         endif;
     }
 
