@@ -79,8 +79,8 @@ class Transferencia extends MY_Controller {
                 $this->plan = $this->htmltemplate->HTML_ResultSelectSimple($lista_plan);
             endif;
 
-            // Operacion entra : 4
-            $Params = array('idOperacion' => 4);
+            // Operacion Transferencia : 9
+            $Params = array('idOperacion' => 9);
             $documento_list = $this->m_Compras->Query_Documento_GET($Params);
 
             # Listar Documento
