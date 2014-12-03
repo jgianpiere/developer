@@ -52,14 +52,14 @@
                                             <label class="control-label col-xs-3">Clasificacion 1 :</label>
                                             <div class="col-xs-3">
                                                 <select class="form-control" id="agre_clasificacion_01" name="agre_clasificacion_01">
-                                                    <option>-</option>
+                                                    <?=isset($this->clasificacion1) ? $this->clasificacion1 : '<option value="0"> - </option>';?>
                                                 </select>
                                             </div>
 
                                             <label class="control-label col-xs-3">Clasificacion 2 :</label>
                                             <div class="col-xs-3">
                                                 <select class="form-control" id="agre_clasificacion_02" name="agre_clasificacion_02">
-                                                    <option>-</option>
+                                                    <?=isset($this->clasificacion2) ? $this->clasificacion2 : '<option value="0"> - </option>';?>
                                                 </select>
                                             </div>
                                         </div>
@@ -68,14 +68,14 @@
                                             <label class="control-label col-xs-3">Marca :</label>
                                             <div class="col-xs-3">
                                                 <select class="form-control" id="agre_marca" name="agre_marca">
-                                                    <option>-</option>
+                                                    <?=isset($this->marcas) ? $this->marcas : '<option value="0"> - </option>';?>
                                                 </select>
                                             </div>
 
                                             <label class="control-label col-xs-3">Modelo :</label>
                                             <div class="col-xs-3">
                                                 <select class="form-control" id="agre_modelo" name="agre_modelo">
-                                                    <option>-</option>
+                                                    <?=isset($this->modelos) ? $this->modelos : '<option value="0"> - </option>';?>
                                                 </select>
                                             </div>
                                         </div>
@@ -84,14 +84,14 @@
                                             <label class="control-label col-xs-3">Und. Med. Venta :</label>
                                             <div class="col-xs-3">
                                                 <select class="form-control" id="agre_und_med_venta" name="agre_und_med_venta">
-                                                    <option>-</option>
+                                                    <?=isset($this->undmedventa) ? $this->undmedventa : '<option value="0"> - </option>';?>
                                                 </select>
                                             </div>
 
                                             <label class="control-label col-xs-3">Und. Med. Compra :</label>
                                             <div class="col-xs-3">
                                                 <select class="form-control" id="agre_und_med_compra" name="agre_und_med_compra">
-                                                    <option>-</option>
+                                                    <?=isset($this->undmedcompra) ? $this->undmedcompra : '<option value="0"> - </option>';?>
                                                 </select>
                                             </div>
                                         </div>
@@ -140,7 +140,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-xs-3">Costo Promedio :</label>
                                             <div class="col-xs-3">
-                                                <input type="text" placeholder="" readonly="" name="agre_costo_promedio" id="agre_costo_promedio" class="form-control">
+                                                <input type="text" placeholder="" value="<?=isset($this->costopromedio) ? $this->costopromedio : '';?>" readonly="" name="agre_costo_promedio" id="agre_costo_promedio" class="form-control">
                                             </div>
                                         </div>
 
