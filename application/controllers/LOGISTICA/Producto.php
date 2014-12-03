@@ -73,6 +73,19 @@ class Producto extends MY_Controller {
                 $this->TiposDocumento = $this->htmltemplate->HTML_ResultSelectTiposDocumento($TiposDocumento);
             endif;
             */
+           
+           #Listar Clasificacion uno 1
+           $clasificacion1_padres   = $this->mBase->Query_Listar_Clasificacion1_Padres();
+           $clasificacion1_hijo     = $this->mBase->Query_Listar_Clasificacion1_Hijos();
+
+            if(!empty($clasificacion1_padres) && is_array($clasificacion1_padres) && !empty($clasificacion1_hijo) && is_array($clasificacion1_hijo)):
+                $ListaHijosdePadre = [];
+                foreach ($clasificacion1_hijo as $key => $Hijo) {
+                    $ListaHijosdePadre[$Hijo[2]][] = $Hijo;
+                }
+
+                echo json_encode($ListaHijosdePadre);
+            endif;
 
             # RutaGuia
             $rutas =   array($this->rutapadre,array('title'=>'Producto','route'=>site_url('Compras#/Producto')));
