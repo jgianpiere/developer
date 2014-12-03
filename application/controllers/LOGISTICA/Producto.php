@@ -82,7 +82,7 @@ class Producto extends MY_Controller {
                 $ListaHijosdePadre = [];
                 foreach ($clasificacion1_hijo as $key => $Hijo) {
                     if(isset($ListaHijosdePadre[$Hijo[2]])): 
-                        $ListaHijosdePadre[$Hijo[2]] .= '<option>'.$Hijo[1].'</option>'; else: $ListaHijosdePadre[$Hijo[2]] = $Hijo;
+                        $ListaHijosdePadre[$Hijo[2]] .= '<option>'.$Hijo[1].'</option>'; else: $ListaHijosdePadre[$Hijo[2]] = '<option>'.$Hijo[1].'</option>';
                     endif;
                 }
 
