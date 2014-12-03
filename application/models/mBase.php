@@ -291,7 +291,7 @@ class mBase extends MY_Model{
      */
     public function Query_Listar_Marca(){
         $sql = "SP_Listar_Marca";
-        $QueryRpt = $this->db->query($sql,$Params);
+        $QueryRpt = $this->db->query($sql);
         $Resultado = $QueryRpt->result_array();
         $this->db->close();
         $Results = $this->QueryResult($Resultado);
@@ -305,7 +305,7 @@ class mBase extends MY_Model{
      */
     public function Query_Listar_Modelo(){
         $sql = "SP_Listar_Modelo";
-        $QueryRpt = $this->db->query($sql,$Params);
+        $QueryRpt = $this->db->query($sql);
         $Resultado = $QueryRpt->result_array();
         $this->db->close();
         $Results = $this->QueryResult($Resultado);
@@ -319,7 +319,7 @@ class mBase extends MY_Model{
      */
     public function Query_Listar_Clasificacion1(){
         $sql = "SP_Listar_Clasificacion1";
-        $QueryRpt = $this->db->query($sql,$Params);
+        $QueryRpt = $this->db->query($sql);
         $Resultado = $QueryRpt->result_array();
         $this->db->close();
         $Results = $this->QueryResult($Resultado);
@@ -333,7 +333,7 @@ class mBase extends MY_Model{
      */
     public function Query_Listar_Clasificacion2(){
         $sql = "SP_Listar_Clasificacion2";
-        $QueryRpt = $this->db->query($sql,$Params);
+        $QueryRpt = $this->db->query($sql);
         $Resultado = $QueryRpt->result_array();
         $this->db->close();
         $Results = $this->QueryResult($Resultado);
@@ -347,7 +347,7 @@ class mBase extends MY_Model{
      */
     public function Query_Listar_Clasificacion1_Padres(){
         $sql = "SP_Listar_Clasificacion1_Padres";
-        $QueryRpt = $this->db->query($sql,$Params);
+        $QueryRpt = $this->db->query($sql);
         $Resultado = $QueryRpt->result_array();
         $this->db->close();
         $Results = $this->QueryResult($Resultado);
@@ -361,7 +361,7 @@ class mBase extends MY_Model{
      */
     public function Query_Listar_Clasificacion1_Hijos(){
         $sql = "SP_Listar_Clasificacion1_Hijos";
-        $QueryRpt = $this->db->query($sql,$Params);
+        $QueryRpt = $this->db->query($sql);
         $Resultado = $QueryRpt->result_array();
         $this->db->close();
         $Results = $this->QueryResult($Resultado);
@@ -375,7 +375,7 @@ class mBase extends MY_Model{
      */
     public function Query_Listar_Clasificacion2_Padres(){
         $sql = "SP_Listar_Clasificacion2_Padres";
-        $QueryRpt = $this->db->query($sql,$Params);
+        $QueryRpt = $this->db->query($sql);
         $Resultado = $QueryRpt->result_array();
         $this->db->close();
         $Results = $this->QueryResult($Resultado);
@@ -389,7 +389,7 @@ class mBase extends MY_Model{
      */
     public function Query_Listar_Clasificacion2_Hijos(){
         $sql = "SP_Listar_Clasificacion2_Hijos";
-        $QueryRpt = $this->db->query($sql,$Params);
+        $QueryRpt = $this->db->query($sql);
         $Resultado = $QueryRpt->result_array();
         $this->db->close();
         $Results = $this->QueryResult($Resultado);
