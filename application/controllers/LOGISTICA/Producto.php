@@ -84,7 +84,15 @@ class Producto extends MY_Controller {
                     $ListaHijosdePadre[$Hijo[2]][] = $Hijo;
                 }
 
-                echo json_encode($ListaHijosdePadre);
+                $Params = array(
+                    'Padres' => $clasificacion1_padres,
+                    'Hijos'  => $ListaHijosdePadre
+                );
+
+                $html_result = $this->htmltemplate->HTML_ListarClasificacion($Params);
+
+
+                echo $html_result;
             endif;
 
             # RutaGuia

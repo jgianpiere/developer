@@ -441,5 +441,17 @@ class HTMLTemplate{
         return $HTML;
     }
 
+    # 
+    public function HTML_ListarClasificacion($Params){
+        $HTML = '';
+        if(!empty($Params) && is_array($Params)):
+            foreach ($Params['Padres'] as $key => $padre) {
+                echo json_encode($Params['Hijos'][$padre[0]]);
+            }
+        endif;
+
+        return $HTML;
+    }
+
 
 }
