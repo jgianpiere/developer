@@ -445,7 +445,7 @@ class HTMLTemplate{
     public function HTML_ListarClasificacion($Params){
         $HTML = '';
         if(!empty($Params) && is_array($Params)):
-            echo json_encode($Params['Hijos']);
+            //echo json_encode($Params['Hijos']);
             // foreach ($Params['Padres'] as $key => $padre) {
             //     $HTML .= '<optgroup label="'.$padre[1].'">';
             //         $HTML .=  join("",$Params['Hijos'][$padre[0]]);
