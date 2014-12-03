@@ -92,7 +92,7 @@ class Producto extends MY_Controller {
                 $html_result = $this->htmltemplate->HTML_ListarClasificacion($Params);
 
 
-                echo $html_result;
+                $this->clasificacion1 = $html_result;
             endif;
 
             # RutaGuia
