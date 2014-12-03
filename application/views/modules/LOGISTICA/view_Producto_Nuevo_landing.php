@@ -51,14 +51,14 @@
                                         <div class="form-group">
                                             <label class="control-label col-xs-3">Clasificacion 1 :</label>
                                             <div class="col-xs-3">
-                                                <select class="form-control">
+                                                <select class="form-control" id="agre_clasificacion_01" name="agre_clasificacion_01">
                                                     <option>-</option>
                                                 </select>
                                             </div>
 
                                             <label class="control-label col-xs-3">Clasificacion 2 :</label>
                                             <div class="col-xs-3">
-                                                <select class="form-control">
+                                                <select class="form-control" id="agre_clasificacion_02" name="agre_clasificacion_02">
                                                     <option>-</option>
                                                 </select>
                                             </div>
@@ -67,14 +67,14 @@
                                         <div class="form-group">
                                             <label class="control-label col-xs-3">Marca :</label>
                                             <div class="col-xs-3">
-                                                <select class="form-control">
+                                                <select class="form-control" id="agre_marca" name="agre_marca">
                                                     <option>-</option>
                                                 </select>
                                             </div>
 
                                             <label class="control-label col-xs-3">Modelo :</label>
                                             <div class="col-xs-3">
-                                                <select class="form-control">
+                                                <select class="form-control" id="agre_modelo" name="agre_modelo">
                                                     <option>-</option>
                                                 </select>
                                             </div>
@@ -83,14 +83,14 @@
                                         <div class="form-group">
                                             <label class="control-label col-xs-3">Und. Med. Venta :</label>
                                             <div class="col-xs-3">
-                                                <select class="form-control">
+                                                <select class="form-control" id="agre_und_med_venta" name="agre_und_med_venta">
                                                     <option>-</option>
                                                 </select>
                                             </div>
 
                                             <label class="control-label col-xs-3">Und. Med. Compra :</label>
                                             <div class="col-xs-3">
-                                                <select class="form-control">
+                                                <select class="form-control" id="agre_und_med_compra" name="agre_und_med_compra">
                                                     <option>-</option>
                                                 </select>
                                             </div>
@@ -132,20 +132,20 @@
 			                            <div style="margin-bottom:30px;" class="row tab-pane-title col-xs-12 col-sm-12 col-md-12 col-lg-12">-</div>
 
 			                            <div class="form-group">
-                                            <label class="control-label col-xs-3 text-right">Venta : <input type="checkbox" value="0" active-to="#agre_modalidad_OrdenCompra" name="agre_credito_OrdenCompra" id="agre_credito_OrdenCompra"></label>
-                                            <label class="control-label col-xs-3 text-right">Compra : <input type="checkbox" value="0" active-to="#agre_modalidad_OrdenCompra" name="agre_credito_OrdenCompra" id="agre_credito_OrdenCompra"></label>
-                                            <label class="control-label col-xs-3 text-right">Inventario : <input type="checkbox" value="0" active-to="#agre_modalidad_OrdenCompra" name="agre_credito_OrdenCompra" id="agre_credito_OrdenCompra"></label>
+                                            <label class="control-label col-xs-3 text-right">Venta : <input type="checkbox" value="0"  name="agre_venta" id="agre_venta"></label>
+                                            <label class="control-label col-xs-3 text-right">Compra : <input type="checkbox" value="0" name="agre_compra" id="agre_compra"></label>
+                                            <label class="control-label col-xs-3 text-right">Inventario : <input type="checkbox" value="0" name="agre_inventario" id="agre_inventario"></label>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="control-label col-xs-3">Costo Promedio :</label>
                                             <div class="col-xs-3">
-                                                <input type="text" required="" placeholder="" name="" id="" class="form-control">
+                                                <input type="text" placeholder="" name="agre_costo_promedio" id="agre_costo_promedio" class="form-control">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-3 text-right">Activo : <input type="checkbox" value="0" active-to="#agre_modalidad_OrdenCompra" name="agre_credito_OrdenCompra" id="agre_credito_OrdenCompra"></label>
+                                            <label class="control-label col-xs-3 text-right">Activo : <input type="checkbox" value="0" name="agre_activo" id="agre_activo"></label>
                                         </div>
 
                                         <div class="form-group mtop-7">
