@@ -446,10 +446,9 @@ class HTMLTemplate{
         $HTML = '';
         if(!empty($Params) && is_array($Params)):
             foreach ($Params['Padres'] as $key => $padre) {
-                $HTML .= '';
-
-                echo "Padre: $padre[0] - $padre[1] - $padre[2] =";
-                echo json_encode($Params['Hijos'][$padre[0]]);
+                $HTML .= '<optgroup label="'.$padre[1].'">';
+                    $HTML .=  join("\n",$Params['Hijos'][$padre[0]]);
+                $HTML .= '</optgroup>';
             }
         endif;
 
