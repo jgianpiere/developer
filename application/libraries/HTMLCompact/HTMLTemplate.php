@@ -448,7 +448,7 @@ class HTMLTemplate{
             /*echo json_encode($Params['Hijos']);*/
             foreach ($Params['Padres'] as $key => $padre) {
                 $HTML .= '<optgroup label="'.$padre[1].'">';
-                    $HTML .=  '<option>'.json_encode($Params['Hijos'][$padre[0]]).'</option>';
+                    $HTML .=  json_encode($Params['Hijos'][$padre[0]]);
                 $HTML .= '</optgroup>';
             }
         endif;
