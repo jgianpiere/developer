@@ -255,5 +255,46 @@ class m_Logistica extends MY_Model{
         return $Results;
     }
 
+    /**
+     * @param       : @ID_Clasificacion1    INT
+     * @param       : @ID_Clasificacion2    INT
+     * @param       : @ID_Modelo            INT
+     * @param       : @ID_Marca             INT
+     * @param       : @ID_Unidad_Venta      INT
+     * @param       : @ID_Unidad_Compra     INT
+     * @param       : @CodigoClaro          varchar(50)
+     * @param       : @CodigoProducto       varchar(50)
+     * @param       : @Descripcion          varchar(350)
+     * @param       : @DescripcionResumida  varchar(150)
+     * @param       : @Venta                int
+     * @param       : @compra               int
+     * @param       : @Inventario           int
+     * @param       : @Activo               int 
+     * 
+     */
+    public function Query_Insertar_Producto($Params){
+        $sql = "SP_Insertar_Producto ?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+        $QueryRpt = $this->db->query($sql,$Params);
+        $Resultado = $QueryRpt->row_array();
+        $this->db->close();
+        $Results = $this->QueryRows($Resultado);
+        return $Results;
+    }
+
+    /**
+     * @param       : @ID_Producto  int
+     * @param       : @ID_ALmacen   int
+     * @param       : @StockMinimo  int
+     * @param       : @StockMaximo  int 
+     */  
+    public function Query_Insertar_Producto_Almacen($Params){
+        $sql = "SP_Insertar_Producto_Almacen ?,?,?,?";
+        $QueryRpt = $this->db->query($sql,$Params);
+        $Resultado = $QueryRpt->row_array();
+        $this->db->close();
+        $Results = $this->QueryRows($Resultado);
+        return $Results;
+    }
+
 
 }

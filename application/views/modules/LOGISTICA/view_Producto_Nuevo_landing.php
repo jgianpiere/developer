@@ -101,13 +101,12 @@
 										<div class="content">
 			                                <div class="row">
 			                                    <div class="container-fluid">
-			                                        <div style="margin-bottom:30px;" class="row tab-pane-title col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			                                        <div class="row tab-pane-title col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom:30px;">
 			                                            <div class="col-xs-1">#</div>
-			                                            <div class="col-xs-2">Codigo</div>
-			                                            <div class="col-xs-3">Descripción</div>
-			                                            <div class="col-xs-2">Cantidad</div>
-			                                            <div class="col-xs-2">Costo</div>
-			                                            <div class="col-xs-2">Total</div>
+			                                            <div class="col-xs-3">Codigo</div>
+			                                            <div class="col-xs-4">Almacen</div>
+			                                            <div class="col-xs-2">Stock. Min.</div>
+			                                            <div class="col-xs-2">Stock. Max.</div>
 			                                        </div>
 			                                        <div id="addItemsOrdenesdeCompra">
 			                                            <!-- <div item class="form-group">
