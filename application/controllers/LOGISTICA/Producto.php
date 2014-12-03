@@ -81,12 +81,8 @@ class Producto extends MY_Controller {
             if(!empty($clasificacion1_padres) && is_array($clasificacion1_padres) && !empty($clasificacion1_hijo) && is_array($clasificacion1_hijo)):
                 $ListaHijosdePadre = [];
                 foreach ($clasificacion1_hijo as $key => $Hijo) {
-                    if(isset($ListaHijosdePadre[$Hijo[2]])): 
-                        $ListaHijosdePadre[$Hijo[2]] .= '<option>'.$Hijo[1].'</option>'; else: $ListaHijosdePadre[$Hijo[2]] = '<option>'.$Hijo[1].'</option>';
-                    endif;
+                    $ListaHijosdePadre[$Hijo[2]][] = $Hijo;
                 }
-
-                echo json_encode($ListaHijosdePadre);
 
                 $Params = array(
                     'Padres' => $clasificacion1_padres,
@@ -96,7 +92,7 @@ class Producto extends MY_Controller {
                 $html_result = $this->htmltemplate->HTML_ListarClasificacion($Params);
 
 
-                // echo $html_result;
+                echo $html_result;
             endif;
 
             # RutaGuia
