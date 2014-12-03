@@ -140,7 +140,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-xs-3">Costo Promedio :</label>
                                             <div class="col-xs-3">
-                                                <input type="text" placeholder="" name="agre_costo_promedio" id="agre_costo_promedio" class="form-control">
+                                                <input type="text" placeholder="" readonly="" name="agre_costo_promedio" id="agre_costo_promedio" class="form-control">
                                             </div>
                                         </div>
 
