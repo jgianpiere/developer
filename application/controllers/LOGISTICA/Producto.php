@@ -81,7 +81,7 @@ class Producto extends MY_Controller {
             if(!empty($clasificacion1_padres) && is_array($clasificacion1_padres) && !empty($clasificacion1_hijo) && is_array($clasificacion1_hijo)):
                 $ListaHijosdePadre = [];
                 foreach ($clasificacion1_hijo as $key => $Hijo) {
-                    $ListaHijosdePadre[$Hijo[2]][] = ['<option value="">1</option>',$Hijo[0],$Hijo[1],$Hijo[2]];
+                    $ListaHijosdePadre[$Hijo[2]][] = ['<option value="">1<option>',$Hijo[0],$Hijo[1],$Hijo[2]];
                 }
 
                 $Params = array(
