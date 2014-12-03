@@ -446,6 +446,7 @@ class HTMLTemplate{
         $HTML = '';
         if(!empty($Params) && is_array($Params)):
             foreach ($Params['Padres'] as $key => $padre) {
+                echo "Padre: $padre[1] =";
                 echo json_encode($Params['Hijos'][$padre[0]]);
             }
         endif;
