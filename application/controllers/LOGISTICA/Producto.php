@@ -82,6 +82,8 @@ class Producto extends MY_Controller {
                 $ListaHijosdePadre = [];
                 foreach ($clasificacion1_hijo as $key => $Hijo) {
                     $ListaHijosdePadre[$Hijo[2]][] = '<option value="'.$Hijo[0].'" data-padre-id="'.$Hijo[2].'">'.$Hijo[1].'<option>';
+
+                    print_r($ListaHijosdePadre[$Hijo[2]]);
                 }
 
                 $Params = array(
