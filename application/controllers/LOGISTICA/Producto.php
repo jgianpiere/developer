@@ -131,11 +131,18 @@ class Producto extends MY_Controller {
             endif;
 
             # Listar Modelo
-            $modelo = $this->mBase->Query_Listar_Marca();
+            $modelo = $this->mBase->Query_Listar_Modelo();
             if(isset($modelo) && !empty($modelo) && is_array($modelo)):
                 $this->modelos = $this->htmltemplate->HTML_ResultSelectSimple($modelo);
             endif;            
 
+            # Listar Unidad de Medida
+            $und_medida = $this->mBase->Query_Listar_Unidad_Medida();
+            if(isset($und_medida) && !empty($und_medida) && is_array($und_medida)):
+                $this->undmedcompra = $this->htmltemplate->HTML_ResultSelectSimple($und_medida);
+
+                $this->undmedventa = $this->htmltemplate->HTML_ResultSelectSimple($und_medida);
+            endif;
             
 
             # RutaGuia

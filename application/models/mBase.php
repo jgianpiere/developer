@@ -395,6 +395,20 @@ class mBase extends MY_Model{
         $Results = $this->QueryResult($Resultado);
         return $Results;
     }
+
+    /**
+     * @param   : null
+     * @return  : ID
+     * @return  : Descripcion
+     */
+    public function Query_Listar_Unidad_Medida(){
+        $sql = "SP_Listar_Unidad_Medida";
+        $QueryRpt = $this->db->query($sql);
+        $Resultado = $QueryRpt->result_array();
+        $this->db->close();
+        $Results = $this->QueryResult($Resultado);
+        return $Results;
+    }
     
 
 }
