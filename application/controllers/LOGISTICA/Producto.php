@@ -99,6 +99,33 @@ class Producto extends MY_Controller {
                 $this->clasificacion1 = $html_result;
             endif;
 
+            #Listar Clasificacion dos 2
+           $clasificacion2_padres   = $this->mBase->Query_Listar_Clasificacion2_Padres();
+           $clasificacion2_hijo     = $this->mBase->Query_Listar_Clasificacion2_Hijos();
+
+            if(!empty($clasificacion2_padres) && is_array($clasificacion2_padres) && !empty($clasificacion2_hijo) && is_array($clasificacion2_hijo)):
+                $ListaHijosdePadre = [];
+                foreach ($clasificacion2_hijo as $key => $Hijo) {
+                    if(isset($ListaHijosdePadre[$Hijo[2]]) && !empty($ListaHijosdePadre[$Hijo[2]])):
+                        $ListaHijosdePadre[$Hijo[2]] .= '<option value="'.$Hijo[0].'" data-padre-id="'.$Hijo[2].'">'.$Hijo[1].'</option>';
+                    else:
+                        $ListaHijosdePadre[$Hijo[2]] = '<option value="'.$Hijo[0].'" data-padre-id="'.$Hijo[2].'">'.$Hijo[1].'</option>';
+                    endif;
+                }
+
+                $Params = array(
+                    'Padres' => $clasificacion2_padres,
+                    'Hijos'  => $ListaHijosdePadre
+                );
+
+                $html_result = $this->htmltemplate->HTML_ListarClasificacion($Params);
+
+
+                $this->clasificacion1 = $html_result;
+            endif;
+
+            
+
             # RutaGuia
             $rutas =   array($this->rutapadre,array('title'=>'Producto','route'=>site_url('Compras#/Producto')));
             $RutaGuia = $this->htmltemplate->HTML_RutaGuia($rutas,'Agregar Producto');
