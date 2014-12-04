@@ -82,9 +82,9 @@ class Producto extends MY_Controller {
                 $ListaHijosdePadre = [];
                 foreach ($clasificacion1_hijo as $key => $Hijo) {
                     if(isset($ListaHijosdePadre[$Hijo[2]]) && !empty($ListaHijosdePadre[$Hijo[2]])):
-                        $ListaHijosdePadre[$Hijo[2]] .= '<option value="'.$Hijo[0].'" data-padre-id="'.$Hijo[2].'">'.$Hijo[1].'<option>';
+                        $ListaHijosdePadre[$Hijo[2]] .= '<option value="'.$Hijo[0].'" data-padre-id="'.$Hijo[2].'">'.$Hijo[1].'</option>';
                     else:
-                        $ListaHijosdePadre[$Hijo[2]] = '<option value="'.$Hijo[0].'" data-padre-id="'.$Hijo[2].'">'.$Hijo[1].'<option>';
+                        $ListaHijosdePadre[$Hijo[2]] = '<option value="'.$Hijo[0].'" data-padre-id="'.$Hijo[2].'">'.$Hijo[1].'</option>';
                     endif;
                 }
 
