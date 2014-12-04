@@ -124,6 +124,18 @@ class Producto extends MY_Controller {
                 $this->clasificacion2 = $html_result;
             endif;
 
+            # Listar Marca
+            $marca = $this->mBase->Query_Listar_Marca();
+            if(isset($marca) && !empty($marca) && is_array($marca)):
+                $this->marcas = $this->htmltemplate->HTML_ResultSelectSimple($marca);
+            endif;
+
+            # Listar Modelo
+            $modelo = $this->mBase->Query_Listar_Marca();
+            if(isset($modelo) && !empty($modelo) && is_array($modelo)):
+                $this->modelos = $this->htmltemplate->HTML_ResultSelectSimple($modelo);
+            endif;            
+
             
 
             # RutaGuia
