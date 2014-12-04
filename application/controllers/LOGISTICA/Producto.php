@@ -121,7 +121,7 @@ class Producto extends MY_Controller {
                 $html_result = $this->htmltemplate->HTML_ListarClasificacion($Params);
 
 
-                $this->clasificacion1 = $html_result;
+                $this->clasificacion2 = $html_result;
             endif;
 
             
