@@ -39,7 +39,6 @@
     <div class="modal-content">
         <div class="modal-body loadresultpopup">
         	Cargando..
-			<script>$('.loadresultpopup').removeClass('loadresultpopup').html('Cargando..');</script>
         </div>
     </div>
   </div>

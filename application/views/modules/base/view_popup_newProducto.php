@@ -103,3 +103,5 @@
     </div>
   </div>
 </div>
+
+<script>$('.loadresultpopup').removeClass('loadresultpopup');</script>
