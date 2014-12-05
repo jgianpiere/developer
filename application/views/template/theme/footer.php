@@ -12,7 +12,10 @@
 	    $('.modal:visible').each(centerModal);
 	});
 
-	$('.modal').on('show',function(e){
+</script>
+
+<script>
+	function ajaxpopup_nuevoProducto(){
 		if($('.loadresultpopup').length > 0){
 			$.ajax({
 				type 	: 'POST',
@@ -27,8 +30,7 @@
 		}else{
 			console.log('esto es un error..');
 		}
-	});
-
+	}
 </script>
 
 <div id="newProveedor" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
