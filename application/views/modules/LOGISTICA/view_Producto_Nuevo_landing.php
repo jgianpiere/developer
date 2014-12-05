@@ -46,7 +46,7 @@
                                             </div>
                                         </div>
 
-                                        <div style="margin-bottom:30px;" class="row tab-pane-title col-xs-12 col-sm-12 col-md-12 col-lg-12">---</div>
+                                        <div style="margin-bottom:16px;" class="row tab-pane-title col-xs-12 col-sm-12 col-md-12 col-lg-12">---</div>
 
                                         <div class="form-group">
                                             <label class="control-label col-xs-3">Clasificacion 1 :</label>
@@ -172,7 +172,7 @@
                 $.ajax({
                     type    : 'POST',
                     data    : $form.serialize(),
-                    url     : "<?=site_url('/Logistica/Logistica/Entrada/Buscar');?>",
+                    url     : "<?=site_url('/Logistica/Logistica/Producto/Nuevo');?>",
                     success : function(data){
                         try{
                             $data = $.parseJSON(data);
@@ -236,11 +236,106 @@
 			$content = $('#addItemsOrdenesdeCompra'); e.preventDefault();
 			$numeracion = parseInt($('#addItemsOrdenesdeCompra [item]').length || 0);
 			$numeracion += 1;
-			$content.append('<div item class="form-group"><div class="col-xs-1 text-center numeracion">'+$numeracion+'.- </div><div class="col-xs-3"><input type="hidden" value="" name="id"><input name="codigo" class="form-control" type="text" placeholder="Codigo" /></div><div class="col-xs-4"><input name="descri" class="form-control" type="text" placeholder="Almacen" /></div><div class="col-xs-2"><input calc-cant name="cantid" class="form-control" type="text" placeholder="Stock Min" validate="number" /></div><div class="col-xs-2"><input calc-prec calc="" name="precio" class="form-control" type="text" placeholder="Stock Max" validate="number" /></div></div>');
+			$content.append('<div item class="form-group"><div class="col-xs-1 text-center numeracion">'+$numeracion+'.- </div><div class="col-xs-3"><input type="hidden" data-id="id" data-name="id" value=""><input data-id="codigo" data-name="codigo" class="form-control" type="text" placeholder="Codigo" /></div><div class="col-xs-4"><input data-id="almacen" data-name="almacen" class="form-control" type="text" placeholder="Almacen" /></div><div class="col-xs-2"><input data-id="stockmin" data-name="stockmin" class="form-control" type="text" placeholder="Stock Min" validate="number" /></div><div class="col-xs-2"><input calc="" data-id="stockmax" data-name="stockmax" class="form-control" type="text" placeholder="Stock Max" validate="number" /></div></div>');
             // _fnVerificCalc();
             // 
             return 0;
 
 		});
+	})(jQuery);
+</script>
+
+<script>
+	(function(){
+		// Buscar Responsable (Persona) por Nombre.
+        
+        $('[data-id="almacen"]').on('keyup',function(e){ $$ = this; $this = $(this);
+            $especiales = [8,9,35,36,37,38,39,40,46,13,32,186];
+            if(jQuery.inArray(e.keyCode,$especiales) >= 0){
+                return false;
+            }
+
+            if($this.val().length >= 2){
+                $.ajax({
+                    type    : 'POST',
+                    data    : 'value='+$this.val(),
+                    url     : "<?=site_url('BuscarAlmacen');?>/2",
+                    success : function(data){
+                        try{
+                            $data = $.parseJSON(data);
+                            if($data[0]!='ERROR'&&$data[0]!='00'){
+                                
+                                $descripcion = [];
+                                for(i in $data){
+                                    $descripcion.push($data[i][1]);
+                                }
+
+                                $this.autocomplete({
+                                    source : $descripcion,
+                                    select : function(event,ui){
+                                        $codigo = jQuery.inArray(ui.item.label,$descripcion);
+                                        $this.val($data[$codigo][2]);
+                                        $($this.parent().prev().children().get(1)).val($data[$codigo][0]);
+                                    }
+                                });
+                            }else{
+                                console.log('codigo de error: '+$data[1]);
+                                alert($data[2]);
+                            }
+                        }catch(e){
+                            console.warn('error: '+e);
+                        }
+                    },
+                    error   : function(){
+                        console.error('ERROR AJAX');
+                    }
+                });
+            }
+        });
+
+        // Buscar Responsable por documento.
+        
+        /*$('#agre_persona_responsable_dni').on('keyup',function(e){ $$ = this; $this = $(this);
+            $especiales = [8,9,35,36,37,38,39,40,46,13,32,186];
+            if(jQuery.inArray(e.keyCode,$especiales) >= 0){
+                return false;
+            }
+            if($this.val().length >= 2){
+                $.ajax({
+                    type    : 'POST',
+                    data    : 'value='+$this.val(),
+                    url     : "<?=site_url('BuscarPersona');?>/1",
+                    success : function(data){
+                        try{
+                            $data = $.parseJSON(data);
+                            if($data[0]!='ERROR'&&$data[0]!='00'){
+                                
+                                $descripcion = [];
+                                for(i in $data){
+                                    $descripcion.push($data[i][2]);
+                                }
+
+                                $this.autocomplete({
+                                    source : $descripcion,
+                                    select : function(event,ui){
+                                        $codigo = jQuery.inArray(ui.item.label,$descripcion);
+                                        $('#agre_persona_responsable').val($data[$codigo][1]);
+                                        $('#responsableid').val($data[$codigo][0]);
+                                    }
+                                });
+                            }else{
+                                console.log('codigo de error: '+$data[1]);
+                                alert($data[2]);
+                            }
+                        }catch(e){
+                            console.warn('error: '+e);
+                        }
+                    },
+                    error   : function(){
+                        console.error('ERROR AJAX');
+                    }
+                });
+            }
+        });*/
 	})(jQuery);
 </script>

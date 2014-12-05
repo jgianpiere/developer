@@ -215,6 +215,7 @@ $route['ListarProductosRes/(:num)'] = 'cBase/BuscarProductosResumido/$1';
 $route['ListarPrecioProductos']     = 'cBase/BuscarPrecioProductos';
 $route['BuscarProveedores/(:num)']  = 'cBase/BuscarProveedores/$1';
 $route['BuscarPersona/(:num)']      = 'cBase/BuscarPersonas/$1';
+$route['BuscarAlmacen/(:num)']      = 'cBase/BuscarAlmacenes/$1';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

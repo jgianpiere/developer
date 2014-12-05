@@ -410,5 +410,20 @@ class mBase extends MY_Model{
         return $Results;
     }
     
+    /**
+     * @param   : IN: localId, 
+     * @param   : IN: valor de busqueda,
+     * @param   : IN: TipoBusqueda (1: por codigo , 2: por nombre)
+     * @return  : ID
+     * @return  : CODIGO
+     * @return  : DESCRIPCION
+     */
+    public function Query_buscar_almacen($Params){
+        return json_encode(
+            array('01','CODIGO1','DESCRIPCION1'),
+            array('02','CODIGO2','DESCRIPCION2'),
+            array('03','CODIGO3','DESCRIPCION3')
+        )
+    } 
 
 }

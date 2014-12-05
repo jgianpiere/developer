@@ -328,6 +328,54 @@ class cBase extends MY_Controller {
 
     }
 
+    /**
+    *   @todo       : Buscar Almacenes
+    * 
+    * 
+    */
+    public function BuscarAlmacenes($medio = 1){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'):
+            $this->load->helper('security');
+
+            $Campos = array(
+                array('field' =>  'value'       , 'label' =>  'Parametro de Busqueda'   ,'rules'  =>  'trim|required|xss_clean')
+            );
+
+            $this->form_validation->set_rules($Campos);
+            if($this->form_validation->run() == TRUE):
+                $valor  = $this->input->post('value');
+
+                // Operacion Compra : 1
+                $Params = array('idOperacion' => 1);
+                $documento_list = $this->m_Compras->Query_Documento_GET($Params);
+
+                # Listar Documento
+                $localID = 0; $document_foco;
+                if(!empty($documento_list) && is_array($documento_list)):
+                    $localID    = $documento_list[0][2];
+                endif;
+
+                $Params = array(
+                    'localid'   => $localID,
+                    'valor'     => $valor,
+                    'medio'     => (int) xss_clean($medio)
+                );
+                
+                $Buscar = $this->mBase->Query_buscar_almacen($Params);
+                
+                if(!empty($Buscar) && !empty($Buscar)):
+                    echo json_encode($Buscar);
+                else:
+                    echo json_encode(array('ERROR','00','sin resultados..'));
+                endif;
+            else:
+                echo json_encode(array('ERROR','00',validation_errors()));
+            endif;
+        elseif($_SERVER['REQUEST_METHOD'] == 'GET'):
+            show_404();
+        endif;
+    } 
+
 
 
 
