@@ -1,6 +1,10 @@
 <div id="newProveedor" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title">Nuevo Producto</h4>
+        </div>
         <div class="modal-body">
             <!-- <img src="//placehold.it/1000x600" class="img-responsive"> -->
             <div class="content">
@@ -80,11 +84,16 @@
                                             </div>
                                         </div>
                                         
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <div class="col-lg-offset-2 col-lg-10 col-md-12 col-sm-12 col-xs-12 mtop-7">
                                                 <input type="reset" class="btn btn-reset" value="Limpiar">
                                                 <input type="submit" class="btn btn-send" value="Guardar">
                                             </div>
+                                        </div> -->
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">cancelar</button>
+                                            <button type="button" class="btn btn-primary">Guardar</button>
                                         </div>
                                     </form>
                                 </div>
