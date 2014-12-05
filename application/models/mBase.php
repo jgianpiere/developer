@@ -419,7 +419,7 @@ class mBase extends MY_Model{
      * @return  : DESCRIPCION
      */
     public function Query_buscar_almacen($Params){
-        return json_encode(array('01','CODIGO1','DESCRIPCION1'),array('02','CODIGO2','DESCRIPCION2'),array('03','CODIGO3','DESCRIPCION3'))
+        // return json_encode(array('01','CODIGO1','DESCRIPCION1'),array('02','CODIGO2','DESCRIPCION2'),array('03','CODIGO3','DESCRIPCION3'))
     } 
 
 }
