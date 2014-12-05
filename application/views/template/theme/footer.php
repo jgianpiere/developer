@@ -1,6 +1,5 @@
 <script>
 	function centerModal() {
-		$('.loadresultpopup').html('loading..');
 	    $(this).css('display', 'block');
 	    var $dialog = $(this).find(".modal-dialog");
 	    var offset = ($(window).height() - $dialog.height()) / 2;
@@ -20,6 +19,7 @@
     <div class="modal-content">
         <div class="modal-body loadresultpopup">
             <!-- <img src="//placehold.it/1000x600" class="img-responsive"> -->
+			<script>$('.loadresultpopup').html('loading..');</script>
         </div>
     </div>
   </div>
