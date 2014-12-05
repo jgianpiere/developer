@@ -375,13 +375,19 @@ class cBase extends MY_Controller {
         elseif($_SERVER['REQUEST_METHOD'] == 'GET'):
             show_404();
         endif;
-    } 
+    }
 
-
-
-
-
-
+    /**
+     * @todo  : Formulario Nuevo Producto. 
+     * 
+     */
+    public function PopupProducto_Nuevo(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'):
+            $this->load->view('modules/base/view_popup_newProducto');
+        else: return 'hidden';
+            show_404();
+        endif;
+    }
 
 
 }

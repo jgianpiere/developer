@@ -12,6 +12,22 @@
 	    $('.modal:visible').each(centerModal);
 	});
 
+	$('#newProveedor').on('show',function(e){
+		if($('.loadresultpopup').length > 0){
+			$.ajax({
+				type 	: 'POST',
+				data 	: '',
+				url 	: "<?=site_url('');?>",
+				success : function(data){
+					$('.loadresultpopup').html(data).removeClass('loadresultpopup');
+				},
+				error 	: function(){
+					console.log('error');
+				}
+			});
+		}
+	});
+
 </script>
 
 <div id="newProveedor" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -19,7 +35,6 @@
     <div class="modal-content">
         <div class="modal-body loadresultpopup">
         	Cargando..
-            <!-- <img src="//placehold.it/1000x600" class="img-responsive"> -->
 			<script>$('.loadresultpopup').removeClass('loadresultpopup').html('Cargando..');</script>
         </div>
     </div>
