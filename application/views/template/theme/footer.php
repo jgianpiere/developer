@@ -12,12 +12,11 @@
 	    $('.modal:visible').each(centerModal);
 	});
 
-	$('#newProveedor').on('show',function(e){
+	$('.modal').on('show',function(e){
 		if($('.loadresultpopup').length > 0){
 			$.ajax({
 				type 	: 'POST',
-				data 	: '',
-				url 	: "<?=site_url('');?>",
+				url 	: "<?=site_url('PopupNuevoProducto');?>",
 				success : function(data){
 					$('.loadresultpopup').html(data).removeClass('loadresultpopup');
 				},
