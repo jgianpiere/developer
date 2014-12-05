@@ -16,6 +16,7 @@
 
 <script>
 	function ajaxpopup_nuevoProducto(){
+		console.log($('.loadresultpopup').length);
 		if($('.loadresultpopup').length > 0){
 			$.ajax({
 				type 	: 'POST',
