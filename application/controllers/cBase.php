@@ -345,7 +345,8 @@ class cBase extends MY_Controller {
             if($this->form_validation->run() == TRUE):
                 $valor  = $this->input->post('value');
 
-                /*// Operacion Compra : 1
+                $this->load->model('COMPRASYGASTOS/m_Compras');
+                // Operacion Compra : 1
                 $Params = array('idOperacion' => 1);
                 $documento_list = $this->m_Compras->Query_Documento_GET($Params);
 
@@ -367,7 +368,7 @@ class cBase extends MY_Controller {
                     echo json_encode($Buscar);
                 else:
                     echo json_encode(array('ERROR','00','sin resultados..'));
-                endif;*/
+                endif;
             else:
                 echo json_encode(array('ERROR','00',validation_errors()));
             endif;
