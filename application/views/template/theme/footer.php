@@ -18,8 +18,9 @@
   <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-body loadresultpopup">
+        	Cargando..
             <!-- <img src="//placehold.it/1000x600" class="img-responsive"> -->
-			<script>$('.loadresultpopup').html('loading..');</script>
+			<script>$('.loadresultpopup').removeClass('loadresultpopup').html('Cargando..');</script>
         </div>
     </div>
   </div>
