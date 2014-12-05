@@ -229,3 +229,18 @@
         });
     })(jQuery);
 </script>
+
+<script>
+	(function(){
+		$('#btn-additem').on('click',function(e){ $$ = this; $this = $(this); 
+			$content = $('#addItemsOrdenesdeCompra'); e.preventDefault();
+			$numeracion = parseInt($('#addItemsOrdenesdeCompra [item]').length || 0);
+			$numeracion += 1;
+			$$.append('<div item class="form-group"><div class="col-xs-1 text-center numeracion">'+$numeracion+'.- </div><div class="col-xs-2"><input type="hidden" value="" name="id"><input name="codigo" class="form-control" type="text" placeholder="Codigo" /></div><div class="col-xs-3"><input name="descri" class="form-control" type="text" placeholder="Descripción" /></div><div class="col-xs-2"><input calc-cant name="cantid" class="form-control" type="text" placeholder="Cantidad" validate="number" /></div><div class="col-xs-2"><input calc-prec calc="" name="precio" class="form-control" type="text" placeholder="Precio" validate="float" /></div><div class="col-xs-2"><input calc-tota name="total" class="form-control pull-right " type="text" placeholder="Total" readonly /><span style="position:absolute; right:0px;top:5px;cursor:pointer;" data-item-remove="">x</span></div></div>');
+            // _fnVerificCalc();
+            // 
+            return 0;
+
+		});
+	})(jQuery);
+</script>
