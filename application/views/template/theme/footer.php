@@ -23,6 +23,7 @@
 				url 	: "<?=site_url('PopupNuevoProveedor');?>",
 				success : function(data){
 					$('.loadresultpopup').html(data).removeClass('loadresultpopup');
+					$('.loadresultpopup').removeClass('loadresultpopup');
 				},
 				error 	: function(){
 					console.log('error');

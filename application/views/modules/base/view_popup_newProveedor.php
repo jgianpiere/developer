@@ -121,5 +121,3 @@
         });
     })(jQuery);
 </script>
-
-<script>/*$('.loadresultpopup').removeClass('loadresultpopup');*/</script>
