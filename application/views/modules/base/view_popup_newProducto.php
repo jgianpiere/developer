@@ -100,16 +100,16 @@
 
 <script>
     (function(){
-      var @$ = jQuery.sub();
+      var popup$ = jQuery.sub();
 
-        @$('#form_popup_newProveedor').on('submit',function(e){ $$ = this; $this = $(this);
-            @$.ajax({
+        popup$('#form_popup_newProveedor').on('submit',function(e){ $$ = this; $this = $(this);
+            popup$.ajax({
                 type    : 'POST',
                 data    : $this.serialize(),
                 url     : "<?=site_url('newProductoxpopup');?>",
                 success : function(data){
                     try{
-                        $data = $.parseJSON(data);
+                        $data = popup$.parseJSON(data);
                         if($data[0]!='ERROR' && $data[0]!='00'){
                             if($data[0]=='OK'){
                                 alert($data[2]);
