@@ -22,8 +22,8 @@
 
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-lg-6">Nombre:</label>
-                                            <label class="control-label col-lg-6">Apellidos:</label>
+                                            <label class="control-label col-lg-6 text-left">Nombre:</label>
+                                            <label class="control-label col-lg-6 text-left">Apellidos:</label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="popup_agre_pro_nombre" name="popup_agre_pro_nombre" placeholder="Nombres" validate="alpha" required>
                                             </div>
@@ -90,7 +90,43 @@
                             </div>
             <!-- <img src="//placehold.it/1000x600" class="img-responsive"> -->
         </div>
-    
 
+<script>
+    $.noConflict();
+    jQuery(document).ready(function($){
+      // Code that uses jQuery's $ can follow here.
+    });
+</script>
+
+<script>
+    (function(){
+      var @$ = jQuery.sub();
+
+        @$('#form_popup_newProveedor').on('submit',function(e){ $$ = this; $this = $(this);
+            @$.ajax({
+                type    : 'POST',
+                data    : $this.serialize(),
+                url     : "<?=site_url('newProductoxpopup');?>",
+                success : function(data){
+                    try{
+                        $data = $.parseJSON(data);
+                        if($data[0]!='ERROR' && $data[0]!='00'){
+                            if($data[0]=='OK'){
+                                alert($data[2]);
+                            }
+                        }else{
+                            alert($data[2]);
+                        }
+                    }catch(e){
+                        console.log('error: '+e);
+                    }
+                },
+                error   : function(){
+
+                }
+            });
+        });
+    })();
+</script>
 
 <script>/*$('.loadresultpopup').removeClass('loadresultpopup');*/</script>

@@ -390,6 +390,11 @@ class cBase extends MY_Controller {
     }
 
 
+    public function newProducto_popup(){
+        echo json_encode(array('OK','00','se grabo OK'));
+    }
+
+
 }
 
 /* End of file SHOPPINGandEXPENSES/Gastos.php */
