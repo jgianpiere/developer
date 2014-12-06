@@ -95,7 +95,7 @@
     (function(){
       var popup$ = jQuery.sub();
 
-        popup$('#form_popup_newProveedor').on('submit',function(e){ $$ = this; $this = $(this);
+        popup$('#form_popup_newProveedor').on('submit',function(e){ $$ = this; $this = $(this); e.preventDefault();
             popup$.ajax({
                 type    : 'POST',
                 data    : $this.serialize(),
