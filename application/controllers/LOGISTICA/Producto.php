@@ -10,6 +10,8 @@ class Producto extends MY_Controller {
         $this->load->helper('security');
         $this->load->model('LOGISTICA/m_Logistica');
 
+        $this->profile = $this->session->userdata('usr_prf_tokn');
+
         # template
         $this->load->library('HTMLCompact/HTMLTemplate');
 
