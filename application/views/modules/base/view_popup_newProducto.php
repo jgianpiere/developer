@@ -104,4 +104,4 @@
   </div>
 </div>
 
-<script>$('.loadresultpopup').removeClass('loadresultpopup');</script>
+<script>/*$('.loadresultpopup').removeClass('loadresultpopup');*/</script>
