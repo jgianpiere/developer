@@ -1,7 +1,7 @@
 
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-            <h4 class="modal-title">Nuevo Producto</h4>
+            <h4 class="modal-title">Nuevo Proveedor</h4>
         </div>
         <div class="modal-body">
             <div class="content">
@@ -106,7 +106,7 @@
             popup$.ajax({
                 type    : 'POST',
                 data    : $this.serialize(),
-                url     : "<?=site_url('newProductoxpopup');?>",
+                url     : "<?=site_url('newProveedorxpopup');?>",
                 success : function(data){
                     try{
                         $data = popup$.parseJSON(data);

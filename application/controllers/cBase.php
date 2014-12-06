@@ -381,9 +381,9 @@ class cBase extends MY_Controller {
      * @todo  : Formulario Nuevo Producto. 
      * 
      */
-    public function PopupProducto_Nuevo(){
+    public function PopupProveedor_Nuevo(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST'):
-            $this->load->view('modules/base/view_popup_newProducto');
+            $this->load->view('modules/base/view_popup_newProveedor');
         else: return 'hidden';
             show_404();
         endif;

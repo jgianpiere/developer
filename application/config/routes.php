@@ -216,8 +216,8 @@ $route['ListarPrecioProductos']     = 'cBase/BuscarPrecioProductos';
 $route['BuscarProveedores/(:num)']  = 'cBase/BuscarProveedores/$1';
 $route['BuscarPersona/(:num)']      = 'cBase/BuscarPersonas/$1';
 $route['BuscarAlmacen/(:num)']      = 'cBase/BuscarAlmacenes/$1';
-$route['PopupNuevoProducto']        = 'cBase/PopupProducto_Nuevo/$1';
-$route['newProductoxpopup']         = 'cBase/newProducto_popup/$1';
+$route['PopupNuevoProducto']        = 'cBase/PopupProveedor_Nuevo/$1';
+$route['newProveedorxpopup']        = 'cBase/newProducto_popup/$1';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
