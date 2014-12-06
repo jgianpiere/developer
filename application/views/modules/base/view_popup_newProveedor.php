@@ -92,13 +92,6 @@
         </div>
 
 <script>
-    $.noConflict();
-    jQuery(document).ready(function($){
-      // Code that uses jQuery's $ can follow here.
-    });
-</script>
-
-<script>
     (function(){
       var popup$ = jQuery.sub();
 
@@ -126,7 +119,7 @@
                 }
             });
         });
-    })();
+    })(jQuery);
 </script>
 
 <script>/*$('.loadresultpopup').removeClass('loadresultpopup');*/</script>

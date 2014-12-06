@@ -1,5 +1,5 @@
 <script>
-	function centerModal() {
+	function centerModal(){
 	    $(this).css('display', 'block');
 	    var $dialog = $(this).find(".modal-dialog");
 	    var offset = ($(window).height() - $dialog.height()) / 2;
@@ -20,7 +20,7 @@
 		if($('.loadresultpopup').length > 0){
 			$.ajax({
 				type 	: 'POST',
-				url 	: "<?=site_url('PopupNuevoProducto');?>",
+				url 	: "<?=site_url('PopupNuevoProveedor');?>",
 				success : function(data){
 					$('.loadresultpopup').html(data).removeClass('loadresultpopup');
 				},
