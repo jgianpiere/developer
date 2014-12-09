@@ -168,12 +168,27 @@ class Producto extends MY_Controller {
     *   @todo       : Buscar Landing
     *   @author     : Gianpiere Ramos Bernuy. 
     */
-    public function Buscar_Landing(){}
+    public function Buscar_Landing(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'):
+            # RutaGuia
+            $rutas =   array($this->rutapadre,array('title'=>'Producto','route'=>site_url('Compras#/Producto')));
+            $RutaGuia = $this->htmltemplate->HTML_RutaGuia($rutas,'Agregar Producto');
+            $this->RutaGuia = $RutaGuia;
+
+            $this->load->view('modules/LOGISTICA/view_Producto_Buscar_landing.php');
+        elseif($_SERVER['REQUEST_METHOD'] == 'GET'):
+            redirect(base_url('Compras#/Producto/Buscar'));
+
+        endif;
+        
+    }
 
     /**
     *   @todo       : Producto Buscar
     *   @author     : Gianpiere Ramos Bernuy. 
     */
-    public function Producto_Buscar(){}
+    public function Producto_Buscar(){
+        
+    }
 
 }
