@@ -89,3 +89,72 @@
         });
     })(jQuery);
         </script>
+
+
+
+
+<script>
+    (function(){
+        // validar tipo documento x formato.
+        $('[data-tipodoc]').on('change',function(){ $id = this.id; $$ = $(this);
+            $input = $$.attr('data-for');
+            $dataopt = $('#'+$id+' option[value="'+$$.val()+'"]');
+
+            var maxdig = $($dataopt).attr('max-dig');
+            var format = $($dataopt).attr('data-format');
+
+            maxdig!== undefined && maxdig!= '' ? $($input).attr('maxlength',maxdig).val('') : $($input).removeAttr('maxlength').val('');
+            
+            $($input).attr('placeholder','EJM: '+format.replace('?','A'));
+            $($input).off('keypress').on('keypress',function(e){
+                $inp = $(this);
+                
+                $especiales = [8,9,35,36,37,39,46];
+                if(jQuery.inArray(e.keyCode,$especiales) > -1){
+                    return true;
+                }
+
+                if(maxdig===undefined||maxdig==''){}else if(maxdig <= $inp.val().length){return false;}
+
+                // Patrones de comparacion 
+                letrasynumeros  = /[a-zA-Z0-9]/;
+                letras          = /[a-zA-Z]/;
+                numeros         = /[0-9]/;
+
+                if(format == '*' || format == '' || format == undefined){return true;}else 
+                if((format == '*?0' || format == '*0?') && (letrasynumeros.test(e.key)) ){return true;}else 
+                if(format == '*00' && (numeros.test(e.key)) ){return true;}else 
+                if(format == '*??' && (letras.test(e.key)) ){return true;}else
+                if(format == '*??' || format == '*00' || format == '*?0' || format == '*0?' || format == '*'){
+                    return false;
+                }
+
+                if(parseInt(e.key)>=0 && format.substr($inp.val().length,1) == '0'){
+                    return true;
+                }else if(parseInt(e.key)>=0 && format.substr($inp.val().length,1) == '?'){
+                    return false;
+                }else if(format.substr($inp.val().length,1) != '?' && format.substr($inp.val().length,1) != '0'){                    
+                    console.log('es especial');
+                }else if(format.substr($inp.val().length,1) == '?'){
+                    return true;
+                }else{
+                    return false;
+                }
+
+            });
+
+        });
+
+        $('[data-tipodoc]').trigger('change');
+
+
+        // validar opcion RUC.
+        $('#agre_pro_TipoDocume').on('change',function(){ $$ = this; $this = $(this);
+            if($this.val() == 3){
+                $('#agre_pro_apellido').val('').attr('readonly','true').removeAttr('required');
+            }else{
+                $('#agre_pro_apellido').removeAttr('readonly','true').attr('required','true');
+            }
+        });
+    })(jQuery);
+</script>
