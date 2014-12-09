@@ -15,7 +15,7 @@
                             <!-- Formulario -->
                             <div class="content">
                                 <div class="row">
-                                    <form class="form-horizontal" style="padding:7px 7px 7px 7px;margin-top:30px;" id="form_buscar_proveedores" name="form_buscar_proveedores">
+                                    <form class="form-horizontal" style="padding:7px 7px 7px 7px;margin-top:30px;" id="form_buscar_productos" name="form_buscar_productos">
                                         <div class="form-group">
                                             <label class="control-label col-xs-12 col-sm-4 col-md-3 col-lg-2 mtop-7">Buscar Por :</label>
                                             <div class="col-xs-12 col-sm-10 col-md-3 col-lg-2 mtop-7">
@@ -62,12 +62,12 @@
             })('lupasubmit',jQuery);
 
             (function(){
-        $('form#form_buscar_proveedores').on('submit',function(e){ $$ = this; $this = $(this); $form = $this;
+        $('form#form_buscar_productos').on('submit',function(e){ $$ = this; $this = $(this); $form = $this;
             e.preventDefault();
             $.ajax({
                 type        : 'POST',
                 data        : $form.serialize(),
-                url         : "<?=site_url('Compras/Proveedor/Buscar/buscar');?>",
+                url         : "<?=site_url('Compras/Producto/Buscar/buscar');?>",
                 success     : function(data){
                     try{
                         $data = $.parseJSON(data);
