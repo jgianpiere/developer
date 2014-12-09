@@ -19,13 +19,13 @@
                                         <div class="form-group">
                                             <label class="control-label col-xs-12 col-sm-4 col-md-3 col-lg-2 mtop-7">Buscar Por :</label>
                                             <div class="col-xs-12 col-sm-10 col-md-3 col-lg-2 mtop-7">
-                                                <select data-tipodoc="" class="form-control" id="proveedorBusPor" name="proveedorBusPor">
+                                                <select data-tipodoc="" class="form-control" id="proveedorBusPor" name="proveedorBusPor" data-for="#buscar_producto_valor">
                                                     <?=isset($this->TiposDocumento) ? $this->TiposDocumento : '<option value="0"> - </option>';?>
                                                 </select>
                                             </div>
 
                                             <div class="col-xs-10 col-sm-10 col-md-5 col-lg-7 mtop-7">
-                                                <input type="text" class="form-control" id="proveedorBusValor" name="proveedorBusValor" placeholder="Buscar.." required>
+                                                <input type="text" class="form-control" id="buscar_producto_valor" name="buscar_producto_valor" placeholder="Buscar.." required>
                                             </div>
                                             
                                             <a data-type="submit" class="btn btn-search control-label col-xs-1 mtop-7"></a>
