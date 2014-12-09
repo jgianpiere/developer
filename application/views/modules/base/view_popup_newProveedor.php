@@ -119,5 +119,131 @@
                 }
             });
         });
+
+
+
+
+
+
+
+
+        // Recargar Departamentos 
+        popup$('[data-departamentoslist]').on('change',function(){ 
+            $$ = popup$(this);
+
+            $provincias = $$.attr('data-provinciasid');
+            $distritos  = $$.attr('data-distritosid');
+
+            popup$($distritos).html('').attr('disabled','disabled');
+
+            $data = popup$($provincias).data($$.val());
+            if($data != undefined){
+                popup$($provincias).html($data).removeAttr('disabled');
+            }else if($$.val() > 0){
+                popup$.ajax({
+                    type    :  'POST',
+                    data    : "departamento="+$$.val(),
+                    url     : "<?= site_url('ListarProvincias');?>",
+                    success : function(data){
+                        popup$($provincias).data($$.val(),data).html(data).removeAttr('disabled');
+                    },
+                    error   : function(){
+
+                    }
+                })
+            }else{
+                popup$($provincias).html('').attr('disabled','disabled');
+            }
+        });
+
+        // Reargar Provincias
+        popup$('[data-provinciaslist]').on('change',function(){ $$ = popup$(this);
+            $distritos = $$.attr('data-distritosid');
+            $data = popup$($distritos).data($$.val());
+            if($data !=undefined){
+                popup$($distritos).html($data).removeAttr('disabled');
+            }else if($$.val()>0){
+                popup$.ajax({
+                    type    : 'POST',
+                    data    : "provincia="+$$.val(),
+                    url     : "<?=site_url('ListarDistritos')?>",
+                    success : function(data){
+                        popup$($distritos).data($$.val(),data).html(data).removeAttr('disabled');  
+                    },
+                    error   : function(){
+
+                    }
+                });
+            }else{
+                popup$($distritos).html('').attr('disabled','disabled');
+            }
+        });
+
+        // validar tipo documento x formato.
+        popup$('[data-tipodoc]').on('change',function(){ $id = this.id; $$ = popup$(this);
+            $input = $$.attr('data-for');
+            $dataopt = popup$('#'+$id+' option[value="'+$$.val()+'"]');
+
+            var maxdig = popup$($dataopt).attr('max-dig');
+            var format = popup$($dataopt).attr('data-format');
+
+            maxdig!== undefined && maxdig!= '' ? popup$($input).attr('maxlength',maxdig).val('') : popup$($input).removeAttr('maxlength').val('');
+            
+            popup$($input).attr('placeholder','EJM: '+format.replace('?','A'));
+            popup$($input).off('keypress').on('keypress',function(e){
+                $inp = popup$(this);
+                
+                $especiales = [8,9,35,36,37,39,46];
+                if(jQuery.inArray(e.keyCode,$especiales) > -1){
+                    return true;
+                }
+
+                if(maxdig===undefined||maxdig==''){}else if(maxdig <= $inp.val().length){return false;}
+
+                // Patrones de comparacion 
+                letrasynumeros  = /[a-zA-Z0-9]/;
+                letras          = /[a-zA-Z]/;
+                numeros         = /[0-9]/;
+
+                if(format == '*' || format == '' || format == undefined){return true;}else 
+                if((format == '*?0' || format == '*0?') && (letrasynumeros.test(e.key)) ){return true;}else 
+                if(format == '*00' && (numeros.test(e.key)) ){return true;}else 
+                if(format == '*??' && (letras.test(e.key)) ){return true;}else
+                if(format == '*??' || format == '*00' || format == '*?0' || format == '*0?' || format == '*'){
+                    return false;
+                }
+
+                if(parseInt(e.key)>=0 && format.substr($inp.val().length,1) == '0'){
+                    return true;
+                }else if(parseInt(e.key)>=0 && format.substr($inp.val().length,1) == '?'){
+                    return false;
+                }else if(format.substr($inp.val().length,1) != '?' && format.substr($inp.val().length,1) != '0'){                    
+                    console.log('es especial');
+                }else if(format.substr($inp.val().length,1) == '?'){
+                    return true;
+                }else{
+                    return false;
+                }
+
+            });
+
+        });
+
+        popup$('[data-tipodoc]').trigger('change');
+
+
+        // validar opcion RUC.
+        popup$('#agre_pro_TipoDocume').on('change',function(){ $$ = this; $this = popup$(this);
+            if($this.val() == 3){
+                popup$('#agre_pro_apellido').val('').attr('readonly','true').removeAttr('required');
+            }else{
+                popup$('#agre_pro_apellido').removeAttr('readonly','true').attr('required','true');
+            }
+        });
+
+
+
+
+        
     })(jQuery);
 </script>

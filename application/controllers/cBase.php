@@ -387,7 +387,7 @@ class cBase extends MY_Controller {
             $Departamentos = $this->mBase->Query_Departamentos_GET();
             if(!empty($Departamentos)):
                 $this->load->library('HTMLCompact/HTMLTemplate');
-                $this->Departamentos_01 = $this->htmltemplate->HTML_ResultSelectUbigeo($Departamentos);
+                $this->Departamentos = $this->htmltemplate->HTML_ResultSelectUbigeo($Departamentos);
             endif;
 
             #Cargar Tipos Documento

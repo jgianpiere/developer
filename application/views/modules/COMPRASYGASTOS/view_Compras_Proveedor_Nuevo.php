@@ -146,7 +146,7 @@
                 }
             });
 
-            // Recargar Departamentos 
+        // Recargar Departamentos 
         $('[data-departamentoslist]').on('change',function(){ 
             $$ = $(this);
 
