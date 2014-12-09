@@ -120,78 +120,76 @@
             });
         });
 
+    })(jQuery);
+</script>
 
-
-
-
-
-
-
+<script>
+    (function(){
         // Recargar Departamentos 
-        popup$('[data-departamentoslist]').on('change',function(){ 
-            $$ = popup$(this);
+        $('[data-departamentoslist]').on('change',function(){ 
+            $$ = $(this);
 
             $provincias = $$.attr('data-provinciasid');
             $distritos  = $$.attr('data-distritosid');
 
-            popup$($distritos).html('').attr('disabled','disabled');
+            $($distritos).html('').attr('disabled','disabled');
 
-            $data = popup$($provincias).data($$.val());
+            $data = $($provincias).data($$.val());
             if($data != undefined){
-                popup$($provincias).html($data).removeAttr('disabled');
+                $($provincias).html($data).removeAttr('disabled');
             }else if($$.val() > 0){
-                popup$.ajax({
+                $.ajax({
                     type    :  'POST',
                     data    : "departamento="+$$.val(),
                     url     : "<?= site_url('ListarProvincias');?>",
                     success : function(data){
-                        popup$($provincias).data($$.val(),data).html(data).removeAttr('disabled');
+                        $($provincias).data($$.val(),data).html(data).removeAttr('disabled');
                     },
                     error   : function(){
 
                     }
                 })
             }else{
-                popup$($provincias).html('').attr('disabled','disabled');
+                $($provincias).html('').attr('disabled','disabled');
             }
         });
 
         // Reargar Provincias
-        popup$('[data-provinciaslist]').on('change',function(){ $$ = popup$(this);
+        $('[data-provinciaslist]').on('change',function(){ $$ = $(this);
             $distritos = $$.attr('data-distritosid');
-            $data = popup$($distritos).data($$.val());
+            $data = $($distritos).data($$.val());
             if($data !=undefined){
-                popup$($distritos).html($data).removeAttr('disabled');
+                $($distritos).html($data).removeAttr('disabled');
             }else if($$.val()>0){
-                popup$.ajax({
+                $.ajax({
                     type    : 'POST',
                     data    : "provincia="+$$.val(),
                     url     : "<?=site_url('ListarDistritos')?>",
                     success : function(data){
-                        popup$($distritos).data($$.val(),data).html(data).removeAttr('disabled');  
+                        $($distritos).data($$.val(),data).html(data).removeAttr('disabled');  
                     },
                     error   : function(){
 
                     }
                 });
             }else{
-                popup$($distritos).html('').attr('disabled','disabled');
+                $($distritos).html('').attr('disabled','disabled');
             }
         });
 
         // validar tipo documento x formato.
-        popup$('[data-tipodoc]').on('change',function(){ $id = this.id; $$ = popup$(this);
+        $('[data-tipodoc]').on('change',function(){ $id = this.id; $$ = $(this);
             $input = $$.attr('data-for');
-            $dataopt = popup$('#'+$id+' option[value="'+$$.val()+'"]');
+            $dataopt = $('#'+$id+' option[value="'+$$.val()+'"]');
 
-            var maxdig = popup$($dataopt).attr('max-dig');
-            var format = popup$($dataopt).attr('data-format');
+            var maxdig = $($dataopt).attr('max-dig');
+            var format = $($dataopt).attr('data-format');
 
-            maxdig!== undefined && maxdig!= '' ? popup$($input).attr('maxlength',maxdig).val('') : popup$($input).removeAttr('maxlength').val('');
+            maxdig!== undefined && maxdig!= '' ? $($input).attr('maxlength',maxdig).val('') : $($input).removeAttr('maxlength').val('');
             
-            popup$($input).attr('placeholder','EJM: '+format.replace('?','A'));
-            popup$($input).off('keypress').on('keypress',function(e){
-                $inp = popup$(this);
+            $($input).attr('placeholder','EJM: '+format.replace('?','A'));
+            $($input).off('keypress').on('keypress',function(e){
+                $inp = $(this);
                 
                 $especiales = [8,9,35,36,37,39,46];
                 if(jQuery.inArray(e.keyCode,$especiales) > -1){
@@ -229,21 +227,16 @@
 
         });
 
-        popup$('[data-tipodoc]').trigger('change');
+        $('[data-tipodoc]').trigger('change');
 
 
         // validar opcion RUC.
-        popup$('#agre_pro_TipoDocume').on('change',function(){ $$ = this; $this = popup$(this);
+        $('#agre_pro_TipoDocume').on('change',function(){ $$ = this; $this = $(this);
             if($this.val() == 3){
-                popup$('#agre_pro_apellido').val('').attr('readonly','true').removeAttr('required');
+                $('#agre_pro_apellido').val('').attr('readonly','true').removeAttr('required');
             }else{
-                popup$('#agre_pro_apellido').removeAttr('readonly','true').attr('required','true');
+                $('#agre_pro_apellido').removeAttr('readonly','true').attr('required','true');
             }
         });
-
-
-
-
-        
     })(jQuery);
 </script>
