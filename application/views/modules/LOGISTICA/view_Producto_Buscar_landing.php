@@ -105,7 +105,7 @@
 
             maxdig!== undefined && maxdig!= '' ? $($input).attr('maxlength',maxdig).val('') : $($input).removeAttr('maxlength').val('');
             
-            $($input).attr('placeholder','EJM: '+format.replace('?','A'));
+            $($input).attr('placeholder','EJM: '+format.replace('?','A').replace('?','B').replace('?','C'));
             $($input).off('keypress').on('keypress',function(e){
                 $inp = $(this);
                 
