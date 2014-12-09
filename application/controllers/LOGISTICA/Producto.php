@@ -61,8 +61,8 @@ class Producto extends MY_Controller {
     */
     public function Nuevo_Landing(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST'):
-            /*
-            #Cargar Departamentos
+            
+            /*#Cargar Departamentos
             $Departamentos = $this->mBase->Query_Departamentos_GET();
             if(!empty($Departamentos)):
                 $this->load->library('HTMLCompact/HTMLTemplate');
@@ -73,8 +73,7 @@ class Producto extends MY_Controller {
             $TiposDocumento = $this->mBase->Query_TiposDocumento_GET();
             if(!empty($TiposDocumento)):
                 $this->TiposDocumento = $this->htmltemplate->HTML_ResultSelectTiposDocumento($TiposDocumento);
-            endif;
-            */
+            endif;*/
            
            #Listar Clasificacion uno 1
            $clasificacion1_padres   = $this->mBase->Query_Listar_Clasificacion1_Padres();
@@ -170,9 +169,16 @@ class Producto extends MY_Controller {
     */
     public function Buscar_Landing(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST'):
+
+            #Cargar Tipos Documento
+            $TiposDocumento = $this->mBase->Query_TiposDocumento_GET();
+            if(!empty($TiposDocumento)):
+                $this->TiposDocumento = $this->htmltemplate->HTML_ResultSelectTiposDocumento($TiposDocumento);
+            endif;
+
             # RutaGuia
             $rutas =   array($this->rutapadre,array('title'=>'Producto','route'=>site_url('Compras#/Producto')));
-            $RutaGuia = $this->htmltemplate->HTML_RutaGuia($rutas,'Agregar Producto');
+            $RutaGuia = $this->htmltemplate->HTML_RutaGuia($rutas,'Buscar Producto');
             $this->RutaGuia = $RutaGuia;
 
             $this->load->view('modules/LOGISTICA/view_Producto_Buscar_landing.php');
