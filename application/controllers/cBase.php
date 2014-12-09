@@ -383,6 +383,19 @@ class cBase extends MY_Controller {
      */
     public function PopupProveedor_Nuevo(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST'):
+            #Cargar Departamentos
+            $Departamentos = $this->mBase->Query_Departamentos_GET();
+            if(!empty($Departamentos)):
+                $this->load->library('HTMLCompact/HTMLTemplate');
+                $this->Departamentos_01 = $this->htmltemplate->HTML_ResultSelectUbigeo($Departamentos);
+            endif;
+
+            #Cargar Tipos Documento
+            $TiposDocumento = $this->mBase->Query_TiposDocumento_GET();
+            if(!empty($TiposDocumento)):
+                $this->TiposDocumento = $this->htmltemplate->HTML_ResultSelectTiposDocumento($TiposDocumento);
+            endif;
+
             $this->load->view('modules/base/view_popup_newProveedor');
         else: return 'hidden';
             show_404();
