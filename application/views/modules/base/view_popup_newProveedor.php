@@ -239,3 +239,9 @@
             <!-- <img src="//placehold.it/1000x600" class="img-responsive"> -->
         </div>
 
+<script>
+    alert(0);
+    (function(){
+        alert(1);
+    })(jQuery);
+</script>
