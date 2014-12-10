@@ -59,7 +59,7 @@ class HTMLTemplate{
         $HTML .=                $menu_2;
         $HTML .= '            </ul>';
         $HTML .= '          </li>';
-        $HTML .= '          <li class="active end hidden-xs col-sm-pull-1"><a href="javascript:void(0);">'.$tmp_active.'</a></li>';
+        $HTML .= '          <li class="active end hidden-xs col-sm-pull-1"><a  apointer >'.$tmp_active.'</a></li>';
         $HTML .= '        </ul>';
             endif;
         $HTML .= '    </div>';
@@ -233,7 +233,7 @@ class HTMLTemplate{
                 $HTML .= '    <span title="'.$fill[4].'" onclick="javascript:alert('."'".$fill[4]."'".');" data-id="12" class="col-lg-3 col-md-12" style="padding:2px;">'.(strlen($fill[0])>22 ? substr($fill[0], 0,20).'..' : $fill[0]).'</span>';
                 $HTML .= '    <span class="col-lg-1 col-md-12" style="padding:2px;">'.$fill[5].'</span>';
                 $HTML .= '    <span class="col-lg-1 col-md-12" style="padding:2px;">'.$fill[6].'</span>';
-                $HTML .= '    <span class="col-lg-1 col-md-12" style="padding:2px;"><a href="javascript:void(0);" class="btn-menos row-menos" data-id="'.$fill[0].'"></a></span>';
+                $HTML .= '    <span class="col-lg-1 col-md-12" style="padding:2px;"><a  apointer  class="btn-menos row-menos" data-id="'.$fill[0].'"></a></span>';
                 $HTML .= '</div>';
             endforeach;
         endif;

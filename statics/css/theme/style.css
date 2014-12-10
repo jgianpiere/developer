@@ -301,3 +301,7 @@ html,body,*{
 input{
     text-transform: uppercase;
 }
+
+[apointer]{
+    cursor: pointer;
+}

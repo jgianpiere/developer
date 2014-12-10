@@ -343,7 +343,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="row tab-pane-title col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom:30px;">Contratos &nbsp;<a href="javascript:void(0);" class="btn-mas" id="btn-additem-contratos"></a></div>
+                                        <div class="row tab-pane-title col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom:30px;">Contratos &nbsp;<a  apointer  class="btn-mas" id="btn-additem-contratos"></a></div>
                                         
                                         <div style="padding:4px;" id="datos_contratos" class="row">
                                             <div style="margin:4px;border:1px solid silver;">
@@ -418,7 +418,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row tab-pane-title col-xs-12 col-sm-12 col-md-12 col-lg-12" >Estudios &nbsp;<a href="javascript:void(0);" class="btn-mas" id="btn-additem-cursos"></a></div>
+                                    <div class="row tab-pane-title col-xs-12 col-sm-12 col-md-12 col-lg-12" >Estudios &nbsp;<a  apointer  class="btn-mas" id="btn-additem-cursos"></a></div>
                                     
                                     <div style="padding:4px;" id="datos_estudios" class="row">
                                         <div style="margin:4px;border:1px solid silver;">
@@ -503,7 +503,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row tab-pane-title col-xs-12 col-sm-12 col-md-12 col-lg-12"> Datos de hijos  &nbsp; <a id="btn-additem-hijo" class="btn-mas" href="javascript:void(0);"></a>  <!-- &nbsp;&nbsp; <a id="btn-additem" class="btn-menos" href="#"></a> --></div>
+                                    <div class="row tab-pane-title col-xs-12 col-sm-12 col-md-12 col-lg-12"> Datos de hijos  &nbsp; <a id="btn-additem-hijo" class="btn-mas"  apointer ></a>  <!-- &nbsp;&nbsp; <a id="btn-additem" class="btn-menos" href="#"></a> --></div>
 
                                     <div class="row" id="datos_hijos" style="padding:4px;">
                                         <div style="margin:4px;border:1px solid silver;">
@@ -1191,7 +1191,7 @@
             html += '<div class="bg-fancy" align="center">';
             html += '    <div style="width: 640px; position: absolute; top: 90px; z-index:1002;" id="modal" class="uidragrable">';
             html += '        <div id="modal-box">';
-            html += '            <a href="javascript:void(0);" id="modal-x" onclick="javascript:_deletePopup();">x</a>';
+            html += '            <a  apointer  id="modal-x" onclick="javascript:_deletePopup();">x</a>';
             html += '            <h2 id="modal-title">'+$title+'</h2>';
             html += '            <div id="modal-content" style="height: auto;">';
             html += '                <div>';
@@ -1311,7 +1311,7 @@
         $html += '    <span style="padding:2px;" class="col-lg-3 col-md-12" data-id="'+$data[3].value+'" onclick="javascript:alert('+"'"+$cargo3desc+"'"+');" title="'+$cargo3desc+'">'+($cargo3desc.length > 20 ? $cargo3desc.substr(0,20)+'..' : $cargo3desc) +'</span>';
         $html += '    <span style="padding:2px;" class="col-lg-1 col-md-12">'+$data[4].value+'</span>';
         $html += '    <span style="padding:2px;" class="col-lg-1 col-md-12">'+$data[5].value+'</span>';
-        $html += '    <span style="padding:2px;" class="col-lg-1 col-md-12"><a class="btn-menos row-menos" href="javascript:void(0);"></a></span>    ';
+        $html += '    <span style="padding:2px;" class="col-lg-1 col-md-12"><a class="btn-menos row-menos"  apointer ></a></span>    ';
         $html += '</div>';
 
         return $html;
@@ -1400,7 +1400,7 @@
         $html += '    <span style="padding:2px;" class="col-lg-5 col-md-12">'+$data[0].value+'</span>';
         $html += '    <span style="padding:2px;" class="col-lg-3 col-md-12">'+$data[1].value+'</span>';
         $html += '    <span style="padding:2px;" class="col-lg-3 col-md-12">'+$data[2].value+'</span>';
-        $html += '    <span style="padding:2px;" class="col-lg-1 col-md-12"><a class="btn-menos row-menos" href="javascript:void(0);"></a></span>    ';
+        $html += '    <span style="padding:2px;" class="col-lg-1 col-md-12"><a class="btn-menos row-menos"  apointer ></a></span>    ';
         $html += '</div>';
 
         return $html;
@@ -1497,7 +1497,7 @@
         $html += '    <span style="padding:2px;" class="col-lg-2 col-md-12">'+$data[2].value+'</span>';
         $html += '    <span style="padding:2px;" class="col-lg-2 col-md-12">'+$data[3].value+'</span>';
         $html += '    <span style="padding:2px;" class="col-lg-1 col-md-12" onclick="javascript:alert('+"'"+$data[4].value+"'"+')" title="'+$data[4].value+'">obs</span>    ';
-        $html += '    <span style="padding:2px;" class="col-lg-1 col-md-12"><a class="btn-menos row-menos" href="javascript:void(0);"></a></span>    ';
+        $html += '    <span style="padding:2px;" class="col-lg-1 col-md-12"><a class="btn-menos row-menos"  apointer ></a></span>    ';
         $html += '</div>';
 
         return $html;
