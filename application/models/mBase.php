@@ -421,6 +421,23 @@ class mBase extends MY_Model{
     public function Query_buscar_almacen($Params){
         return false;
         // return json_encode(array('01','CODIGO1','DESCRIPCION1'),array('02','CODIGO2','DESCRIPCION2'),array('03','CODIGO3','DESCRIPCION3'))
-    } 
+    }
+
+
+    /**
+     * @param   : @valor varchar(50)
+     * @param   : @medio int
+     * @return  : id_almacen.
+     * @return  : Codigo almace.
+     * @return  : Descripcion Almacen
+     */
+    public function Query_Listar_Almacenes_Resumido($Params){
+        $sql = "SP_Listar_Almacenes_Resumido";
+        $QueryRpt = $this->db->query($sql);
+        $Resultado = $QueryRpt->result_array();
+        $this->db->close();
+        $Results = $this->QueryResult($Resultado);
+        return $Results;
+    }
 
 }

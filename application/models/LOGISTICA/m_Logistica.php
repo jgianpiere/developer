@@ -296,5 +296,25 @@ class m_Logistica extends MY_Model{
         return $Results;
     }
 
+    /**
+     * @todo        : Buscar Producto 
+     * @param       : @valor varchar(50)
+     * @param       : @medio int (1:codigo , 2:valor)
+     * @return      : ID_PRodcuto
+     * @return      : Codigo
+     * @return      : Codigo de Claro
+     * @return      : Descripcion
+     */
+    public function Query_Buscar_Productos($Params){
+        $sql = "SP_Buscar_Productos ?,?";
+        $QueryRpt = $this->db->query($sql,$Params);
+        $Resultado = $QueryRpt->row_array();
+        $this->db->close();
+        $Results = $this->QueryRows($Resultado);
+        return $Results;
+    }
+
+
+
 
 }
