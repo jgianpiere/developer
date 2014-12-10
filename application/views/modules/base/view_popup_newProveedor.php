@@ -11,7 +11,7 @@
                                             <label class="control-label col-lg-6 col-md-1  text-left">Tip. Doc. :</label>
                                             <label class="control-label col-lg-6 col-md-1  text-left">Num. Doc. :</label>
                                             <div class="col-lg-6">
-                                                <select data-tipodoc="" data-for="#popup_agre_pro_DNI" class="form-control" id="agre_pro_TipoDocume" name="agre_pro_TipoDocume" >
+                                                <select data-tipodoc="" data-for="#popup_agre_pro_DNI" class="form-control" id="popup_agre_pro_TipoDocume" name="popup_agre_pro_TipoDocume" >
                                                     <?=isset($this->TiposDocumento) ? $this->TiposDocumento : '<option value="0"> - </option>';?>
                                                 </select>
                                             </div>
@@ -231,7 +231,7 @@
 
 
         // validar opcion RUC.
-        $('#agre_pro_TipoDocume').on('change',function(){ $$ = this; $this = $(this);
+        $('#popup_agre_pro_TipoDocume').on('change',function(){ $$ = this; $this = $(this);
             if($this.val() == 3){
                 $('#agre_pro_apellido').val('').attr('readonly','true').removeAttr('required');
             }else{
