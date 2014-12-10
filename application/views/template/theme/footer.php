@@ -22,8 +22,9 @@
 				type 	: 'POST',
 				url 	: "<?=site_url('PopupNuevoProveedor');?>",
 				success : function(data){
-					$('.loadresultpopup').html(data).removeClass('loadresultpopup');
-					$('.loadresultpopup').removeClass('loadresultpopup');
+					$('.loadresultpopup').html(data);
+					alert(0);
+					_reloadpopup();
 				},
 				error 	: function(){
 					console.log('error');
@@ -42,3 +43,9 @@
     </div>
   </div>
 </div>
+
+<script>
+	_reloadpopup = function(){
+		alert(9);
+	}
+</script>
