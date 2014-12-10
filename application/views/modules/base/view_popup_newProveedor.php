@@ -124,7 +124,7 @@
 </script>
 
 <script>
-    $(document).on('ready',function(){
+    (function(){
         // Recargar Departamentos 
         $('[data-departamentoslist]').on('change',function(){ 
             $$ = $(this);
@@ -238,5 +238,5 @@
                 $('#agre_pro_apellido').removeAttr('readonly','true').attr('required','true');
             }
         });
-    });
+    })(jQuery);
 </script>
