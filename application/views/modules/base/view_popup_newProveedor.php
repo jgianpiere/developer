@@ -1,15 +1,14 @@
 <script>
     (function(){
-      var popup$ = jQuery.sub();
 
-        popup$('#form_popup_newProveedor').on('submit',function(e){ $$ = this; $this = $(this); e.preventDefault();
-            popup$.ajax({
+        $('#form_popup_newProveedor').on('submit',function(e){ $$ = this; $this = $(this); e.preventDefault();
+            $.ajax({
                 type    : 'POST',
                 data    : $this.serialize(),
                 url     : "<?=site_url('newProveedorxpopup');?>",
                 success : function(data){
                     try{
-                        $data = popup$.parseJSON(data);
+                        $data = $.parseJSON(data);
                         if($data[0]!='ERROR' && $data[0]!='00'){
                             if($data[0]=='OK'){
                                 alert($data[2]);

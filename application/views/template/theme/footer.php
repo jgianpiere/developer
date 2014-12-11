@@ -15,8 +15,13 @@
 </script>
 
 <script>
+	_reloadpopup = function(){
+		alert(9);
+	}
+</script>
+
+<script>
 	function ajaxpopup_nuevoProducto(){
-		console.log($('.loadresultpopup').length);
 		if($('.loadresultpopup').length > 0){
 			$.ajax({
 				type 	: 'POST',
@@ -43,9 +48,3 @@
     </div>
   </div>
 </div>
-
-<script>
-	_reloadpopup = function(){
-		alert(9);
-	}
-</script>
