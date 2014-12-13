@@ -61,7 +61,7 @@
                 $.ajax({
                     type    : 'POST',
                     data    : $form.serialize(),
-                    url     : "<?=site_url('/Administracion/rrhh/Locales/Agregar');?>",
+                    url     : "<?=site_url('/Administracion/rrhh/Area/Agregar');?>",
                     success : function(data){
                         try{
                             $data = $.parseJSON(data);
