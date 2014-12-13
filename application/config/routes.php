@@ -201,6 +201,34 @@ $route[$SERVICIOS]                                                  = 'SERVICIOS
 $ADMINISTRACION = 'Administracion';
 
 $route[$ADMINISTRACION]                                                  = 'ADMINISTRACION/Administracion/inicio';
+$route[$ADMINISTRACION.'/rrhh/Locales']                                  = 'ADMINISTRACION/Administracion/Locales_landing';
+$route[$ADMINISTRACION.'/rrhh/Locales/Agregar']                          = 'ADMINISTRACION/Administracion/Locales_Agregar';
+
+$route[$ADMINISTRACION.'/rrhh/Afp']                                      = 'ADMINISTRACION/Administracion/Afp_landing';
+$route[$ADMINISTRACION.'/rrhh/Afp/Agregar']                              = 'ADMINISTRACION/Administracion/Afp_Agregar';
+
+$route[$ADMINISTRACION.'/rrhh/Area']                                     = 'ADMINISTRACION/Administracion/Area_landing';
+$route[$ADMINISTRACION.'/rrhh/Area/Agregar']                             = 'ADMINISTRACION/Administracion/Area_Agregar';
+
+$route[$ADMINISTRACION.'/rrhh/PuestoMintra']                             = 'ADMINISTRACION/Administracion/PuestoMintra_landing';
+$route[$ADMINISTRACION.'/rrhh/PuestoMintra/Agregar']                     = 'ADMINISTRACION/Administracion/PuestoMintra_Agregar';
+
+$route[$ADMINISTRACION.'/Compras/Proveedor']                             = 'ADMINISTRACION/Administracion/Proveedor_landing';
+$route[$ADMINISTRACION.'/Compras/Proveedor/Agregar']                     = 'ADMINISTRACION/Administracion/Proveedor_Agregar';
+
+$route[$ADMINISTRACION.'/Compras/Producto']                              = 'ADMINISTRACION/Administracion/Producto_landing';
+$route[$ADMINISTRACION.'/Compras/Producto/Agregar']                      = 'ADMINISTRACION/Administracion/Producto_Agregar';
+
+$route[$ADMINISTRACION.'/Compras/TipoDocumento']                         = 'ADMINISTRACION/Administracion/TipoDocumento_landing';
+$route[$ADMINISTRACION.'/Compras/TipoDocumento/Agregar']                 = 'ADMINISTRACION/Administracion/TipoDocumento_Agregar';
+
+$route[$ADMINISTRACION.'/Compras/MarcaProducto']                         = 'ADMINISTRACION/Administracion/MarcaProducto_landing';
+$route[$ADMINISTRACION.'/Compras/MarcaProducto/Agregar']                 = 'ADMINISTRACION/Administracion/MarcaProducto_Agregar';
+
+$route[$ADMINISTRACION.'/Inventario/Almacen']                            = 'ADMINISTRACION/Administracion/Almacen_landing';
+$route[$ADMINISTRACION.'/Inventario/Almacen/Agregar']                    = 'ADMINISTRACION/Administracion/Almacen_Agregar';
+
+
 
 
 ##########################################################################################################################################

@@ -51,6 +51,43 @@ class Administracion extends MY_Controller {
      
         // $this->load->library('rrhh/index'); 
 	}
+
+    public  function Locales_landing(){
+        $this->load->view('modules/Administracion/view_Administracion_rrhh_Locales_landing.php');
+    }
+
+    public  function Afp_landing(){
+        $this->load->view('modules/Administracion/view_Administracion_rrhh_Afp_landing.php');
+    }
+
+    public  function Area_landing(){
+        $this->load->view('modules/Administracion/view_Administracion_rrhh_Area_landing.php');
+    }
+
+    public  function PuestoMintra_landing(){
+        $this->load->view('modules/Administracion/view_Administracion_rrhh_PuestoMintra_landing.php');
+    }
+
+    public  function Proveedor_landing(){
+        $this->load->view('modules/Administracion/view_Administracion_Compras_Proveedor_landing.php');
+    }
+
+    public  function Producto_landing(){
+        $this->load->view('modules/Administracion/view_Administracion_Compras_Proveedor_landing.php');
+    }
+
+    public  function TipoDocumento_landing(){
+        $this->load->view('modules/Administracion/view_Administracion_Compras_TipoDocumento_landing.php');
+    }
+
+    public  function MarcaProducto_landing(){
+        $this->load->view('modules/Administracion/view_Administracion_Compras_MarcaProducto_landing.php');
+    }
+
+    public  function Almacen_landing(){
+        $this->load->view('modules/Administracion/view_Administracion_Inventario_Almacen_landing.php');
+    }
+
 }
 
 /* End of file SHOPPINGandEXPENSES/Gastos.php */
