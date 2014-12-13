@@ -73,7 +73,7 @@ class Administracion extends MY_Controller {
     }
 
     public  function Producto_landing(){
-        $this->load->view('modules/Administracion/view_Administracion_Compras_Proucto_landing.php');
+        $this->load->view('modules/Administracion/view_Administracion_Compras_Producto_landing.php');
     }
 
     public  function TipoDocumento_landing(){
