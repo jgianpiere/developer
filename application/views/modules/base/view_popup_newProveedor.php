@@ -239,8 +239,7 @@
         </div>
 
 <script>
-    alert(0);
     (function(){
-        alert(1);
+        
     })(jQuery);
 </script>

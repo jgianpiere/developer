@@ -228,9 +228,6 @@ $route[$ADMINISTRACION.'/Compras/MarcaProducto/Agregar']                 = 'ADMI
 $route[$ADMINISTRACION.'/Inventario/Almacen']                            = 'ADMINISTRACION/Administracion/Almacen_landing';
 $route[$ADMINISTRACION.'/Inventario/Almacen/Agregar']                    = 'ADMINISTRACION/Administracion/Almacen_Agregar';
 
-
-
-
 ##########################################################################################################################################
 # cBase
 
