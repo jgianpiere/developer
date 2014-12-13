@@ -231,10 +231,10 @@ if(!function_exists('menulateral'))
                             'Menu'      =>  'RRHH',
                             'submenu'   =>  array(
                                                 'routes'    =>  array(
-                                                                    'adm_sucursal',
-                                                                    'adm_afp',
-                                                                    'adm_area_empresa',
-                                                                    'adm_puesto_trabajo'
+                                                                    'Administracion/rrhh/Locales',
+                                                                    'Administracion/rrhh/Afp',
+                                                                    'Administracion/rrhh/Area',
+                                                                    'Administracion/rrhh/PuestoMintra'
                                                                 ),
                                                 'labels'    =>  array(
                                                                     'Locales',
@@ -248,10 +248,10 @@ if(!function_exists('menulateral'))
                             'Menu'      =>  'COMPRAS',
                             'submenu'   =>  array(
                                                 'routes'    =>  array(
-                                                                    'adm_sucursal',
-                                                                    'adm_afp',
-                                                                    'adm_tipodocumento',
-                                                                    'adm_marcaproducto'
+                                                                    'Administracion/Compras/Proveedor',
+                                                                    'Administracion/Compras/Producto',
+                                                                    'Administracion/Compras/TipoDocumento',
+                                                                    'Administracion/Compras/MarcaProducto'
                                                                 ),
                                                 'labels'    =>  array(
                                                                     'Proveedor',
@@ -265,7 +265,7 @@ if(!function_exists('menulateral'))
                             'Menu'      =>  'INVENTARIO',
                             'submenu'   =>  array(
                                                 'routes'    =>  array(
-                                                                    'adm_almacen'
+                                                                    'Administracion/Inventario/Almacen'
                                                                 ),
                                                 'labels'    =>  array(
                                                                     'Almacén'
