@@ -59,7 +59,7 @@ class Administracion extends MY_Controller {
         if ($_SERVER['REQUEST_METHOD'] == 'POST'):
 
             # RutaGuia
-            $rutas          =   array($this->rutapadre,array('title'=>'Administracion','route'=>site_url('Administracion#/rrhh/Locales')));
+            $rutas          =   array($this->rutapadre,array('title'=>'RRHH','route'=>site_url('Administracion#/rrhh/Locales')));
             $RutaGuia       = $this->htmltemplate->HTML_RutaGuia($rutas,'Locales');
             $this->RutaGuia = $RutaGuia;
         
@@ -73,7 +73,7 @@ class Administracion extends MY_Controller {
         if ($_SERVER['REQUEST_METHOD'] == 'POST'):
 
             # RutaGuia
-            $rutas          =   array($this->rutapadre,array('title'=>'Administracion','route'=>site_url('Administracion#/rrhh/Afp')));
+            $rutas          =   array($this->rutapadre,array('title'=>'RRHH','route'=>site_url('Administracion#/rrhh/Afp')));
             $RutaGuia       = $this->htmltemplate->HTML_RutaGuia($rutas,'AFP');
             $this->RutaGuia = $RutaGuia;
         
@@ -87,7 +87,7 @@ class Administracion extends MY_Controller {
         if ($_SERVER['REQUEST_METHOD'] == 'POST'):
 
             # RutaGuia
-            $rutas          =   array($this->rutapadre,array('title'=>'Administracion','route'=>site_url('Administracion#/rrhh/Area')));
+            $rutas          =   array($this->rutapadre,array('title'=>'RRHH','route'=>site_url('Administracion#/rrhh/Area')));
             $RutaGuia       = $this->htmltemplate->HTML_RutaGuia($rutas,'Area');
             $this->RutaGuia = $RutaGuia;
         
@@ -101,7 +101,7 @@ class Administracion extends MY_Controller {
         if ($_SERVER['REQUEST_METHOD'] == 'POST'):
 
             # RutaGuia
-            $rutas          =   array($this->rutapadre,array('title'=>'Administracion','route'=>site_url('Administracion#/rrhh/PuestoMintra')));
+            $rutas          =   array($this->rutapadre,array('title'=>'RRHH','route'=>site_url('Administracion#/rrhh/PuestoMintra')));
             $RutaGuia       = $this->htmltemplate->HTML_RutaGuia($rutas,'Puesto Mintra');
             $this->RutaGuia = $RutaGuia;
         
@@ -115,7 +115,7 @@ class Administracion extends MY_Controller {
         if ($_SERVER['REQUEST_METHOD'] == 'POST'):
 
             # RutaGuia
-            $rutas          =   array($this->rutapadre,array('title'=>'Administracion','route'=>site_url('Administracion#/Compras/Proveedor')));
+            $rutas          =   array($this->rutapadre,array('title'=>'Compras','route'=>site_url('Administracion#/Compras/Proveedor')));
             $RutaGuia       = $this->htmltemplate->HTML_RutaGuia($rutas,'Proveedor');
             $this->RutaGuia = $RutaGuia;
         
@@ -129,7 +129,7 @@ class Administracion extends MY_Controller {
         if ($_SERVER['REQUEST_METHOD'] == 'POST'):
 
             # RutaGuia
-            $rutas          =   array($this->rutapadre,array('title'=>'Administracion','route'=>site_url('Administracion#/Compras/Producto')));
+            $rutas          =   array($this->rutapadre,array('title'=>'Compras','route'=>site_url('Administracion#/Compras/Producto')));
             $RutaGuia       = $this->htmltemplate->HTML_RutaGuia($rutas,'Producto');
             $this->RutaGuia = $RutaGuia;
         
@@ -143,7 +143,7 @@ class Administracion extends MY_Controller {
         if ($_SERVER['REQUEST_METHOD'] == 'POST'):
 
             # RutaGuia
-            $rutas          =   array($this->rutapadre,array('title'=>'Administracion','route'=>site_url('Administracion#/Compras/TipoDocumento')));
+            $rutas          =   array($this->rutapadre,array('title'=>'Compras','route'=>site_url('Administracion#/Compras/TipoDocumento')));
             $RutaGuia       = $this->htmltemplate->HTML_RutaGuia($rutas,'Tipo Documento');
             $this->RutaGuia = $RutaGuia;
         
@@ -157,7 +157,7 @@ class Administracion extends MY_Controller {
         if ($_SERVER['REQUEST_METHOD'] == 'POST'):
 
             # RutaGuia
-            $rutas          =   array($this->rutapadre,array('title'=>'Administracion','route'=>site_url('Administracion#/Compras/MarcaProducto')));
+            $rutas          =   array($this->rutapadre,array('title'=>'Compras','route'=>site_url('Administracion#/Compras/MarcaProducto')));
             $RutaGuia       = $this->htmltemplate->HTML_RutaGuia($rutas,'Marca Producto');
             $this->RutaGuia = $RutaGuia;
         
@@ -171,7 +171,7 @@ class Administracion extends MY_Controller {
         if ($_SERVER['REQUEST_METHOD'] == 'POST'):
 
             # RutaGuia
-            $rutas          =   array($this->rutapadre,array('title'=>'Administracion','route'=>site_url('Administracion#/Inventarios/Almacen')));
+            $rutas          =   array($this->rutapadre,array('title'=>'Inventario','route'=>site_url('Administracion#/Inventarios/Almacen')));
             $RutaGuia       = $this->htmltemplate->HTML_RutaGuia($rutas,'Almacen');
             $this->RutaGuia = $RutaGuia;
         
