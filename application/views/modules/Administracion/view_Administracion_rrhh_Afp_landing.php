@@ -54,7 +54,7 @@
 
 										<div class="form-group">
                                             <label class="control-label col-lg-2 col-md-1 text-right">Tipo: </label>
-                                            <div class="radio col-lg-1 col-md-12">
+                                            <div class="radio col-lg-2 col-md-12">
                                                 <label>
                                                     <input type="radio" checked="" name="tipo" id="tipo_1" value="1">
                                                     Mixto
