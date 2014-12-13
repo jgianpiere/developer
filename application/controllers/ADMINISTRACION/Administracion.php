@@ -8,6 +8,9 @@ class Administracion extends MY_Controller {
         $result = $this->mBase->cap_user();
         $this->session->set_userdata('usr_prf_tokn',$result[0]);
         $this->profile = $this->session->userdata('usr_prf_tokn');
+
+        # ruta Padre
+        $this->rutapadre = array('title' => 'ADMINISTRACION', 'route' =>site_url('Administracion'));
     }
 
 	/**
@@ -53,39 +56,129 @@ class Administracion extends MY_Controller {
 	}
 
     public  function Locales_landing(){
-        $this->load->view('modules/Administracion/view_Administracion_rrhh_Locales_landing.php');
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'):
+
+            # RutaGuia
+            $rutas          =   array($this->rutapadre,array('title'=>'Administracion','route'=>site_url('Administracion#/rrhh/Locales')));
+            $RutaGuia       = $this->htmltemplate->HTML_RutaGuia($rutas,'Locales');
+            $this->RutaGuia = $RutaGuia;
+        
+            $this->load->view('modules/Administracion/view_Administracion_rrhh_Locales_landing.php');
+        elseif($_SERVER['REQUEST_METHOD'] == 'GET'):
+            redirect(base_url('Administracion#/rrhh/Locales'));
+        endif;
     }
 
     public  function Afp_landing(){
-        $this->load->view('modules/Administracion/view_Administracion_rrhh_Afp_landing.php');
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'):
+
+            # RutaGuia
+            $rutas          =   array($this->rutapadre,array('title'=>'Administracion','route'=>site_url('Administracion#/rrhh/Afp')));
+            $RutaGuia       = $this->htmltemplate->HTML_RutaGuia($rutas,'AFP');
+            $this->RutaGuia = $RutaGuia;
+        
+            $this->load->view('modules/Administracion/view_Administracion_rrhh_Afp_landing.php');
+        elseif($_SERVER['REQUEST_METHOD'] == 'GET'):
+            redirect(base_url('Administracion#/rrhh/Afp'));
+        endif;
     }
 
     public  function Area_landing(){
-        $this->load->view('modules/Administracion/view_Administracion_rrhh_Area_landing.php');
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'):
+
+            # RutaGuia
+            $rutas          =   array($this->rutapadre,array('title'=>'Administracion','route'=>site_url('Administracion#/rrhh/Area')));
+            $RutaGuia       = $this->htmltemplate->HTML_RutaGuia($rutas,'Area');
+            $this->RutaGuia = $RutaGuia;
+        
+            $this->load->view('modules/Administracion/view_Administracion_rrhh_Area_landing.php');
+        elseif($_SERVER['REQUEST_METHOD'] == 'GET'):
+            redirect(base_url('Administracion#/rrhh/Area'));
+        endif;
     }
 
     public  function PuestoMintra_landing(){
-        $this->load->view('modules/Administracion/view_Administracion_rrhh_PuestoMintra_landing.php');
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'):
+
+            # RutaGuia
+            $rutas          =   array($this->rutapadre,array('title'=>'Administracion','route'=>site_url('Administracion#/rrhh/PuestoMintra')));
+            $RutaGuia       = $this->htmltemplate->HTML_RutaGuia($rutas,'Puesto Mintra');
+            $this->RutaGuia = $RutaGuia;
+        
+            $this->load->view('modules/Administracion/view_Administracion_rrhh_PuestoMintra_landing.php');
+        elseif($_SERVER['REQUEST_METHOD'] == 'GET'):
+            redirect(base_url('Administracion#/rrhh/PuestoMintra'));
+        endif;
     }
 
     public  function Proveedor_landing(){
-        $this->load->view('modules/Administracion/view_Administracion_Compras_Proveedor_landing.php');
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'):
+
+            # RutaGuia
+            $rutas          =   array($this->rutapadre,array('title'=>'Administracion','route'=>site_url('Administracion#/Compras/Proveedor')));
+            $RutaGuia       = $this->htmltemplate->HTML_RutaGuia($rutas,'Proveedor');
+            $this->RutaGuia = $RutaGuia;
+        
+            $this->load->view('modules/Administracion/view_Administracion_Compras_Proveedor_landing.php');
+        elseif($_SERVER['REQUEST_METHOD'] == 'GET'):
+            redirect(base_url('Administracion#/Compras/Proveedor'));
+        endif;
     }
 
     public  function Producto_landing(){
-        $this->load->view('modules/Administracion/view_Administracion_Compras_Producto_landing.php');
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'):
+
+            # RutaGuia
+            $rutas          =   array($this->rutapadre,array('title'=>'Administracion','route'=>site_url('Administracion#/Compras/Producto')));
+            $RutaGuia       = $this->htmltemplate->HTML_RutaGuia($rutas,'Producto');
+            $this->RutaGuia = $RutaGuia;
+        
+            $this->load->view('modules/Administracion/view_Administracion_Compras_Producto_landing.php');
+        elseif($_SERVER['REQUEST_METHOD'] == 'GET'):
+            redirect(base_url('Administracion#/Compras/Producto'));
+        endif;
     }
 
     public  function TipoDocumento_landing(){
-        $this->load->view('modules/Administracion/view_Administracion_Compras_TipoDocumento_landing.php');
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'):
+
+            # RutaGuia
+            $rutas          =   array($this->rutapadre,array('title'=>'Administracion','route'=>site_url('Administracion#/Compras/TipoDocumento')));
+            $RutaGuia       = $this->htmltemplate->HTML_RutaGuia($rutas,'Tipo Documento');
+            $this->RutaGuia = $RutaGuia;
+        
+            $this->load->view('modules/Administracion/view_Administracion_Compras_TipoDocumento_landing.php');
+        elseif($_SERVER['REQUEST_METHOD'] == 'GET'):
+            redirect(base_url('Administracion#/Compras/TipoDocumento'));
+        endif;
     }
 
     public  function MarcaProducto_landing(){
-        $this->load->view('modules/Administracion/view_Administracion_Compras_MarcaProducto_landing.php');
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'):
+
+            # RutaGuia
+            $rutas          =   array($this->rutapadre,array('title'=>'Administracion','route'=>site_url('Administracion#/Compras/MarcaProducto')));
+            $RutaGuia       = $this->htmltemplate->HTML_RutaGuia($rutas,'Marca Producto');
+            $this->RutaGuia = $RutaGuia;
+        
+            $this->load->view('modules/Administracion/view_Administracion_Compras_MarcaProducto_landing.php');
+        elseif($_SERVER['REQUEST_METHOD'] == 'GET'):
+            redirect(base_url('Administracion#/Compras/MarcaProducto'));
+        endif;
     }
 
     public  function Almacen_landing(){
-        $this->load->view('modules/Administracion/view_Administracion_Inventario_Almacen_landing.php');
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'):
+
+            # RutaGuia
+            $rutas          =   array($this->rutapadre,array('title'=>'Administracion','route'=>site_url('Administracion#/Inventarios/Almacen')));
+            $RutaGuia       = $this->htmltemplate->HTML_RutaGuia($rutas,'Almacen');
+            $this->RutaGuia = $RutaGuia;
+        
+            $this->load->view('modules/Administracion/view_Administracion_Inventario_Almacen_landing.php');
+        elseif($_SERVER['REQUEST_METHOD'] == 'GET'):
+            redirect(base_url('Administracion#/Inventarios/Almacen'));
+        endif;
     }
 
 }
