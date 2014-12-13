@@ -52,10 +52,7 @@
 										<div class="form-group">
                                             <label class="control-label col-lg-3 col-md-1">Activo:</label>
                                             <div class="radio col-lg-1 col-md-12">
-                                                <label>
-                                                    <input type="checkbox" value="1" id="activo" name="activo" checked>
-                                                    &nbsp; 
-                                                </label>
+                                                <input type="checkbox" value="1" id="activo" name="activo" checked>
                                             </div>
                                         </div>
 
