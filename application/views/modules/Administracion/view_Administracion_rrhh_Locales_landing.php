@@ -50,11 +50,11 @@
                                         </div>
 
 										<div class="form-group">
-                                            <label class="control-label col-lg-3 col-md-1 text-right">&nbsp; </label>
+                                            <label class="control-label col-lg-3 col-md-1">Activo:</label>
                                             <div class="radio col-lg-1 col-md-12">
                                                 <label>
                                                     <input type="checkbox" value="1" id="activo" name="activo" checked>
-                                                    Activo
+                                                    &nbsp; 
                                                 </label>
                                             </div>
                                         </div>
