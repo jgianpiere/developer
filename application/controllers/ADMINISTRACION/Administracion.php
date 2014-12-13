@@ -71,7 +71,7 @@ class Administracion extends MY_Controller {
         endif;
     }
 
-    public function Locales_Agregar(){
+    public function Locales_Agregar(){ echo 'aaaa';
         if ($_SERVER['REQUEST_METHOD'] == 'POST'):
             $Campos = array(    
                 array('field' =>  'activo',         'label' =>  'activo',           'rules' =>  'trim|required|xss_clean'),
