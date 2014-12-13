@@ -9,7 +9,7 @@ class Administracion extends MY_Controller {
         $this->session->set_userdata('usr_prf_tokn',$result[0]);
         $this->profile = $this->session->userdata('usr_prf_tokn');
 
-        $this->load->model('ADMINISTRACION/m_RRHHAdministracion','mAdministracion');
+        $this->load->model('ADMINISTRACION/m_RRHHAdministracion');
 
         # ruta Padre
         $this->rutapadre = array('title' => 'ADMINISTRACION', 'route' =>site_url('Administracion'));
@@ -95,11 +95,11 @@ class Administracion extends MY_Controller {
                     'agre_codigo'       => $agre_codigo,
                     'agre_nombre'       => $agre_nombre,
                     'agre_direccion'    => $agre_direccion,
-                    'agre_telefono'     => $agre_telefono
-                    'activo'            => $activo,
+                    'agre_telefono'     => $agre_telefono,
+                    'activo'            => $activo
                 );
 
-                $insert_result = $this->mAdministracion->Query_Insertar_Local($Params);
+                $insert_result = $this->m_rrhhadministracion->Query_Insertar_Local($Params);
 
                 if(isset($insert_result) && !empty($insert_result) && is_array($insert_result)):
                     echo json_encode($insert_result);
