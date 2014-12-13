@@ -16,7 +16,7 @@
 
 <script>
 	_reloadpopup = function(){
-		alert(9);
+		// reload popup.
 	}
 </script>
 
@@ -28,7 +28,6 @@
 				url 	: "<?=site_url('PopupNuevoProveedor');?>",
 				success : function(data){
 					$('.loadresultpopup').html(data);
-					alert(0);
 					_reloadpopup();
 				},
 				error 	: function(){
