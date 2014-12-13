@@ -71,7 +71,7 @@ class Administracion extends MY_Controller {
         endif;
     }
 
-    public function Locales_Agregar(){ echo 'aaaa';
+    public function Locales_Agregar(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST'):
             $Campos = array(    
                 array('field' =>  'activo',         'label' =>  'activo',           'rules' =>  'trim|required|xss_clean'),
@@ -99,7 +99,7 @@ class Administracion extends MY_Controller {
                     'activo'            => $activo
                 );
 
-                $insert_result = $this->m_rrhhadministracion->Query_Insertar_Local($Params);
+                $insert_result = $this->m_RRHHAdministracion->Query_Insertar_Local($Params);
 
                 if(isset($insert_result) && !empty($insert_result) && is_array($insert_result)):
                     echo json_encode($insert_result);
