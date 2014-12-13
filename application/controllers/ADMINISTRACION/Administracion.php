@@ -9,6 +9,8 @@ class Administracion extends MY_Controller {
         $this->session->set_userdata('usr_prf_tokn',$result[0]);
         $this->profile = $this->session->userdata('usr_prf_tokn');
 
+        $this->load->model('ADMINISTRACION/m_RRHHAdministracion','mAdministracion');
+
         # ruta Padre
         $this->rutapadre = array('title' => 'ADMINISTRACION', 'route' =>site_url('Administracion'));
     }
@@ -66,6 +68,50 @@ class Administracion extends MY_Controller {
             $this->load->view('modules/Administracion/view_Administracion_rrhh_Locales_landing.php');
         elseif($_SERVER['REQUEST_METHOD'] == 'GET'):
             redirect(base_url('Administracion#/rrhh/Locales'));
+        endif;
+    }
+
+    public function Locales_Agregar(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'):
+            $Campos = array(    
+                array('field' =>  'activo',         'label' =>  'activo',           'rules' =>  'trim|required|xss_clean'),
+                array('field' =>  'agre_codigo',    'label' =>  'agre_codigo',      'rules' =>  'trim|required|xss_clean'),
+                array('field' =>  'agre_direccion', 'label' =>  'agre_direccion',   'rules' =>  'trim|xss_clean'),
+                array('field' =>  'agre_nombre',    'label' =>  'agre_nombre',      'rules' =>  'trim|xss_clean'),
+                array('field' =>  'agre_telefono',  'label' =>  'agre_telefono',    'rules' =>  'trim|xss_clean')
+            );
+
+            $this->form_validation->set_rules($Campos);
+
+            if($this->form_validation->run() == TRUE):
+
+                $activo                 = $this->input->post('activo');
+                $agre_codigo            = $this->input->post('agre_codigo');
+                $agre_direccion         = $this->input->post('agre_direccion');
+                $agre_nombre            = $this->input->post('agre_nombre');
+                $agre_telefono          = $this->input->post('agre_telefono');
+
+                $Params = array(
+                    'agre_codigo'       => $agre_codigo,
+                    'agre_nombre'       => $agre_nombre,
+                    'agre_direccion'    => $agre_direccion,
+                    'agre_telefono'     => $agre_telefono
+                    'activo'            => $activo,
+                );
+
+                $insert_result = $this->mAdministracion->Query_Insertar_Local($Params);
+
+                if(isset($insert_result) && !empty($insert_result) && is_array($insert_result)):
+                    echo json_encode($insert_result);
+                else:
+                    echo json_encode(array('ERROR','01','ERROR AL INGRESAR LOS DATOS'));
+                endif;
+
+            else:
+                echo json_encode(array('ERROR','01',validation_errors()));
+            endif;
+        elseif($_SERVER['REQUEST_METHOD'] == 'GET'):
+            show_404();
         endif;
     }
 

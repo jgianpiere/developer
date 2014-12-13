@@ -8,7 +8,7 @@
 * @copyright    : CASTRO & GARCIA.
 **************************************************************************
 */ # 
-class m_Compras extends MY_Model{
+class m_RRHHAdministracion extends MY_Model{
    
     /**
     * @todo         : Insertar Local
