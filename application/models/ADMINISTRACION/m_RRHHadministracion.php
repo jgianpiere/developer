@@ -109,9 +109,6 @@ class m_RRHHAdministracion extends MY_Model{
         return $Results;
     }
 
-
-
-
-
+    
 
 }

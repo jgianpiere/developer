@@ -335,10 +335,17 @@ class cBase extends MY_Controller {
     */
     public function BuscarAlmacenes($medio = 1){
         if ($_SERVER['REQUEST_METHOD'] == 'POST'):
-            $this->load->helper('security');
 
             $Campos = array(
-                array('field' =>  'value'       , 'label' =>  'Parametro de Busqueda'   ,'rules'  =>  'trim|required|xss_clean')
+                array('field' =>  'popup_agre_pro_TipoDocume'       , 'label' => 'popup_agre_pro_TipoDocume'        ,'rules'  =>  'trim|required|xss_clean'),
+                array('field' =>  'popup_agre_pro_DNI'              , 'label' => 'popup_agre_pro_DNI'               ,'rules'  =>  'trim|required|xss_clean'),
+                array('field' =>  'popup_agre_pro_nombre'           , 'label' => 'popup_agre_pro_nombre'            ,'rules'  =>  'trim|required|xss_clean'),
+                array('field' =>  'popup_agre_pro_apellido'         , 'label' => 'popup_agre_pro_apellido'          ,'rules'  =>  'trim|required|xss_clean'),
+                array('field' =>  'popup_agre_pro_email'            , 'label' => 'popup_agre_pro_email'             ,'rules'  =>  'trim|required|xss_clean'),
+                array('field' =>  'popup_agre_pro_celular'          , 'label' => 'popup_agre_pro_celular'           ,'rules'  =>  'trim|required|xss_clean'),
+                array('field' =>  'popup_agre_pro_fijo'             , 'label' => 'popup_agre_pro_fijo'              ,'rules'  =>  'trim|required|xss_clean'),
+                array('field' =>  'popup_agre_pro_direccionCasa'    , 'label' => 'popup_agre_pro_direccionCasa'     ,'rules'  =>  'trim|required|xss_clean'),
+                array('field' =>  'popup_agre_pro_Dist'             , 'label' => 'popup_agre_pro_Dist'              ,'rules'  =>  'trim|required|xss_clean')
             );
 
             $this->form_validation->set_rules($Campos);
@@ -382,6 +389,81 @@ class cBase extends MY_Controller {
      * 
      */
     public function PopupProveedor_Nuevo(){
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'):
+            $Campos = array(    
+                array('field' =>  'popup_agre_pro_DNI',             'label' =>  'popup_agre_pro_DNI',           'rules' =>  'trim|required|xss_clean'),
+                array('field' =>  'popup_agre_pro_TipoDocume',      'label' =>  'popup_agre_pro_TipoDocume',    'rules' =>  'trim|required|xss_clean'),
+                array('field' =>  'popup_agre_pro_nombre',          'label' =>  'popup_agre_pro_nombre',        'rules' =>  'trim|required|xss_clean'),
+                array('field' =>  'popup_agre_pro_Dist',            'label' =>  'popup_agre_pro_Dist',          'rules' =>  'trim|xss_clean'),
+                array('field' =>  'popup_agre_pro_apellido',        'label' =>  'popup_agre_pro_apellido',      'rules' =>  'trim|xss_clean'),
+                array('field' =>  'popup_agre_pro_celular',         'label' =>  'popup_agre_pro_celular',       'rules' =>  'trim|xss_clean'),
+                array('field' =>  'popup_agre_pro_email',           'label' =>  'popup_agre_pro_email',         'rules' =>  'trim|xss_clean'),
+                array('field' =>  'popup_agre_pro_fijo',            'label' =>  'popup_agre_pro_fijo',          'rules' =>  'trim|xss_clean'),
+                array('field' =>  'popup_agre_pro_direccionCasa',   'label' =>  'popup_agre_pro_direccionCasa', 'rules' =>  'trim|xss_clean')
+            );
+
+            $this->form_validation->set_rules($Campos);
+
+            if($this->form_validation->run() == TRUE):
+
+                $agre_area              = $this->input->post('agre_area');
+                $agre_codigo            = $this->input->post('agre_codigo');
+
+                $popup_agre_pro_DNI             = $this->input->post('popup_agre_pro_DNI');
+                $popup_agre_pro_TipoDocume      = $this->input->post('popup_agre_pro_TipoDocume');
+                $popup_agre_pro_nombre          = $this->input->post('popup_agre_pro_nombre');
+                $popup_agre_pro_Dist            = $this->input->post('popup_agre_pro_Dist');
+                $popup_agre_pro_apellido        = $this->input->post('popup_agre_pro_apellido');
+                $popup_agre_pro_celular         = $this->input->post('popup_agre_pro_celular');
+                $popup_agre_pro_email           = $this->input->post('popup_agre_pro_email');
+                $popup_agre_pro_fijo            = $this->input->post('popup_agre_pro_fijo');
+                $popup_agre_pro_direccionCasa   = $this->input->post('popup_agre_pro_direccionCasa');
+
+                $Params = array(
+                    'popup_agre_pro_TipoDocume'     => $popup_agre_pro_TipoDocume,
+                    'popup_agre_pro_DNI'            => $popup_agre_pro_DNI,
+                    'popup_agre_pro_nombre'         => $popup_agre_pro_nombre,
+                    'popup_agre_pro_apellido'       => $popup_agre_pro_apellido,
+                    'popup_agre_pro_email'          => $popup_agre_pro_email,
+                    'popup_agre_pro_fijo'           => $popup_agre_pro_fijo,
+                    'popup_agre_pro_celular'        => $popup_agre_pro_celular,
+                    'popup_agre_pro_direccionCasa'  => $popup_agre_pro_direccionCasa,
+                    'popup_agre_pro_Dist'           => $popup_agre_pro_Dist
+                );
+
+                $this->load->model('COMPRASYGASTOS/m_Proveedor');
+
+                $insert_result = $this->m_Proveedor->Query_Insertar_Proveedor($Params);
+
+                if(isset($insert_result) && !empty($insert_result) && is_array($insert_result)):
+                    echo json_encode($insert_result);
+                else:
+                    echo json_encode(array('ERROR','01','ERROR AL INGRESAR LOS DATOS'));
+                endif;
+
+            else:
+                echo json_encode(array('ERROR','01',validation_errors()));
+            endif;
+        elseif($_SERVER['REQUEST_METHOD'] == 'GET'):
+            show_404();
+        endif;
+    
+    
+
+        /*
+        popup_agre_pro_TipoDocume
+        popup_agre_pro_DNI
+        popup_agre_pro_nombre
+        popup_agre_pro_apellido
+        popup_agre_pro_email
+        popup_agre_pro_celular
+        popup_agre_pro_fijo
+        popup_agre_pro_direccionCasa
+        popup_agre_pro_Dist
+        */
+       
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST'):
             #Cargar Departamentos
             $Departamentos = $this->mBase->Query_Departamentos_GET();
@@ -404,6 +486,7 @@ class cBase extends MY_Controller {
 
 
     public function newProducto_popup(){
+
         echo json_encode(array('OK','00','se grabo OK'));
     }
 
