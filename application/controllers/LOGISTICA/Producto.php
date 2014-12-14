@@ -165,16 +165,44 @@ class Producto extends MY_Controller {
 
     }
 
+
     /**
-    *   @todo       : Buscar Producto
-    *   @author     : Gianpiere Ramos Bernuy. 
-    */
+     * 
+     */
     public function Producto_Buscar(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST'):
-            #SP_Buscar_Productos @valor @medio
+            $Campos = array(    
+                array('field' =>  'buscar_producto_valor',      'label' =>  'buscar_producto_valor',        'rules' =>  'trim|required|xss_clean'),
+                array('field' =>  'proveedorBusPor',            'label' =>  'proveedorBusPor',              'rules' =>  'trim|required|xss_clean')
+            );
+
+            $this->form_validation->set_rules($Campos);
+
+            if($this->form_validation->run() == TRUE):
+
+                $buscar_producto_valor      = $this->input->post('buscar_producto_valor');
+                $proveedorBusPor            = $this->input->post('proveedorBusPor');
+
+                $Params = array(
+                    'buscar_producto_valor'   => 'buscar_producto_valor',
+                    'proveedorBusPor'         => 'proveedorBusPor'
+                );
+                $this->load->model('ADMINISTRACION/m_Producto');
+                $insert_result = $this->m_Producto->Query_Buscar_Productos($Params);
+
+                if(isset($insert_result) && !empty($insert_result) && is_array($insert_result)):
+                    echo json_encode($insert_result);
+                else:
+                    echo json_encode(array('ERROR','01','ERROR AL INGRESAR LOS DATOS'));
+                endif;
+
+            else:
+                echo json_encode(array('ERROR','01',validation_errors()));
+            endif;
         elseif($_SERVER['REQUEST_METHOD'] == 'GET'):
-            redirect(base_url('Compras#/Producto/Buscar'));
+            show_404();
         endif;
+    
     }
 
     /**

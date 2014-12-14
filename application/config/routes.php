@@ -219,7 +219,7 @@ $route[$ADMINISTRACION.'/Compras/Proveedor/Agregar']                     = 'ADMI
 $route[$ADMINISTRACION.'/Compras/Producto']                              = 'ADMINISTRACION/Administracion/Producto_landing';
 $route[$ADMINISTRACION.'/Compras/Producto/Agregar']                      = 'ADMINISTRACION/Administracion/Producto_Agregar';
 $route[$ADMINISTRACION.'/Compras/Producto/Buscar']                       = 'LOGISTICA/Producto/Buscar_Landing';
-$route[$ADMINISTRACION.'/Compras/Producto/Buscar/buscar']                = 'ADMINISTRACION/Administracion/Producto_Buscar';
+$route[$ADMINISTRACION.'/Compras/Producto/Buscar/buscar']                = 'LOGISTICA/Producto/Producto_Buscar';
 
 $route[$ADMINISTRACION.'/Compras/TipoDocumento']                         = 'ADMINISTRACION/Administracion/TipoDocumento_landing';
 $route[$ADMINISTRACION.'/Compras/TipoDocumento/Agregar']                 = 'ADMINISTRACION/Administracion/TipoDocumento_Agregar';
