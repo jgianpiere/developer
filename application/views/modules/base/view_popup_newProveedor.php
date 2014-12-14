@@ -154,7 +154,7 @@
         <div class="modal-body">
             <div class="content">
                                 <div class="row">
-                                    <form class="form-horizontal" id="form_popup_newProveedor" name="form_popup_newProveedor" style="margin-top:30px;">
+                                    <form class="form-horizontal" id="form_popup_newProveedor" name="form_popup_newProveedor">
                                         <div class="form-group">
                                             <label class="control-label col-lg-6 col-md-1  text-left">Tip. Doc. :</label>
                                             <label class="control-label col-lg-6 col-md-1  text-left">Num. Doc. :</label>
