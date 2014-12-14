@@ -169,7 +169,7 @@ class Producto extends MY_Controller {
     /**
      * 
      */
-    public function Producto_Buscar(){
+    public function Producto_Buscar(){ echo json_encode(array('ESTA AQUI'));
         if ($_SERVER['REQUEST_METHOD'] == 'POST'):
             $Campos = array(    
                 array('field' =>  'buscar_producto_valor',      'label' =>  'buscar_producto_valor',        'rules' =>  'trim|required|xss_clean'),
