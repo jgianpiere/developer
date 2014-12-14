@@ -171,7 +171,7 @@ class Producto extends MY_Controller {
     */
     public function Producto_Buscar(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST'):
-            SP_Buscar_Productos @valor @medio
+            #SP_Buscar_Productos @valor @medio
         elseif($_SERVER['REQUEST_METHOD'] == 'GET'):
             redirect(base_url('Compras#/Producto/Buscar'));
         endif;
