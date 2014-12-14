@@ -11,7 +11,8 @@
                         $data = $.parseJSON(data);
                         if($data[0]!='ERROR' && $data[0]!='00'){
                             if($data[0]=='OK'){
-                                alert($data[2]);
+                                alert('Se inserto el nuevo Proveedor');
+                                $('[data-dismiss="modal"]').trigger('click');
                             }
                         }else{
                             alert($data[2]);
