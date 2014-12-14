@@ -389,7 +389,28 @@ class cBase extends MY_Controller {
      * 
      */
     public function PopupProveedor_Nuevo(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'):
+            #Cargar Departamentos
+            $Departamentos = $this->mBase->Query_Departamentos_GET();
+            if(!empty($Departamentos)):
+                $this->load->library('HTMLCompact/HTMLTemplate');
+                $this->Departamentos = $this->htmltemplate->HTML_ResultSelectUbigeo($Departamentos);
+            endif;
 
+            #Cargar Tipos Documento
+            $TiposDocumento = $this->mBase->Query_TiposDocumento_GET();
+            if(!empty($TiposDocumento)):
+                $this->TiposDocumento = $this->htmltemplate->HTML_ResultSelectTiposDocumento($TiposDocumento);
+            endif;
+
+            $this->load->view('modules/base/view_popup_newProveedor');
+        else: return 'hidden';
+            show_404();
+        endif;
+    }
+
+
+    public function newProducto_popup(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST'):
             $Campos = array(    
                 array('field' =>  'popup_agre_pro_DNI',             'label' =>  'popup_agre_pro_DNI',           'rules' =>  'trim|required|xss_clean'),
@@ -448,46 +469,6 @@ class cBase extends MY_Controller {
         elseif($_SERVER['REQUEST_METHOD'] == 'GET'):
             show_404();
         endif;
-    
-    
-
-        /*
-        popup_agre_pro_TipoDocume
-        popup_agre_pro_DNI
-        popup_agre_pro_nombre
-        popup_agre_pro_apellido
-        popup_agre_pro_email
-        popup_agre_pro_celular
-        popup_agre_pro_fijo
-        popup_agre_pro_direccionCasa
-        popup_agre_pro_Dist
-        */
-       
-
-        if ($_SERVER['REQUEST_METHOD'] == 'POST'):
-            #Cargar Departamentos
-            $Departamentos = $this->mBase->Query_Departamentos_GET();
-            if(!empty($Departamentos)):
-                $this->load->library('HTMLCompact/HTMLTemplate');
-                $this->Departamentos = $this->htmltemplate->HTML_ResultSelectUbigeo($Departamentos);
-            endif;
-
-            #Cargar Tipos Documento
-            $TiposDocumento = $this->mBase->Query_TiposDocumento_GET();
-            if(!empty($TiposDocumento)):
-                $this->TiposDocumento = $this->htmltemplate->HTML_ResultSelectTiposDocumento($TiposDocumento);
-            endif;
-
-            $this->load->view('modules/base/view_popup_newProveedor');
-        else: return 'hidden';
-            show_404();
-        endif;
-    }
-
-
-    public function newProducto_popup(){
-
-        echo json_encode(array('OK','00','se grabo OK'));
     }
 
 
