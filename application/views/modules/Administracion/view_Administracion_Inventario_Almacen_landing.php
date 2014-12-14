@@ -31,7 +31,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-xs-3">Almacen:</label>
                                             <div class="col-xs-9">
-                                                <input type="text" class="form-control" id="agre_almacen" name="agre_almacen" placeholder="marca" required  validate="marca">
+                                                <input type="text" class="form-control" id="agre_almacen" name="agre_almacen" placeholder="Almacen" required  validate="marca">
                                             </div>
                                         </div>
 
