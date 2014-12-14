@@ -161,7 +161,21 @@ class Producto extends MY_Controller {
     *   @todo       : Agregar Producto
     *   @author     : Gianpiere Ramos Bernuy. 
     */
-    public function Producto_Agregar(){}
+    public function Producto_Agregar(){
+
+    }
+
+    /**
+    *   @todo       : Buscar Producto
+    *   @author     : Gianpiere Ramos Bernuy. 
+    */
+    public function Producto_Buscar(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'):
+            SP_Buscar_Productos @valor @medio
+        elseif($_SERVER['REQUEST_METHOD'] == 'GET'):
+            redirect(base_url('Compras#/Producto/Buscar'));
+        endif;
+    }
 
     /**
     *   @todo       : Buscar Landing
@@ -186,14 +200,6 @@ class Producto extends MY_Controller {
             redirect(base_url('Compras#/Producto/Buscar'));
 
         endif;
-        
-    }
-
-    /**
-    *   @todo       : Producto Buscar
-    *   @author     : Gianpiere Ramos Bernuy. 
-    */
-    public function Producto_Buscar(){
         
     }
 
