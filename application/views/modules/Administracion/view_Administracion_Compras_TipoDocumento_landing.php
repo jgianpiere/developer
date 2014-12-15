@@ -23,7 +23,7 @@
 										
 										<div class="form-group">
                                             <label class="control-label col-xs-3">Codigo:</label>
-                                            <div class="col-xs-4">
+                                            <div class="col-xs-3">
                                                 <input type="text" class="form-control" id="agre_codigo" name="agre_codigo" placeholder="Codigo" required validate="codigo">
                                             </div>
                                         </div>
@@ -40,9 +40,7 @@
                                             <div class="col-xs-3">
                                                 <input type="text" class="form-control" id="agre_longitud" name="agre_longitud" placeholder="" required  validate="number">
                                             </div>
-                                        </div>
 
-                                        <div class="form-group">
                                             <label class="control-label col-xs-3">Formato:</label>
                                             <div class="col-xs-3">
                                                 <input type="text" class="form-control" id="agre_formato" name="agre_formato" placeholder="formato" required  validate="formato">
