@@ -43,7 +43,7 @@
 
                                             <label class="control-label col-xs-3">Formato:</label>
                                             <div class="col-xs-3">
-                                                <input type="text" class="form-control" id="agre_formato" name="agre_formato" placeholder="formato" required  validate="formato">
+                                                <input type="text" readonly="true" class="form-control" id="agre_formato" name="agre_formato" placeholder="formato" required  validate="formato">
                                             </div>
                                         </div>
 
@@ -104,6 +104,11 @@
     	$('#agre_longitud')
     	.on('keyup',function(){ $$ = this; $this = $(this); $cant = $this.val();
     		$('#agre_formato').attr('maxlength',$cant);
+    		if($this.val().length == 0 || $this.val()== ''){
+    			$('#agre_formato').val('').attr('readonly','true');
+    		}else{
+    			$('#agre_formato').removeAttr('readonly');
+    		}
     	})
     	.on('focusout',function(){ $$ = this; $this = $(this);
     		$('#agre_formato').val('');
