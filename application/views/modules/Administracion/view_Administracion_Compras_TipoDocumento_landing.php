@@ -99,4 +99,15 @@
         });
         
     })('FormsAJAX',jQuery);
+
+    (function(){
+    	$('#agre_longitud')
+    	.on('keyup',function(){ $$ = this; $this = $(this); $cant = $this.val().length;
+    		$('#agre_formato').attr('maxlength',$cant);
+    	})
+    	.on('focusout',function(){ $$ = this; $this = $(this);
+    		$('#agre_formato').val('');
+    	})
+    	;
+    })(jQuery);
 </script>
