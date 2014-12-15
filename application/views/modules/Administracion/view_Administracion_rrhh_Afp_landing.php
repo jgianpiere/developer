@@ -38,12 +38,12 @@
                                         <div class="form-group">
                                             <label class="control-label col-xs-2">Comision:</label>
                                             <div class="col-xs-2">
-                                                <input type="text" class="form-control" id="agre_comision" name="agre_comision" placeholder="Direccion" validate="alpha_numeric">
+                                                <input type="text" class="form-control" id="agre_comision" name="agre_comision" placeholder="Direccion" validate="float">
                                             </div>
 
                                             <label class="control-label col-xs-2">Seguro:</label>
                                             <div class="col-xs-2">
-                                                <input type="text" class="form-control" id="agre_seguro" name="agre_seguro" placeholder="Direccion" validate="alpha_numeric">
+                                                <input type="text" class="form-control" id="agre_seguro" name="agre_seguro" placeholder="Direccion" validate="float">
                                             </div>
 
                                             <label class="control-label col-xs-2">Aporte:</label>

@@ -21,12 +21,12 @@
                             <div class="content">
                                 <div class="row">
 										
-										<!-- <div class="form-group">
+										<div class="form-group">
                                             <label class="control-label col-xs-3">Codigo:</label>
                                             <div class="col-xs-4">
                                                 <input type="text" class="form-control" id="agre_codigo" name="agre_codigo" placeholder="Codigo" required validate="codigo">
                                             </div>
-                                        </div> -->
+                                        </div>
 
                                         <div class="form-group">
                                             <label class="control-label col-xs-3">Descripcion:</label>
@@ -34,18 +34,18 @@
                                                 <input type="text" class="form-control" id="agre_descripcion" name="agre_descripcion" placeholder="descripcion" required  validate="descripcion">
                                             </div>
                                         </div>
-
-                                        <div class="form-group">
-                                            <label class="control-label col-xs-3">Formato:</label>
-                                            <div class="col-xs-9">
-                                                <input type="text" class="form-control" id="agre_formato" name="agre_formato" placeholder="formato" required  validate="formato">
+	
+										<div class="form-group">
+                                            <label class="control-label col-xs-3">N<s>°</s> Digitos:</label>
+                                            <div class="col-xs-3">
+                                                <input type="text" class="form-control" id="agre_longitud" name="agre_longitud" placeholder="" required  validate="number">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-3">Longitud:</label>
-                                            <div class="col-xs-9">
-                                                <input type="text" class="form-control" id="agre_longitud" name="agre_longitud" placeholder="" required  validate="number">
+                                            <label class="control-label col-xs-3">Formato:</label>
+                                            <div class="col-xs-3">
+                                                <input type="text" class="form-control" id="agre_formato" name="agre_formato" placeholder="formato" required  validate="formato">
                                             </div>
                                         </div>
 
