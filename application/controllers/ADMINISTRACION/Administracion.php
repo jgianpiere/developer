@@ -208,13 +208,13 @@ class Administracion extends MY_Controller {
                 $agre_codigo            = $this->input->post('agre_codigo');
 
                 $Params = array(
-                    'agre_codigo'       => 'agre_codigo',
-                    'agre_area'         => 'agre_area'
+                    'agre_codigo'       => $agre_codigo,
+                    'agre_area'         => $agre_area
                 );
 
                 $insert_result = $this->m_RRHHAdministracion->Query_Insertar_Area($Params);
 
-                if(isset($insert_result) && !empty($insert_result) && is_array($insert_result)):
+                if(isset($insert_result) && !empty($insert_result)):
                     echo json_encode($insert_result);
                 else:
                     echo json_encode(array('ERROR','01','ERROR AL INGRESAR LOS DATOS'));
