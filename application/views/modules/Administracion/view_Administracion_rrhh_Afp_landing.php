@@ -24,7 +24,7 @@
 										<div class="form-group">
                                             <label class="control-label col-xs-2">RUC:</label>
                                             <div class="col-xs-4">
-                                                <input type="text" class="form-control" id="agre_ruc" name="agre_ruc" placeholder="RUC" required validate="ruc">
+                                                <input type="text" class="form-control" maxlength="11" id="agre_ruc" name="agre_ruc" placeholder="RUC" required validate="ruc">
                                             </div>
                                         </div>
 

@@ -153,12 +153,12 @@ class Administracion extends MY_Controller {
                 $tipo                   = $this->input->post('tipo');
 
                 $Params = array(
-                    'agre_ruc'          => 'agre_ruc',
-                    'agre_afp'          => 'agre_afp',
-                    'agre_comision'     => 'agre_comision',
-                    'agre_seguro'       => 'agre_seguro',
-                    'agre_aporte'       => 'agre_aporte',
-                    'tipo'              => 'tipo'
+                    'agre_ruc'          => $agre_ruc,
+                    'agre_afp'          => $agre_afp,
+                    'agre_comision'     => $agre_comision,
+                    'agre_seguro'       => $agre_seguro,
+                    'agre_aporte'       => $agre_aporte,
+                    'tipo'              => $tipo
                 );
 
                 $insert_result = $this->m_RRHHAdministracion->Query_Insertar_AFP($Params);
