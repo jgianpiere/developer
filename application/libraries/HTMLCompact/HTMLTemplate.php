@@ -388,62 +388,22 @@ class HTMLTemplate{
             endforeach;
 
             $HTML .= '<div id="menupopup" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Menu" aria-hidden="true">';
-            $HTML .= '  <div class="modal-dialog">';
-            $HTML .= '    <div class="modal-content">';
+                $HTML .= '  <div class="modal-dialog">';
+                $HTML .= '    <div class="modal-content">';
 
-            $HTML .= '';
-            $HTML .= '<div class="btn-group-vertical" role="group" aria-label="Vertical button group">';
-            $HTML .= '  <button type="button" class="btn btn-default">Button</button>';
-            $HTML .= '  <button type="button" class="btn btn-default">Button</button>';
-            $HTML .= '  <div class="btn-group" role="group">';
-            $HTML .= '    <button id="btnGroupVerticalDrop1" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">';
-            $HTML .= '      Dropdown';
-            $HTML .= '      <span class="caret"></span>';
-            $HTML .= '    </button>';
-            $HTML .= '    <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop1">';
-            $HTML .= '      <li><a href="#">Dropdown link</a></li>';
-            $HTML .= '      <li><a href="#">Dropdown link</a></li>';
-            $HTML .= '    </ul>';
-            $HTML .= '  </div>';
-            $HTML .= '  <button type="button" class="btn btn-default">Button</button>';
-            $HTML .= '  <button type="button" class="btn btn-default">Button</button>';
-            $HTML .= '  <div class="btn-group" role="group">';
-            $HTML .= '    <button id="btnGroupVerticalDrop2" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">';
-            $HTML .= '      Dropdown';
-            $HTML .= '      <span class="caret"></span>';
-            $HTML .= '    </button>';
-            $HTML .= '    <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop2">';
-            $HTML .= '      <li><a href="#">Dropdown link</a></li>';
-            $HTML .= '      <li><a href="#">Dropdown link</a></li>';
-            $HTML .= '    </ul>';
-            $HTML .= '  </div>';
-            $HTML .= '  <div class="btn-group" role="group">';
-            $HTML .= '    <button id="btnGroupVerticalDrop3" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">';
-            $HTML .= '      Dropdown';
-            $HTML .= '      <span class="caret"></span>';
-            $HTML .= '    </button>';
-            $HTML .= '    <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop3">';
-            $HTML .= '      <li><a href="#">Dropdown link</a></li>';
-            $HTML .= '      <li><a href="#">Dropdown link</a></li>';
-            $HTML .= '    </ul>';
-            $HTML .= '  </div>';
-            $HTML .= '  <div class="btn-group" role="group">';
-            $HTML .= '    <button id="btnGroupVerticalDrop4" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">';
-            $HTML .= '      Dropdown';
-            $HTML .= '      <span class="caret"></span>';
-            $HTML .= '    </button>';
-            $HTML .= '    <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop4">';
-            $HTML .= '      <li><a href="#">Dropdown link</a></li>';
-            $HTML .= '      <li><a href="#">Dropdown link</a></li>';
-            $HTML .= '    </ul>';
-            $HTML .= '  </div>';
-            $HTML .= '</div>';
-            
-            $HTML .= '';
-            $HTML .= '    </div>';
-            $HTML .= '  </div>';
-            $HTML .= '</div>';
-            
+                //-------------------------------------
+                $HTML .= '<ul class="nav nav-pills nav-stacked" style="max-width: 300px;">';
+                $HTML .= '  <li role="presentation" class="active"><a href="#">Home</a></li>';
+                $HTML .= '  <li role="presentation"><a href="#">Profile</a></li>';
+                $HTML .= '  <li role="presentation"><a href="#">Messages</a></li>';
+                $HTML .= '</ul>';
+                //-------------------------------------
+                
+                $HTML .= '';
+                $HTML .= '    </div>';
+                $HTML .= '  </div>';
+                $HTML .= '</div>';
+
         endif;
 
         return $HTML;
