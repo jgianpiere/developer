@@ -392,11 +392,7 @@ class HTMLTemplate{
                 $HTML .= '    <div class="modal-content">';
 
                 //-------------------------------------
-                $HTML .= '<ul class="nav nav-pills nav-stacked" style="max-width: 300px;">';
-                $HTML .= '  <li role="presentation" class="active"><a href="#">Home</a></li>';
-                $HTML .= '  <li role="presentation"><a href="#">Profile</a></li>';
-                $HTML .= '  <li role="presentation"><a href="#">Messages</a></li>';
-                $HTML .= '</ul>';
+                
                 //-------------------------------------
                 
                 $HTML .= '';
