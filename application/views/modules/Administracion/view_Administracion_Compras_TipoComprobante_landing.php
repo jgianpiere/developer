@@ -36,7 +36,7 @@
                                         </div>
 
 										<div class="form-group">
-                                            <label class="control-label col-xs-3 text-right">Num. Automatica : <input type="checkbox" id="agre_numauto" name="agre_numauto" active-to="#agre_numcorre|#agre_serie" value="0"></label>
+                                            <label class="control-label col-xs-3 text-right">Num. Automatica : <input type="checkbox" id="agre_numauto" name="agre_numauto" active-to value="0"></label>
                                         </div>
 
                                         <div class="form-group">
@@ -170,5 +170,18 @@
     		$('#agre_formato').val('');
     	})
     	;
+    })(jQuery);
+</script>
+
+<script>
+    (function(){
+        $('#agre_numauto').on('change',function(){ $$ = this; $this = $(this);
+            $this.val($this.is(':checked') ? 1 : 0);
+            if($this.is(':checked')){
+                $('#agre_numcorre').removeAttr('readonly'); $('#agre_serie').removeAttr('readonly');
+            }else{
+                $('#agre_numcorre').attr('readonly','true'); $('#agre_serie').attr('readonly','true');
+            }
+        });   
     })(jQuery);
 </script>
