@@ -262,7 +262,10 @@ html,body,*{
     div[resumen] p:before{
         
     };
-
+.fila{
+    width: 100%;
+    overflow: auto;
+}
 .fila:nth-child(2n){
     background: #fcdee6 !important;
 }
