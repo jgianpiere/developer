@@ -378,7 +378,11 @@ class HTMLTemplate{
                 $HTML .= '    <span style="padding:2px;" class="col-lg-2 col-md-12">'.date('d-m-Y',(int) $fill[4]).'</span>';
                 $HTML .= '    <span style="padding:2px;" class="col-lg-3 col-md-12" data-id="'.$fill[6].'">'.$fill[7].'</span>';
                 $HTML .= '    <span style="padding:2px;" class="col-lg-1 col-md-12">'.round($fill[5], 2, PHP_ROUND_HALF_UP).'</span>';
-                $HTML .= '    <span style="padding:2px;" class="col-lg-1 col-md-12 result_options" data-id="'.$fill[0].'"><i class="delete_row">&nbsp; x</i>&nbsp;&nbsp;<i class="covert_comprobante">?</i></span>';
+                $HTML .= '    <span style="padding:2px;" class="col-lg-1 col-md-12 result_options" data-id="'.$fill[0].'">';
+                $HTML .= '<button style="background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAApklEQVQ4y62TsQ0DIQxFX3fpuJZdMgg9HZOwUbICW+RGgAVyjZEsJ5AoBMkS2P4f/LFhvBxQxRxfrAuwq3MEnmJR+XfJfQHfgQZkIAGHIjjElyXnBmwY1qYAn6yZ14Kw94QHEAAvFsTX4/mdBkmB3UDUTpJsIKqaw0TooDSJ/aJq6vMTAm9y64ygKF+ZEYxKuAqwyH5YwrKIf/nG5UZabuXlYfp5nE+fO20D0OfAOwAAAABJRU5ErkJggg91f8c576dc8976c3e5bb01cac6f12207) no-repeat; border:none; height:18px; width:18px;"></button>';
+
+                // <i class="delete_row">&nbsp; x</i>&nbsp;&nbsp;<i class="covert_comprobante">?</i>
+                $HTML .= '</span>';
                 $HTML .= '</div>';
             endforeach;
         endif;
