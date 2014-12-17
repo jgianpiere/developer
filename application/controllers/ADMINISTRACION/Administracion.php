@@ -296,6 +296,40 @@ class Administracion extends MY_Controller {
             $rutas          =   array($this->rutapadre,array('title'=>'Compras','route'=>site_url('Administracion#/Compras/TipoComprobante')));
             $RutaGuia       = $this->htmltemplate->HTML_RutaGuia($rutas,'Tipo Comprobante');
             $this->RutaGuia = $RutaGuia;
+
+            # Cargar Plan.
+            $lista_plan = $this->mBase->Query_Plan_GET();
+            if(isset($lista_plan) && !empty($lista_plan) && is_array($lista_plan)):
+                $this->tipooperacion = $this->htmltemplate->HTML_ResultSelectSimple($lista_plan);
+            endif;
+
+            // Operacion all : 0
+            $Params = array('idOperacion' => 0);
+            $documento_list = $this->m_Compras->Query_Documento_GET($Params);
+
+            # Listar Documento
+            $localID = 0; $document_foco;
+            if(!empty($documento_list) && is_array($documento_list)):
+                $localID    = $documento_list[0][2];
+                $this->localid = $documento_list[0][2];
+
+                $this->documento = $this->htmltemplate->HTML_ResultSelectSimple($documento_list);
+
+                # Cargar formato numeracion 
+                $document_foco = $documento_list[0][0];
+                $format = $this->m_Compras->Query_Cargar_Numeracion($document_foco);
+                
+                $this->serie        = $format[0] == 1 && isset($format[1]) ? $format[1] : '';
+                $this->numero       = isset($format[2]) && !empty($format[2]) ? $format[2] : '';
+                $this->impuesto     = isset($format[3]) && !empty($format[3]) ? round($format[3], 2, PHP_ROUND_HALF_UP) : '';
+            endif;
+
+            # Cargar Almacenes 
+            $Param = array('id' => $localID);
+            $lista_almacenes = $this->mBase->Query_Almacenes_GET($Param);
+            if(!empty($lista_almacenes) && is_array($lista_almacenes)):
+                $this->locales = $this->htmltemplate->HTML_ResultSelectSimple($lista_almacenes);
+            endif;
         
             $this->load->view('modules/Administracion/view_Administracion_Compras_TipoComprobante_landing.php');
         elseif($_SERVER['REQUEST_METHOD'] == 'GET'):

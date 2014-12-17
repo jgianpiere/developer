@@ -47,7 +47,7 @@
 
                                             <label class="control-label col-xs-3">Serie:</label>
                                             <div class="col-xs-3">
-                                                <input type="text" readonly="true" class="form-control" id="agre_serie" name="agre_serie" placeholder="formato" required  validate="formato">
+                                                <input type="text" readonly="true" class="form-control" id="agre_serie" name="agre_serie" placeholder="" required validate="number">
                                             </div>
                                         </div>
 
@@ -59,7 +59,7 @@
 
                                             <label class="control-label col-xs-3">Max. Periodo Anulacion:</label>
                                             <div class="col-xs-3">
-                                                <input type="text" class="form-control" id="agre_maxperiodo" name="agre_maxperiodo" placeholder="formato" required  validate="formato">
+                                                <input type="text" class="form-control" id="agre_maxperiodo" name="agre_maxperiodo" placeholder="" required  validate="formato">
                                             </div>
                                         </div>
 
