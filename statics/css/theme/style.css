@@ -266,6 +266,7 @@ html,body,*{
 .fila{
     width: 100%;
     overflow: auto;
+    float: left;
 }
 .fila:nth-child(2n){
     background: #fcdee6 !important;
