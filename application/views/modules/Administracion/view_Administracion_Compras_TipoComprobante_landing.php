@@ -180,8 +180,16 @@
             if($this.is(':checked')){
                 $('#agre_numcorre').removeAttr('readonly'); $('#agre_serie').removeAttr('readonly');
             }else{
-                $('#agre_numcorre').attr('readonly','true'); $('#agre_serie').attr('readonly','true');
+                $('#agre_numcorre').attr('readonly','true').val(''); $('#agre_serie').attr('readonly','true').val('');
             }
         });   
+    })(jQuery);
+</script>
+
+<script>
+    (function(){
+        $('[type="reset"]').on('click',function(){
+            $('input[type=checkbox]').val(0);
+        });
     })(jQuery);
 </script>
