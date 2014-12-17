@@ -392,9 +392,10 @@ class HTMLTemplate{
                 $HTML .= '    <div class="modal-content">';
 
                 //-------------------------------------
-                
+                $HTML .= '<a href="#">Orden de Compra</a>';
+                $HTML .= '<button class="btn btn-primary" type="button">Convertir Orden a Comprobante</button>';
                 //-------------------------------------
-                
+
                 $HTML .= '';
                 $HTML .= '    </div>';
                 $HTML .= '  </div>';
