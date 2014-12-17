@@ -396,7 +396,7 @@ class HTMLTemplate{
                 $HTML .= '<ul class="popup_menu_opt_ul">';
                 $HTML .= '    <ol>Opciones de Orden de Compra</ol>';
                 $HTML .= '    <li>Convertir a Comprobante de Compra</li>';
-                $HTML .= '    <li>cancelar</li>';
+                $HTML .= '    <li class="cancel">cancelar</li>';
                 $HTML .= '</ul>';
                 $HTML .= '</div>';
                 //-------------------------------------
