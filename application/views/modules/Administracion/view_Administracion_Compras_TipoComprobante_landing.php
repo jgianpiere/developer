@@ -64,7 +64,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-2">Tipo Operacion :</label>
+                                            <label class="control-label col-xs-3">Tipo Operacion :</label>
                                             <div class="col-xs-3">
                                                 <select class="form-control" required id="agre_tipooperacion" name="agre_tipooperacion" disabled>
                                                     <?=isset($this->tipooperacion) ? $this->tipooperacion : '<option value="0"> - </option>'; ?>
@@ -73,7 +73,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-2">Local :</label>
+                                            <label class="control-label col-xs-3">Local :</label>
                                             <div class="col-xs-3">
                                                 <select class="form-control" required id="agre_local" name="agre_local" disabled>
                                                     <?=isset($this->locales) ? $this->locales : '<option value="0"> - </option>'; ?>
@@ -82,7 +82,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-2">Impuesto :</label>
+                                            <label class="control-label col-xs-3">Impuesto :</label>
                                             <div class="col-xs-3">
                                                 <select class="form-control" required id="agre_impuesto" name="agre_impuesto" disabled>
                                                     <?=isset($this->impuestos) ? $this->impuestos : '<option value="0"> - </option>'; ?>
