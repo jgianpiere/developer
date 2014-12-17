@@ -321,11 +321,13 @@ input{
 }
 
 .popup_menu_opt{
-    margin:0 auto; 
+    margin:10 auto;
+    background: #ED4B4B;
+    color: white; 
 }
 
 .popup_menu_opt_ul{
-    width: 200px;
+    width: 300px;
     border: 1px solid red;
     overflow: auto;
     padding: 7px;
@@ -333,6 +335,7 @@ input{
 
 .popup_menu_opt ol{
     color: silver;
+    height: 40px;
 }
 
 .popup_menu_opt li{
