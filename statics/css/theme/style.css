@@ -261,7 +261,8 @@ html,body,*{
 
     div[resumen] p:before{
         
-    };
+    }
+
 .fila{
     width: 100%;
     overflow: auto;
