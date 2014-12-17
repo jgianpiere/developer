@@ -392,8 +392,10 @@ class HTMLTemplate{
                 $HTML .= '    <div class="modal-content">';
 
                 //-------------------------------------
-                $HTML .= '<a href="#">Orden de Compra</a>';
-                $HTML .= '<button class="btn btn-primary" type="button">Convertir Orden a Comprobante</button>';
+                $HTML .= '<div class="bs-callout bs-callout-info">';
+                $HTML .= '    <h4>Convertir a Comprobante de Compra</h4>';
+                $HTML .= '    <p>para convertir en comprobante de compra haga click <a href="#">AQUI</a>.</p>';
+                $HTML .= '</div>';
                 //-------------------------------------
 
                 $HTML .= '';
