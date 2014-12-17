@@ -334,7 +334,10 @@ input{
 .popup_menu_opt ol{
     background: #ED4B4B;
     color: white;
-    height: 40px;
+    height: 22px;
+    padding: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
 }
 
 .popup_menu_opt li{
@@ -343,5 +346,5 @@ input{
 }
 
 .popup_menu_opt li:hover{
-    background: gray;
+    background: #85DF85;
 }
