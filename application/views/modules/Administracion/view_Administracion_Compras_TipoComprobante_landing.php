@@ -36,7 +36,7 @@
                                         </div>
 
 										<div class="form-group">
-                                            <label class="control-label col-xs-3 text-right">Num. Automatica : <input type="checkbox" id="" name="" active-to="#agre_numcorre|#agre_serie" value="0"></label>
+                                            <label class="control-label col-xs-3 text-right">Num. Automatica : <input type="checkbox" id="agre_numauto" name="agre_numauto" active-to="#agre_numcorre|#agre_serie" value="0"></label>
                                         </div>
 
                                         <div class="form-group">
@@ -54,12 +54,12 @@
                                         <div class="form-group">
                                             <label class="control-label col-xs-3">Max. Items:</label>
                                             <div class="col-xs-3">
-                                                <input type="text" class="form-control" id="agre_longitud" name="agre_longitud" placeholder="" required  validate="number">
+                                                <input type="text" class="form-control" id="agre_maxitems" name="agre_maxitems" placeholder="" required  validate="number">
                                             </div>
 
                                             <label class="control-label col-xs-3">Max. Periodo Anulacion:</label>
                                             <div class="col-xs-3">
-                                                <input type="text" readonly="true" class="form-control" id="agre_formato" name="agre_formato" placeholder="formato" required  validate="formato">
+                                                <input type="text" readonly="true" class="form-control" id="agre_maxperiodo" name="agre_maxperiodo" placeholder="formato" required  validate="formato">
                                             </div>
                                         </div>
 
@@ -91,15 +91,15 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-3 text-right">Valida RUC : <input type="checkbox" id="" name="" value="0"></label>
+                                            <label class="control-label col-xs-3 text-right">Valida RUC : <input type="checkbox" id="agre_validaruc" name="agre_validaruc" value="0"></label>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-3 text-right">Fechas Pasadas : <input type="checkbox" id="" name="" value="0"></label>
+                                            <label class="control-label col-xs-3 text-right">Fechas Pasadas : <input type="checkbox" id="agre_fechaspasadas" name="agre_fechaspasadas" value="0"></label>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-3 text-right">Activo : <input type="checkbox" id="" name="" value="0"></label>
+                                            <label class="control-label col-xs-3 text-right">Activo : <input type="checkbox" id="agre_activo" name="agre_activo" value="0"></label>
                                         </div>
 
 
