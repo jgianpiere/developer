@@ -224,6 +224,11 @@ $route[$ADMINISTRACION.'/Compras/Producto/Buscar/buscar']                = 'LOGI
 $route[$ADMINISTRACION.'/Compras/TipoDocumento']                         = 'ADMINISTRACION/Administracion/TipoDocumento_landing';
 $route[$ADMINISTRACION.'/Compras/TipoDocumento/Agregar']                 = 'ADMINISTRACION/Administracion/TipoDocumento_Agregar';
 
+$route[$ADMINISTRACION.'/Compras/TipoComprobante']                       = 'ADMINISTRACION/Administracion/TipoComprobante_landing';
+$route[$ADMINISTRACION.'/Compras/TipoComprobante/Agregar']               = 'ADMINISTRACION/Administracion/TipoComprobante_Agregar';
+
+
+
 $route[$ADMINISTRACION.'/Compras/MarcaProducto']                         = 'ADMINISTRACION/Administracion/MarcaProducto_landing';
 $route[$ADMINISTRACION.'/Compras/MarcaProducto/Agregar']                 = 'ADMINISTRACION/Administracion/MarcaProducto_Agregar';
 

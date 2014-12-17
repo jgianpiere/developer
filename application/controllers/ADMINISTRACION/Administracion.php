@@ -289,6 +289,20 @@ class Administracion extends MY_Controller {
         endif;
     }
 
+    public function TipoComprobante_landing(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'):
+
+            # RutaGuia
+            $rutas          =   array($this->rutapadre,array('title'=>'Compras','route'=>site_url('Administracion#/Compras/TipoComprobante')));
+            $RutaGuia       = $this->htmltemplate->HTML_RutaGuia($rutas,'Tipo Comprobante');
+            $this->RutaGuia = $RutaGuia;
+        
+            $this->load->view('modules/Administracion/view_Administracion_Compras_TipoComprobante_landing.php');
+        elseif($_SERVER['REQUEST_METHOD'] == 'GET'):
+            redirect(base_url('Administracion#/Compras/TipoComprobante'));
+        endif;
+    }
+
     public  function MarcaProducto_landing(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST'):
 

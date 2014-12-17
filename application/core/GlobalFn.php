@@ -251,13 +251,15 @@ if(!function_exists('menulateral'))
                                                                     'Administracion/Compras/Proveedor',
                                                                     'Administracion/Compras/Producto',
                                                                     'Administracion/Compras/TipoDocumento',
-                                                                    'Administracion/Compras/MarcaProducto'
+                                                                    'Administracion/Compras/MarcaProducto',
+                                                                    'Administracion/Compras/TipoComprobante'
                                                                 ),
                                                 'labels'    =>  array(
                                                                     'Proveedor',
                                                                     'Producto',
                                                                     'Tipo Documento',
-                                                                    'Marca de producto'
+                                                                    'Marca de producto',
+                                                                    'Tipo Comprobante'
                                                                 )
                                             )
                         ),
