@@ -305,9 +305,10 @@ input{
 [apointer]{
     cursor: pointer;
 }
-
-.btn-menuopt::after{
-    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAApklEQVQ4y62TsQ0DIQxFX3fpuJZdMgg9HZOwUbICW+RGgAVyjZEsJ5AoBMkS2P4f/LFhvBxQxRxfrAuwq3MEnmJR+XfJfQHfgQZkIAGHIjjElyXnBmwY1qYAn6yZ14Kw94QHEAAvFsTX4/mdBkmB3UDUTpJsIKqaw0TooDSJ/aJq6vMTAm9y64ygKF+ZEYxKuAqwyH5YwrKIf/nG5UZabuXlYfp5nE+fO20D0OfAOwAAAABJRU5ErkJggg91f8c576dc8976c3e5bb01cac6f12207) no-repeat; 
+.btn-menuopt{
     border:none; 
     height:18px;
+}
+.btn-menuopt::after{
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAApklEQVQ4y62TsQ0DIQxFX3fpuJZdMgg9HZOwUbICW+RGgAVyjZEsJ5AoBMkS2P4f/LFhvBxQxRxfrAuwq3MEnmJR+XfJfQHfgQZkIAGHIjjElyXnBmwY1qYAn6yZ14Kw94QHEAAvFsTX4/mdBkmB3UDUTpJsIKqaw0TooDSJ/aJq6vMTAm9y64ygKF+ZEYxKuAqwyH5YwrKIf/nG5UZabuXlYfp5nE+fO20D0OfAOwAAAABJRU5ErkJggg91f8c576dc8976c3e5bb01cac6f12207) no-repeat; 
 }
