@@ -344,6 +344,8 @@ input{
     padding: 5px;
     color: black;
     cursor: pointer;
+    border-left: 1px solid #ff9280;
+    border-right: 1px solid #ff9280;
 }
 
 .popup_menu_opt li:hover{
