@@ -374,14 +374,23 @@ class HTMLTemplate{
             foreach ($Params as $key => $fill):
                 $HTML .= '<div data-id="'.$fill[0].'" class="fila">';
                 $HTML .= '    <span style="padding:2px;" class="col-lg-2 col-md-12">'.$fill[1].'-'.$fill[2].'</span>';
-                $HTML .= '    <span style="padding:2px;" class="col-lg-3 col-md-12">'.$fill[3].'</span>';
+                $HTML .= '    <span style="padding:2px;" class="col-lg-3 col-md-12">'.(strlen($fill[3]) > 22 ? substr($fill[3], 0,20).'..' : $fill[3]).'</span>';
                 $HTML .= '    <span style="padding:2px;" class="col-lg-2 col-md-12">'.date('d-m-Y',(int) $fill[4]).'</span>';
                 $HTML .= '    <span style="padding:2px;" class="col-lg-3 col-md-12" data-id="'.$fill[6].'">'.$fill[7].'</span>';
                 $HTML .= '    <span style="padding:2px;" class="col-lg-1 col-md-12">'.round($fill[5], 2, PHP_ROUND_HALF_UP).'</span>';
                 $HTML .= '    <span style="padding:2px;" class="col-lg-1 col-md-12 result_options" data-id="'.$fill[0].'">';
-                $HTML .= '<button type="button" class="btn-menuopt"></button>';
+                $HTML .= '<button type="button" class="btn-menuopt" data-toggle="modal" data-target="#menupopup" title="Menu" onclick="alert('.$fill[0].');" ></button>';
 
                 // <i class="delete_row">&nbsp; x</i>&nbsp;&nbsp;<i class="covert_comprobante">?</i>
+
+                $HTML .= '<div id="menupopup" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Menu" aria-hidden="true">';
+                $HTML .= '  <div class="modal-dialog">';
+                $HTML .= '    <div class="modal-content">';
+                $HTML .= '';
+                $HTML .= '    </div>';
+                $HTML .= '  </div>';
+                $HTML .= '</div>';
+
                 $HTML .= '</span>';
                 $HTML .= '</div>';
             endforeach;
