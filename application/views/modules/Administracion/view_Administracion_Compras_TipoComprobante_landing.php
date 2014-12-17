@@ -40,9 +40,9 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-3">N° Correlativo:</label>
+                                            <label class="control-label col-xs-3" >N° Correlativo:</label>
                                             <div class="col-xs-3">
-                                                <input type="text" class="form-control" id="agre_numcorre" name="agre_numcorre" placeholder="" required  validate="number">
+                                                <input type="text" readonly="true" class="form-control" id="agre_numcorre" name="agre_numcorre" placeholder="" required  validate="number">
                                             </div>
 
                                             <label class="control-label col-xs-3">Serie:</label>
@@ -59,14 +59,14 @@
 
                                             <label class="control-label col-xs-3">Max. Periodo Anulacion:</label>
                                             <div class="col-xs-3">
-                                                <input type="text" readonly="true" class="form-control" id="agre_maxperiodo" name="agre_maxperiodo" placeholder="formato" required  validate="formato">
+                                                <input type="text" class="form-control" id="agre_maxperiodo" name="agre_maxperiodo" placeholder="formato" required  validate="formato">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="control-label col-xs-3">Tipo Operacion :</label>
                                             <div class="col-xs-3">
-                                                <select class="form-control" required id="agre_tipooperacion" name="agre_tipooperacion" disabled>
+                                                <select class="form-control" required id="agre_tipooperacion" name="agre_tipooperacion" >
                                                     <?=isset($this->tipooperacion) ? $this->tipooperacion : '<option value="0"> - </option>'; ?>
                                                 </select>
                                             </div>
@@ -75,7 +75,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-xs-3">Local :</label>
                                             <div class="col-xs-3">
-                                                <select class="form-control" required id="agre_local" name="agre_local" disabled>
+                                                <select class="form-control" required id="agre_local" name="agre_local">
                                                     <?=isset($this->locales) ? $this->locales : '<option value="0"> - </option>'; ?>
                                                 </select>
                                             </div>
@@ -84,7 +84,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-xs-3">Impuesto :</label>
                                             <div class="col-xs-3">
-                                                <select class="form-control" required id="agre_impuesto" name="agre_impuesto" disabled>
+                                                <select class="form-control" required id="agre_impuesto" name="agre_impuesto" >
                                                     <?=isset($this->impuestos) ? $this->impuestos : '<option value="0"> - </option>'; ?>
                                                 </select>
                                             </div>
