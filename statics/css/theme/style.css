@@ -319,3 +319,23 @@ input{
     content: 'menu';
     margin-right: 12px;
 }
+
+.popup_menu_opt{
+    width: 200px;
+    border: 1px solid red;
+    overflow: auto;
+    padding: 7px;
+}
+
+.popup_menu_opt ol{
+    color: silver;
+}
+
+.popup_menu_opt li{
+    padding: 5px;
+    color: black;
+}
+
+.popup_menu_opt li:hover{
+    background: gray;
+}

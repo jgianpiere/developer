@@ -392,7 +392,7 @@ class HTMLTemplate{
                 $HTML .= '    <div class="modal-content">';
 
                 //-------------------------------------
-                $HTML .= '<ul>';
+                $HTML .= '<ul class="popup_menu_opt">';
                 $HTML .= '    <ol>Opciones de Orden de Compra</ol>';
                 $HTML .= '    <li>Convertir a Comprobante de Compra</li>';
                 $HTML .= '    <li>cancelar</li>';
