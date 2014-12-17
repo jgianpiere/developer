@@ -383,66 +383,67 @@ class HTMLTemplate{
 
                 // <i class="delete_row">&nbsp; x</i>&nbsp;&nbsp;<i class="covert_comprobante">?</i>
 
-                $HTML .= '<div id="menupopup" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Menu" aria-hidden="true">';
-                $HTML .= '  <div class="modal-dialog">';
-                $HTML .= '    <div class="modal-content">';
-
-                $HTML .= '';
-                $HTML .= '<div class="btn-group-vertical" role="group" aria-label="Vertical button group">';
-                $HTML .= '  <button type="button" class="btn btn-default">Button</button>';
-                $HTML .= '  <button type="button" class="btn btn-default">Button</button>';
-                $HTML .= '  <div class="btn-group" role="group">';
-                $HTML .= '    <button id="btnGroupVerticalDrop1" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">';
-                $HTML .= '      Dropdown';
-                $HTML .= '      <span class="caret"></span>';
-                $HTML .= '    </button>';
-                $HTML .= '    <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop1">';
-                $HTML .= '      <li><a href="#">Dropdown link</a></li>';
-                $HTML .= '      <li><a href="#">Dropdown link</a></li>';
-                $HTML .= '    </ul>';
-                $HTML .= '  </div>';
-                $HTML .= '  <button type="button" class="btn btn-default">Button</button>';
-                $HTML .= '  <button type="button" class="btn btn-default">Button</button>';
-                $HTML .= '  <div class="btn-group" role="group">';
-                $HTML .= '    <button id="btnGroupVerticalDrop2" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">';
-                $HTML .= '      Dropdown';
-                $HTML .= '      <span class="caret"></span>';
-                $HTML .= '    </button>';
-                $HTML .= '    <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop2">';
-                $HTML .= '      <li><a href="#">Dropdown link</a></li>';
-                $HTML .= '      <li><a href="#">Dropdown link</a></li>';
-                $HTML .= '    </ul>';
-                $HTML .= '  </div>';
-                $HTML .= '  <div class="btn-group" role="group">';
-                $HTML .= '    <button id="btnGroupVerticalDrop3" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">';
-                $HTML .= '      Dropdown';
-                $HTML .= '      <span class="caret"></span>';
-                $HTML .= '    </button>';
-                $HTML .= '    <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop3">';
-                $HTML .= '      <li><a href="#">Dropdown link</a></li>';
-                $HTML .= '      <li><a href="#">Dropdown link</a></li>';
-                $HTML .= '    </ul>';
-                $HTML .= '  </div>';
-                $HTML .= '  <div class="btn-group" role="group">';
-                $HTML .= '    <button id="btnGroupVerticalDrop4" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">';
-                $HTML .= '      Dropdown';
-                $HTML .= '      <span class="caret"></span>';
-                $HTML .= '    </button>';
-                $HTML .= '    <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop4">';
-                $HTML .= '      <li><a href="#">Dropdown link</a></li>';
-                $HTML .= '      <li><a href="#">Dropdown link</a></li>';
-                $HTML .= '    </ul>';
-                $HTML .= '  </div>';
-                $HTML .= '</div>';
-                
-                $HTML .= '';
-                $HTML .= '    </div>';
-                $HTML .= '  </div>';
-                $HTML .= '</div>';
-
                 $HTML .= '</span>';
                 $HTML .= '</div>';
             endforeach;
+
+            $HTML .= '<div id="menupopup" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Menu" aria-hidden="true">';
+            $HTML .= '  <div class="modal-dialog">';
+            $HTML .= '    <div class="modal-content">';
+
+            $HTML .= '';
+            $HTML .= '<div class="btn-group-vertical" role="group" aria-label="Vertical button group">';
+            $HTML .= '  <button type="button" class="btn btn-default">Button</button>';
+            $HTML .= '  <button type="button" class="btn btn-default">Button</button>';
+            $HTML .= '  <div class="btn-group" role="group">';
+            $HTML .= '    <button id="btnGroupVerticalDrop1" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">';
+            $HTML .= '      Dropdown';
+            $HTML .= '      <span class="caret"></span>';
+            $HTML .= '    </button>';
+            $HTML .= '    <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop1">';
+            $HTML .= '      <li><a href="#">Dropdown link</a></li>';
+            $HTML .= '      <li><a href="#">Dropdown link</a></li>';
+            $HTML .= '    </ul>';
+            $HTML .= '  </div>';
+            $HTML .= '  <button type="button" class="btn btn-default">Button</button>';
+            $HTML .= '  <button type="button" class="btn btn-default">Button</button>';
+            $HTML .= '  <div class="btn-group" role="group">';
+            $HTML .= '    <button id="btnGroupVerticalDrop2" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">';
+            $HTML .= '      Dropdown';
+            $HTML .= '      <span class="caret"></span>';
+            $HTML .= '    </button>';
+            $HTML .= '    <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop2">';
+            $HTML .= '      <li><a href="#">Dropdown link</a></li>';
+            $HTML .= '      <li><a href="#">Dropdown link</a></li>';
+            $HTML .= '    </ul>';
+            $HTML .= '  </div>';
+            $HTML .= '  <div class="btn-group" role="group">';
+            $HTML .= '    <button id="btnGroupVerticalDrop3" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">';
+            $HTML .= '      Dropdown';
+            $HTML .= '      <span class="caret"></span>';
+            $HTML .= '    </button>';
+            $HTML .= '    <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop3">';
+            $HTML .= '      <li><a href="#">Dropdown link</a></li>';
+            $HTML .= '      <li><a href="#">Dropdown link</a></li>';
+            $HTML .= '    </ul>';
+            $HTML .= '  </div>';
+            $HTML .= '  <div class="btn-group" role="group">';
+            $HTML .= '    <button id="btnGroupVerticalDrop4" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">';
+            $HTML .= '      Dropdown';
+            $HTML .= '      <span class="caret"></span>';
+            $HTML .= '    </button>';
+            $HTML .= '    <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop4">';
+            $HTML .= '      <li><a href="#">Dropdown link</a></li>';
+            $HTML .= '      <li><a href="#">Dropdown link</a></li>';
+            $HTML .= '    </ul>';
+            $HTML .= '  </div>';
+            $HTML .= '</div>';
+            
+            $HTML .= '';
+            $HTML .= '    </div>';
+            $HTML .= '  </div>';
+            $HTML .= '</div>';
+            
         endif;
 
         return $HTML;
