@@ -392,11 +392,13 @@ class HTMLTemplate{
                 $HTML .= '    <div class="modal-content">';
 
                 //-------------------------------------
-                $HTML .= '<ul class="popup_menu_opt">';
+                $HTML .= '<div align="center" class="popup_menu_opt">';
+                $HTML .= '<ul class="popup_menu_opt_ul">';
                 $HTML .= '    <ol>Opciones de Orden de Compra</ol>';
                 $HTML .= '    <li>Convertir a Comprobante de Compra</li>';
                 $HTML .= '    <li>cancelar</li>';
                 $HTML .= '</ul>';
+                $HTML .= '</div>';
                 //-------------------------------------
 
                 $HTML .= '';

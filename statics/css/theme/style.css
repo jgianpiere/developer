@@ -321,6 +321,10 @@ input{
 }
 
 .popup_menu_opt{
+    margin:0 auto; 
+}
+
+.popup_menu_opt_ul{
     width: 200px;
     border: 1px solid red;
     overflow: auto;
