@@ -379,7 +379,7 @@ class HTMLTemplate{
                 $HTML .= '    <span style="padding:2px;" class="col-lg-3 col-md-12" data-id="'.$fill[6].'">'.$fill[7].'</span>';
                 $HTML .= '    <span style="padding:2px;" class="col-lg-1 col-md-12">'.round($fill[5], 2, PHP_ROUND_HALF_UP).'</span>';
                 $HTML .= '    <span style="padding:2px;" class="col-lg-1 col-md-12 result_options" data-id="'.$fill[0].'">';
-                $HTML .= '<button class="btn-menuopt">menu</button>';
+                $HTML .= '<button type="button" class="btn-menuopt">menu</button>';
 
                 // <i class="delete_row">&nbsp; x</i>&nbsp;&nbsp;<i class="covert_comprobante">?</i>
                 $HTML .= '</span>';
