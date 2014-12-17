@@ -276,8 +276,17 @@ _fnVerificCalc();
 
   });
 
-  $(document).on('change','input[type="checkbox"]',function(){ $$ = this; $this = $(this); to = $this.attr('active-to'); $to = $(to);
-    $this.is(':checked') ? $to.removeAttr('disabled') : $to.attr('disabled','disabled'); $this.val($this.is(':checked') ? 1 : 0);
+  $(document).on('change','input[type="checkbox"]',function(){ $$ = this; $this = $(this); to = $this.attr('active-to'); 
+    if(to.indexOf('|')>-1){
+      $items = to.split('|');
+      for($i in $items){
+        $to = $($i);
+        $this.is(':checked') ? $to.removeAttr('disabled') : $to.attr('disabled','disabled'); $this.val($this.is(':checked') ? 1 : 0);
+      }
+    }else{
+      $to = $(to);
+      $this.is(':checked') ? $to.removeAttr('disabled') : $to.attr('disabled','disabled'); $this.val($this.is(':checked') ? 1 : 0);
+    }
   });
 
   $(document).on('keypress','[type="number"]',function(e){ $$ = this; $this = $(this);

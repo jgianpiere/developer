@@ -91,15 +91,15 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-3 text-right">Valida RUC : <input type="checkbox" id="" name="" active-to="#agre_numcorre|#agre_serie" value="0"></label>
+                                            <label class="control-label col-xs-3 text-right">Valida RUC : <input type="checkbox" id="" name="" value="0"></label>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-3 text-right">Fechas Pasadas : <input type="checkbox" id="" name="" active-to="#agre_numcorre|#agre_serie" value="0"></label>
+                                            <label class="control-label col-xs-3 text-right">Fechas Pasadas : <input type="checkbox" id="" name="" value="0"></label>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-3 text-right">Activo : <input type="checkbox" id="" name="" active-to="#agre_numcorre|#agre_serie" value="0"></label>
+                                            <label class="control-label col-xs-3 text-right">Activo : <input type="checkbox" id="" name="" value="0"></label>
                                         </div>
 
 
