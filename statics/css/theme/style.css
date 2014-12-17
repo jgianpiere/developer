@@ -329,6 +329,7 @@ input{
     border: none;
     overflow: auto;
     padding: 7px;
+    background-color: white;
 }
 
 .popup_menu_opt ol{
@@ -346,6 +347,7 @@ input{
     cursor: pointer;
     border-left: 1px solid #ff9280;
     border-right: 1px solid #ff9280;
+    background: white;
 }
 
 .popup_menu_opt li:hover{

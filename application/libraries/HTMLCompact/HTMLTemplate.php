@@ -389,7 +389,7 @@ class HTMLTemplate{
 
             $HTML .= '<div id="menupopup" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Menu" aria-hidden="true">';
                 $HTML .= '  <div class="modal-dialog">';
-                $HTML .= '    <div class="modal-content">';
+                //$HTML .= '    <div class="modal-content">';
 
                 //-------------------------------------
                 $HTML .= '<div align="center" class="popup_menu_opt">';
@@ -402,8 +402,8 @@ class HTMLTemplate{
                 $HTML .= '</div>';
                 //-------------------------------------
 
-                $HTML .= '';
-                $HTML .= '    </div>';
+                //$HTML .= '';
+                //$HTML .= '    </div>';
                 $HTML .= '  </div>';
                 $HTML .= '</div>';
 
