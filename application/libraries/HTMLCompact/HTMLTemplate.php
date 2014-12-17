@@ -374,7 +374,7 @@ class HTMLTemplate{
             foreach ($Params as $key => $fill):
                 $HTML .= '<div data-id="'.$fill[0].'" class="fila">';
                 $HTML .= '    <span style="padding:2px;" class="col-lg-2 col-md-12">'.$fill[1].'-'.$fill[2].'</span>';
-                $HTML .= '    <span style="padding:2px;" class="col-lg-3 col-md-12">'.(strlen($fill[3]) > 22 ? substr($fill[3], 0,20).'..' : $fill[3]).'</span>';
+                $HTML .= '    <span style="padding:2px;" class="col-lg-3 col-md-12" title="'.$fill[3].'">'.(strlen($fill[3]) > 22 ? substr($fill[3], 0,20).'..' : $fill[3]).'</span>';
                 $HTML .= '    <span style="padding:2px;" class="col-lg-2 col-md-12">'.date('d-m-Y',(int) $fill[4]).'</span>';
                 $HTML .= '    <span style="padding:2px;" class="col-lg-3 col-md-12" data-id="'.$fill[6].'">'.$fill[7].'</span>';
                 $HTML .= '    <span style="padding:2px;" class="col-lg-1 col-md-12">'.round($fill[5], 2, PHP_ROUND_HALF_UP).'</span>';
@@ -386,6 +386,17 @@ class HTMLTemplate{
                 $HTML .= '<div id="menupopup" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Menu" aria-hidden="true">';
                 $HTML .= '  <div class="modal-dialog">';
                 $HTML .= '    <div class="modal-content">';
+
+                $HTML .= '<div class="list-group">';
+                $HTML .= '  <a href="#" class="list-group-item active">';
+                $HTML .= '    Menú Orden de Compra';
+                $HTML .= '  </a>';
+                $HTML .= '  <a href="#" class="list-group-item">Eliminar Orden de Compra</a>';
+                $HTML .= '  <a href="#" class="list-group-item">Cancelar</a>';
+                $HTML .= '  <a href="#" class="list-group-item">-</a>';
+                $HTML .= '  <a href="#" class="list-group-item">-</a>';
+                $HTML .= '</div>';
+                
                 $HTML .= '';
                 $HTML .= '    </div>';
                 $HTML .= '  </div>';
