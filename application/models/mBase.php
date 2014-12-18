@@ -440,4 +440,17 @@ class mBase extends MY_Model{
         return $Results;
     }
 
+    /**
+     * @return  : Codigo.
+     * @return  : Descripcion.
+     */
+    public function Query_listar_impuestos(){
+        $sql = "Sp_listar_impuestos";
+        $QueryRpt = $this->db->query($sql);
+        $Resultado = $QueryRpt->result_array();
+        $this->db->close();
+        $Results = $this->QueryResult($Resultado);
+        return $Results;
+    }
+
 }
