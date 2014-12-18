@@ -304,7 +304,7 @@ class Administracion extends MY_Controller {
             endif;
 
             $this->load->model('COMPRASYGASTOS/m_Compras');
-            
+
             // Operacion all : 0
             $Params = array('idOperacion' => 0);
             $documento_list = $this->m_Compras->Query_Documento_GET($Params);
@@ -331,6 +331,12 @@ class Administracion extends MY_Controller {
             $lista_almacenes = $this->mBase->Query_Almacenes_GET($Param);
             if(!empty($lista_almacenes) && is_array($lista_almacenes)):
                 $this->locales = $this->htmltemplate->HTML_ResultSelectSimple($lista_almacenes);
+            endif;
+
+            # Listar Impuesto
+            $lista_impuestos = $this->mBase->Query_listar_impuestos($Param);
+            if(!empty($lista_impuestos) && is_array($lista_impuestos)):
+                $this->impuestos = $this->htmltemplate->HTML_ResultSelectSimple($lista_impuestos);
             endif;
         
             $this->load->view('modules/Administracion/view_Administracion_Compras_TipoComprobante_landing.php');

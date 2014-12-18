@@ -99,7 +99,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-xs-3 text-right">Activo : <input type="checkbox" id="agre_activo" name="agre_activo" value="0"></label>
+                                            <label class="control-label col-xs-3 text-right">Activo : <input type="checkbox" id="agre_activo" name="agre_activo" value="1" checked ></label>
                                         </div>
 
 
