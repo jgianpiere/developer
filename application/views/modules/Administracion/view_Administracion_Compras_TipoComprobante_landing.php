@@ -134,9 +134,10 @@
                         try{
                             $data = $.parseJSON(data);
                             if($data[0][0] != 'ERROR' && $data[0][0] != '00'){
-                                if(($data[0][0]).toUpperCase() == 'OK'){
+                                if($data[0][0] == 'OK'){
                                     // alert($data[0][2]);
-                                    alert("el Local se guardo correctamente.");
+                                    alert($data[0][2]);
+                                    $('[type="reset"]').trigger('click');
                                 }
                             }else{
                                 alert($data[2]);
