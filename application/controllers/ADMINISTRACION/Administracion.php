@@ -308,7 +308,7 @@ class Administracion extends MY_Controller {
             $this->load->model('COMPRASYGASTOS/m_Compras');
 
             // Operacion all : 0
-            $Params = array('idOperacion' => 0);
+            $Params = array('idOperacion' => 0); 
             $documento_list = $this->m_Compras->Query_Documento_GET($Params);
 
             # Listar Documento
