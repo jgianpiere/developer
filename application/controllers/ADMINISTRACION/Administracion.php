@@ -303,6 +303,8 @@ class Administracion extends MY_Controller {
                 $this->tipooperacion = $this->htmltemplate->HTML_ResultSelectSimple($lista_plan);
             endif;
 
+            $this->load->model('COMPRASYGASTOS/m_Compras');
+            
             // Operacion all : 0
             $Params = array('idOperacion' => 0);
             $documento_list = $this->m_Compras->Query_Documento_GET($Params);
