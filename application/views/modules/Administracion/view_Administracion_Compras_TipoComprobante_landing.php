@@ -129,7 +129,7 @@
                 $.ajax({
                     type    : 'POST',
                     data    : $form.serialize(),
-                    url     : "<?=site_url('/Administracion/rrhh/TipoDocumento/Agregar');?>",
+                    url     : "<?=site_url('/Administracion/rrhh/TipoComprobante/Agregar');?>",
                     success : function(data){
                         try{
                             $data = $.parseJSON(data);

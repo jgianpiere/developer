@@ -10,6 +10,7 @@ class Administracion extends MY_Controller {
         $this->profile = $this->session->userdata('usr_prf_tokn');
 
         $this->load->model('ADMINISTRACION/m_RRHHAdministracion');
+        $this->load->model('ADMINISTRACION/m_ComprasAdministracion');
 
         # ruta Padre
         $this->rutapadre = array('title' => 'ADMINISTRACION', 'route' =>site_url('Administracion'));
@@ -364,7 +365,7 @@ class Administracion extends MY_Controller {
                     'agre_area'         => $agre_area
                 );
 
-                $insert_result = $this->m_RRHHAdministracion->Query_Insertar_Area($Params);
+                $insert_result = $this->m_ComprasAdministracion->Query_Insertar_Tipo_Comprobante($Params);
 
                 if(isset($insert_result) && !empty($insert_result)):
                     echo json_encode($insert_result);
