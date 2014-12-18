@@ -299,7 +299,7 @@ class Administracion extends MY_Controller {
             $this->RutaGuia = $RutaGuia;
 
             # Cargar Tipo Operacion.
-            $Params = array('idOperacion' => NULL);
+            $Params = array('idOperacion' => '');
             $lista_TipoOperacion = $this->mBase->Query_Listar_Tipo_Operacion($Params);
             if(isset($lista_TipoOperacion) && !empty($lista_TipoOperacion) && is_array($lista_TipoOperacion)):
                 $this->tipooperacion = $this->htmltemplate->HTML_ResultSelectSimple($lista_TipoOperacion);
