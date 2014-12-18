@@ -298,10 +298,10 @@ class Administracion extends MY_Controller {
             $RutaGuia       = $this->htmltemplate->HTML_RutaGuia($rutas,'Tipo Comprobante');
             $this->RutaGuia = $RutaGuia;
 
-            # Cargar Plan.
-            $lista_plan = $this->mBase->Query_Plan_GET();
-            if(isset($lista_plan) && !empty($lista_plan) && is_array($lista_plan)):
-                $this->tipooperacion = $this->htmltemplate->HTML_ResultSelectSimple($lista_plan);
+            # Cargar Tipo Operacion.
+            $lista_TipoOperacion = $this->mBase->Query_Listar_Tipo_Operacion();
+            if(isset($lista_TipoOperacion) && !empty($lista_TipoOperacion) && is_array($lista_TipoOperacion)):
+                $this->tipooperacion = $this->htmltemplate->HTML_ResultSelectSimple($lista_TipoOperacion);
             endif;
 
             $this->load->model('COMPRASYGASTOS/m_Compras');
