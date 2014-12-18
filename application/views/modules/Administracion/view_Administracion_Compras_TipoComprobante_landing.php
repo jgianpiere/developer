@@ -134,7 +134,7 @@
                         try{
                             $data = $.parseJSON(data);
                             if($data[0][0] != 'ERROR' && $data[0][0] != '00'){
-                                if($data[0][0] == 'OK'){
+                                if(($data[0][0]).toUpperCase() == 'OK'){
                                     // alert($data[0][2]);
                                     alert("el Local se guardo correctamente.");
                                 }
