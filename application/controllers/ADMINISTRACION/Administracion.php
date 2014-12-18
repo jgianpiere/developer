@@ -258,7 +258,7 @@ class Administracion extends MY_Controller {
     }
 
     public function Proveedor_Agregar(){
-        return json_encode(array('ERROR','01','NO HAY FUNCION'));
+        return json_encode(array('ERROR','01','AGREGAR PROVEEDOR SP'));
     }
 
     public  function Producto_landing(){
@@ -334,6 +334,41 @@ class Administracion extends MY_Controller {
             $this->load->view('modules/Administracion/view_Administracion_Compras_TipoComprobante_landing.php');
         elseif($_SERVER['REQUEST_METHOD'] == 'GET'):
             redirect(base_url('Administracion#/Compras/TipoComprobante'));
+        endif;
+    }
+
+    public function TipoComprobante_Agregar(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'):
+            $Campos = array(    
+                array('field' =>  'agre_area',      'label' =>  'agre_area',         'rules' =>  'trim|required|xss_clean'),
+                array('field' =>  'agre_codigo',    'label' =>  'agre_codigo',       'rules' =>  'trim|required|xss_clean')
+            );
+
+            $this->form_validation->set_rules($Campos);
+
+            if($this->form_validation->run() == TRUE):
+
+                $agre_area              = $this->input->post('agre_area');
+                $agre_codigo            = $this->input->post('agre_codigo');
+
+                $Params = array(
+                    'agre_codigo'       => $agre_codigo,
+                    'agre_area'         => $agre_area
+                );
+
+                $insert_result = $this->m_RRHHAdministracion->Query_Insertar_Area($Params);
+
+                if(isset($insert_result) && !empty($insert_result)):
+                    echo json_encode($insert_result);
+                else:
+                    echo json_encode(array('ERROR','01','ERROR AL INGRESAR LOS DATOS'));
+                endif;
+
+            else:
+                echo json_encode(array('ERROR','01',validation_errors()));
+            endif;
+        elseif($_SERVER['REQUEST_METHOD'] == 'GET'):
+            show_404();
         endif;
     }
 
