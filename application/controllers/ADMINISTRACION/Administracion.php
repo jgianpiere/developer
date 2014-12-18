@@ -349,20 +349,53 @@ class Administracion extends MY_Controller {
     public function TipoComprobante_Agregar(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST'):
             $Campos = array(    
-                array('field' =>  'agre_area',      'label' =>  'agre_area',         'rules' =>  'trim|required|xss_clean'),
-                array('field' =>  'agre_codigo',    'label' =>  'agre_codigo',       'rules' =>  'trim|required|xss_clean')
+                array('field' =>  'agre_activo',        'label' =>  'agre_activo',          'rules' =>  'trim|xss_clean'),
+                array('field' =>  'agre_codigo',        'label' =>  'agre_codigo',          'rules' =>  'trim|required|xss_clean'),
+                array('field' =>  'agre_descripcion',   'label' =>  'agre_descripcion',     'rules' =>  'trim|required|xss_clean'),
+                array('field' =>  'agre_fechaspasadas', 'label' =>  'agre_fechaspasadas',   'rules' =>  'trim|xss_clean'),
+                array('field' =>  'agre_impuesto',      'label' =>  'agre_impuesto',        'rules' =>  'trim|xss_clean'),
+                array('field' =>  'agre_local',         'label' =>  'agre_local',           'rules' =>  'trim|xss_clean'),
+                array('field' =>  'agre_maxitems',      'label' =>  'agre_maxitems',        'rules' =>  'trim|xss_clean'),
+                array('field' =>  'agre_maxperiodo',    'label' =>  'agre_maxperiodo',      'rules' =>  'trim|xss_clean'),
+                array('field' =>  'agre_numauto',       'label' =>  'agre_numauto',         'rules' =>  'trim|xss_clean'),
+                array('field' =>  'agre_numcorre',      'label' =>  'agre_numcorre',        'rules' =>  'trim|xss_clean'),
+                array('field' =>  'agre_serie',         'label' =>  'agre_serie',           'rules' =>  'trim|xss_clean'),
+                array('field' =>  'agre_tipooperacion', 'label' =>  'agre_tipooperacion',   'rules' =>  'trim|xss_clean'),
+                array('field' =>  'agre_validaruc',     'label' =>  'agre_validaruc',       'rules' =>  'trim|xss_clean')
             );
 
             $this->form_validation->set_rules($Campos);
 
             if($this->form_validation->run() == TRUE):
 
-                $agre_area              = $this->input->post('agre_area');
-                $agre_codigo            = $this->input->post('agre_codigo');
+               $agre_activo = $this->input->post('agre_activo');
+               $agre_codigo = $this->input->post('agre_codigo');
+               $agre_descripcion = $this->input->post('agre_descripcion');
+               $agre_fechaspasadas = $this->input->post('agre_fechaspasadas');
+               $agre_impuesto = $this->input->post('agre_impuesto');
+               $agre_local = $this->input->post('agre_local');
+               $agre_maxitems = $this->input->post('agre_maxitems');
+               $agre_maxperiodo = $this->input->post('agre_maxperiodo');
+               $agre_numauto = $this->input->post('agre_numauto');
+               $agre_numcorre = $this->input->post('agre_numcorre');
+               $agre_serie = $this->input->post('agre_serie');
+               $agre_tipooperacion = $this->input->post('agre_tipooperacion');
+               $agre_validaruc = $this->input->post('agre_validaruc');
 
                 $Params = array(
-                    'agre_codigo'       => $agre_codigo,
-                    'agre_area'         => $agre_area
+                   'agre_codigo' => $agre_codigo,
+                   'agre_descripcion' => $agre_descripcion,
+                   'agre_numcorre' => $agre_numcorre,
+                   'agre_serie' => $agre_serie,
+                   'agre_maxitems' => $agre_maxitems,
+                   'agre_maxperiodo' => $agre_maxperiodo,
+                   'agre_numauto' => $agre_numauto,
+                   'agre_tipooperacion' => $agre_tipooperacion,
+                   'agre_validaruc' => $agre_validaruc,
+                   'agre_fechaspasadas' => $agre_fechaspasadas,
+                   'agre_local' => $agre_local,
+                   'agre_impuesto' => $agre_impuesto,
+                   'agre_activo' => $agre_activo
                 );
 
                 $insert_result = $this->m_ComprasAdministracion->Query_Insertar_Tipo_Comprobante($Params);
