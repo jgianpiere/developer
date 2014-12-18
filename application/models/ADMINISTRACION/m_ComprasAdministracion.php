@@ -27,7 +27,7 @@ class m_ComprasAdministracion extends MY_Model{
     * @return       : [Result rows]
     */
     public function Query_Insertar_Tipo_Comprobante($Params){
-        $sql = "Sp_Insertar_Tipo_Comprobante ?,?,?,?,?";
+        $sql = "Sp_Insertar_Tipo_Comprobante ?,?,?,?,?,?,?,?,?,?,?,?";
         $QueryRpt = $this->db->query($sql,$Params);
         $Resultado = $QueryRpt->row_array();
         $this->db->close();
