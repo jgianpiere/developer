@@ -453,4 +453,20 @@ class mBase extends MY_Model{
         return $Results;
     }
 
+    /**
+     * @param   : idTipoOperacion INT. (vacio = todos).
+     * @return  : Codigo.
+     * @return  : Descripcion.
+     */
+    public function Query_Listar_Tipo_Operacion($Params){
+        $sql = "SP_Listar_Tipo_Operacion ?";
+        $QueryRpt = $this->db->query($sql,$Params);
+        $Resultado = $QueryRpt->result_array();
+        $this->db->close();
+        $Results = $this->QueryResult($Resultado);
+        return $Results;
+    }
+
+
+
 }
