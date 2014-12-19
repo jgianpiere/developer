@@ -704,7 +704,9 @@ var $descripcion;
                         try{
                             $data = $.parseJSON(data);
                             if($data[0]!='ERROR' && $data[0] != '00'){
-                                $this.parent().parent().remove();
+                                $('.fila[data-id='+$id+']').fadeOut('slow',function(){
+                                    $('.fila[data-id='+$id+']').remove();
+                                });
                             }else{
                                 console.log('codigo de error: '+$data[1]);
                                 alert($data[2]);
