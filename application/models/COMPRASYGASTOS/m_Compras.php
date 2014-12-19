@@ -452,6 +452,7 @@ class m_Compras extends MY_Model{
     /**
     * @todo         : Cargar Numeracion
     * @param        : @ID_Documento INTEGER
+    * 
     * @return       : Numeracion_Automatica AS 'Automático'
     * @return       : Serie AS 'Serie'
     * @return       : Numero_Correlativo AS 'Número'
@@ -459,6 +460,66 @@ class m_Compras extends MY_Model{
     */
     public function Query_Cargar_Numeracion($Params){
         $sql = "SP_Cargar_Numeracion ?";
+        $QueryRpt = $this->db->query($sql,$Params);
+        $Resultado = $QueryRpt->row_array();
+        $this->db->close();
+        $Results = $this->QueryRows($Resultado);
+        return $Results;
+    }
+
+    /**
+    * @todo         : Cargar Numeracion
+    * @param        : @IDCP   INT
+    * 
+    * @return       : ID_CP
+    * @return       : NUMERO
+    * @return       : SERIE
+    * @return       : TOTAL
+    * @return       : TOTAL_IMPUESTO
+    * @return       : FECHA_EMISION
+    * @return       : ANULADO
+    * @return       : ID_PERSONA
+    * @return       : ID_PERIODO
+    * @return       : ID_MONEDA
+    * @return       : ID_TIPO_COMPROBANTE
+    * @return       : ID_TIPO_OPERACION
+    * @return       : FECHA_VENCIMIENTO
+    * @return       : ID_MODALIDAD_CREDITO
+    * @return       : FECHA_INGRESO
+    * @return       : ID_TIPO_CAMBIO
+    * @return       : OBSERVACION
+    * @return       : TOTAL_DESCUENTO
+    * @return       : ESTADO
+    * @return       : ID_ALMACEN
+    * @return       : ID_RESPONSABLE
+    * @return       : ID_TIPO_PLAN
+    * @return       : SUBTOTAL
+    * @return       : CANTIDAD
+    * @return       : VALOR_UNITARIO
+    * @return       : ID_CENTRO_COSTO
+    * @return       : TOTAL_DESUENTO
+    * @return       : BALANCE_ENTRADA
+    * @return       : BALANCE_SALIDA
+    * @return       : COSTO
+    * @return       : ID_PRODUCTO
+    */
+    public function Query_Listar_ComprobanteCompra($Params){
+        $sql = "SP_Listar_ComprobanteCompra ?";
+        $QueryRpt = $this->db->query($sql,$Params);
+        $Resultado = $QueryRpt->result_array();
+        $this->db->close();
+        $Results = $this->QueryResult($Resultado);
+        return $Results;
+    }
+
+    /**
+     * @param       : @ID_CP INT
+     * @param       : @ID_CPRELACIONADO INT
+     * 
+     * @return      : confirmacion  
+     */
+    public function Query_Guardar_Relacion($Params){
+        $sql = "Sp_Guardar_Relacion ?,?";
         $QueryRpt = $this->db->query($sql,$Params);
         $Resultado = $QueryRpt->row_array();
         $this->db->close();

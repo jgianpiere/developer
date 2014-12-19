@@ -356,6 +356,9 @@ class Compras extends MY_Controller {
             $this->form_validation->set_rules($Campos);
 
             if($this->form_validation->run() == TRUE):
+                // traer datos de la Orden y Procesarlos.
+                
+
                 # RutaGuia
                 $rutas =   array($this->rutapadre,array('title'=>'Compras','route'=>site_url('Compras#/Compras/ComprobantesdeCompra')));
                 $RutaGuia = $this->htmltemplate->HTML_RutaGuia($rutas,'Comprobantes de Compra');
