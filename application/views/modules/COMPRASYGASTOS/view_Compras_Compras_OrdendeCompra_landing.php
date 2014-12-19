@@ -663,13 +663,6 @@ var $descripcion;
 </script>
 
 <script>
-    (function(){
-        active_popup_menu = function(id){
-            $('#menupopup').attr('data-id',id);
-            $('[data-convert-comprobante]').attr('data-convert-comprobante',id);
-            $('[data-delete-id]').attr('data-delete-id',id);
-        }
-
         function convert($this){ t = $this; $this = $(this); $id = $(t).attr('data-convert-comprobante');
             if(confirm('Deseas Convertir la Orden en Comprobante?')){
                 $.ajax({
@@ -694,6 +687,13 @@ var $descripcion;
                     }
                 });
             }
+        }
+
+    (function(){
+        active_popup_menu = function(id){
+            $('#menupopup').attr('data-id',id);
+            $('[data-convert-comprobante]').attr('data-convert-comprobante',id);
+            $('[data-delete-id]').attr('data-delete-id',id);
         }
 
         $('[data-delete-id]').on('click',function(){ t = this; $id = $(t).attr('data-delete-id');
