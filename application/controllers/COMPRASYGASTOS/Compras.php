@@ -357,8 +357,14 @@ class Compras extends MY_Controller {
 
             if($this->form_validation->run() == TRUE):
                 // traer datos de la Orden y Procesarlos.
-                
 
+                $ordenid = $this->input->post('ordenid');
+
+                $Params = array('idOrdenCompra' => $ordenid);
+                $result_select = $this->m_Compras->Query_Listar_ComprobanteCompra($Params);
+
+                echo json_encode($result_select);
+                
                 # RutaGuia
                 $rutas =   array($this->rutapadre,array('title'=>'Compras','route'=>site_url('Compras#/Compras/ComprobantesdeCompra')));
                 $RutaGuia = $this->htmltemplate->HTML_RutaGuia($rutas,'Comprobantes de Compra');
