@@ -379,7 +379,7 @@ class HTMLTemplate{
                 $HTML .= '    <span style="padding:2px;" class="col-lg-3 col-md-12" data-id="'.$fill[6].'">'.$fill[7].'</span>';
                 $HTML .= '    <span style="padding:2px;" class="col-lg-1 col-md-12">'.round($fill[5], 2, PHP_ROUND_HALF_UP).'</span>';
                 $HTML .= '    <span style="padding:2px;" class="col-lg-1 col-md-12 result_options" data-id="'.$fill[0].'">';
-                $HTML .= '<button type="button" class="btn-menuopt" data-toggle="modal" data-target="#menupopup" title="Menu" onclick="alert('.$fill[0].');" ></button>';
+                $HTML .= '<button type="button" class="btn-menuopt" data-toggle="modal" data-target="#menupopup" title="Menu" onclick="active_popup_menu('.$fill[0].');" ></button>';
 
                 // <i class="delete_row">&nbsp; x</i>&nbsp;&nbsp;<i class="covert_comprobante">?</i>
 
@@ -395,8 +395,8 @@ class HTMLTemplate{
                 $HTML .= '<div align="center" class="popup_menu_opt">';
                 $HTML .= '<ul class="popup_menu_opt_ul">';
                 $HTML .= '    <ol>Opciones de Orden de Compra</ol>';
-                $HTML .= '    <li>Convertir a Comprobante de Compra</li>';
-                $HTML .= '    <li>Eliminar  Orden de Compra</li>';
+                $HTML .= '    <li data-convert-comprobante="">Convertir a Comprobante de Compra</li>';
+                $HTML .= '    <li data-delete-id="">Eliminar  Orden de Compra</li>';
                 $HTML .= '    <li class="cancel" data-dismiss="modal">cancelar</li>';
                 $HTML .= '</ul>';
                 $HTML .= '</div>';

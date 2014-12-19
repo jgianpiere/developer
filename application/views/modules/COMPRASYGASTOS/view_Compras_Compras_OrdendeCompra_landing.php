@@ -540,59 +540,6 @@ var $descripcion;
     })(jQuery);
 
     (function(){
-        // Activar el eliminar.
-        $(document).on('click','.delete_row',function(){ $$ = this; $this = $(this);
-            if(confirm('Eliminar Orden de Compra ?')){
-                $.ajax({
-                    type        : 'POST',
-                    data        : 'ordenid='+$($this.parent()).attr('data-id'),
-                    url         : "<?=site_url('/Compras/Compras/OrdendeCompra/Eliminar');?>",
-                    success     : function(data){
-                        try{
-                            $data = $.parseJSON(data);
-                            if($data[0]!='ERROR' && $data[0] != '00'){
-                                $this.parent().parent().remove();
-                            }else{
-                                console.log('codigo de error: '+$data[1]);
-                                alert($data[2]);
-                            }
-                        }catch(e){
-                            alert('ocurrio un error');
-                        }
-                    },
-                    error       : function(){
-
-                    }
-                });
-            }
-        });
-
-        $('.result').on('click','.covert_comprobante',function(){ $$ = this; $this = $(this);
-            if(confirm('Convertir en Comprobante de Compra?')){
-                $.ajax({
-                    type        : 'POST',
-                    data        : 'ordenid='+$($this.parent()).attr('data-id'),
-                    url         : "<?=site_url('/Compras/Compras/OrdendeCompra/Converir');?>",
-                    success     : function(data){
-                        try{
-                            $data = $.parseJSON(data);
-                            if($data[0]!='ERROR' && $data[0]!='00'){
-                                alert($data[2]); // OK
-                            }else{
-                                console.log('Codigo de error: '+$data[1]);
-                                alert($data[2]);
-                            }
-                        }catch(e){
-                            $('.siderbar_content').html(data);
-                        }
-                    },
-                    error       : function(){
-
-                    }
-                });
-            }
-        });
-        
 
         // Buscar Proveedores por descripcion.
         
@@ -712,5 +659,68 @@ var $descripcion;
 
             return false;
         });
+    })(jQuery);
+</script>
+
+<script>
+    (function(){
+        active_popup_menu = function(id){
+            $('#menupopup').attr('data-id',id);
+            $('[data-convert-comprobante]').attr('data-convert-comprobante',id);
+            $('[data-delete-id]').attr('data-delete-id',id);
+        }
+
+        $('[data-convert-comprobante]').on('click',function(){ t= this; $id = $(t).attr('data-convert-comprobante');
+            if(confirm('Deseas Convertir la Orden en Comprobante?')){
+                $.ajax({
+                    type        : 'POST',
+                    data        : 'ordenid='+$id,
+                    url         : "<?=site_url('/Compras/Compras/OrdendeCompra/Converir');?>",
+                    success     : function(data){
+                        try{
+                            $data = $.parseJSON(data);
+                            if($data[0]!='ERROR' && $data[0]!='00'){
+                                alert($data[2]); // OK
+                            }else{
+                                console.log('Codigo de error: '+$data[1]);
+                                alert($data[2]);
+                            }
+                        }catch(e){
+                            $('.siderbar_content').html(data);
+                        }
+                    },
+                    error       : function(){
+
+                    }
+                });
+            }
+        });
+
+        $('[data-delete-id]').on('click',function(){ t = this; $id = $(t).attr('data-delete-id');
+            if(confirm('Deseas Eliminar la Orden de Compra?')){
+                $.ajax({
+                    type        : 'POST',
+                    data        : 'ordenid='+$id,
+                    url         : "<?=site_url('/Compras/Compras/OrdendeCompra/Eliminar');?>",
+                    success     : function(data){
+                        try{
+                            $data = $.parseJSON(data);
+                            if($data[0]!='ERROR' && $data[0] != '00'){
+                                $this.parent().parent().remove();
+                            }else{
+                                console.log('codigo de error: '+$data[1]);
+                                alert($data[2]);
+                            }
+                        }catch(e){
+                            alert('ocurrio un error');
+                        }
+                    },
+                    error       : function(){
+
+                    }
+                });
+            }
+        });
+
     })(jQuery);
 </script>
