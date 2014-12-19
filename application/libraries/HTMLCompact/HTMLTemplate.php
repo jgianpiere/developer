@@ -395,8 +395,8 @@ class HTMLTemplate{
                 $HTML .= '<div align="center" class="popup_menu_opt">';
                 $HTML .= '<ul class="popup_menu_opt_ul">';
                 $HTML .= '    <ol>Opciones de Orden de Compra</ol>';
-                $HTML .= '    <li data-convert-comprobante="">Convertir a Comprobante de Compra</li>';
-                $HTML .= '    <li data-delete-id="">Eliminar  Orden de Compra</li>';
+                $HTML .= '    <li onclick="convert(this)" data-convert-comprobante="">Convertir a Comprobante de Compra</li>';
+                $HTML .= '    <li onclick="eliminar(this)" data-delete-id="">Eliminar  Orden de Compra</li>';
                 $HTML .= '    <li class="cancel" data-dismiss="modal">cancelar</li>';
                 $HTML .= '</ul>';
                 $HTML .= '</div>';

@@ -670,7 +670,7 @@ var $descripcion;
             $('[data-delete-id]').attr('data-delete-id',id);
         }
 
-        $('[data-convert-comprobante]').on('click',function(){ t= this; $id = $(t).attr('data-convert-comprobante');
+        function convert($this){ t = $this; $this = $(this); $id = $(t).attr('data-convert-comprobante');
             if(confirm('Deseas Convertir la Orden en Comprobante?')){
                 $.ajax({
                     type        : 'POST',
@@ -694,7 +694,7 @@ var $descripcion;
                     }
                 });
             }
-        });
+        }
 
         $('[data-delete-id]').on('click',function(){ t = this; $id = $(t).attr('data-delete-id');
             if(confirm('Deseas Eliminar la Orden de Compra?')){
