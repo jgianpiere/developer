@@ -686,17 +686,12 @@ var $descripcion;
 
                     }
                 });
+
+                $('.modal-backdrop').removeClass('in');
             }
         }
 
-    (function(){
-        active_popup_menu = function(id){
-            $('#menupopup').attr('data-id',id);
-            $('[data-convert-comprobante]').attr('data-convert-comprobante',id);
-            $('[data-delete-id]').attr('data-delete-id',id);
-        }
-
-        $('[data-delete-id]').on('click',function(){ t = this; $id = $(t).attr('data-delete-id');
+        function eliminar($this){ t = $this; $this = $(this); $id = $(t).attr('data-delete-id');
             if(confirm('Deseas Eliminar la Orden de Compra?')){
                 $.ajax({
                     type        : 'POST',
@@ -719,8 +714,17 @@ var $descripcion;
 
                     }
                 });
+                
+                $('.modal-backdrop').removeClass('in');
             }
-        });
+        }
+
+    (function(){
+        active_popup_menu = function(id){
+            $('#menupopup').attr('data-id',id);
+            $('[data-convert-comprobante]').attr('data-convert-comprobante',id);
+            $('[data-delete-id]').attr('data-delete-id',id);
+        }
 
     })(jQuery);
 </script>
