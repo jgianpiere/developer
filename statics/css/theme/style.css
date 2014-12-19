@@ -226,7 +226,7 @@ html,body,*{
     }
 
     .result .fila span:hover{
-        background-color: rgba(242,242,242,.3);
+        background-color: rgba(242,242,242,.2);
     }
 
     #message_resume{

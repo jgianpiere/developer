@@ -2,7 +2,7 @@
         <?= isset($this->RutaGuia) && !empty($this->RutaGuia) ? $this->RutaGuia : '';?>
             <style type="text/css">
                 .fila:hover{
-                    background: rgba(200, 2, 2, 0.2);
+                    background: rgba(250, 200, 9, 0.1);
                 }
             </style>
             <!-- tabs bar -->
