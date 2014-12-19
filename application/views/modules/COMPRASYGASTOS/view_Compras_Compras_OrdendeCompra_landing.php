@@ -665,6 +665,8 @@ var $descripcion;
 <script>
         function convert($this){ t = $this; $this = $(this); $id = $(t).attr('data-convert-comprobante');
             if(confirm('Deseas Convertir la Orden en Comprobante?')){
+                $('[data-dismiss]').trigger('click');
+                
                 $.ajax({
                     type        : 'POST',
                     data        : 'ordenid='+$id,
@@ -687,12 +689,13 @@ var $descripcion;
                     }
                 });
 
-                $('.modal-backdrop').removeClass('in');
             }
         }
 
         function eliminar($this){ t = $this; $this = $(this); $id = $(t).attr('data-delete-id');
             if(confirm('Deseas Eliminar la Orden de Compra?')){
+                $('[data-dismiss]').trigger('click');
+                
                 $.ajax({
                     type        : 'POST',
                     data        : 'ordenid='+$id,
@@ -715,7 +718,6 @@ var $descripcion;
                     }
                 });
                 
-                $('.modal-backdrop').removeClass('in');
             }
         }
 
