@@ -179,9 +179,9 @@
         $('#agre_numauto').on('change',function(){ $$ = this; $this = $(this);
             $this.val($this.is(':checked') ? 1 : 0);
             if($this.is(':checked')){
-                $('#agre_numcorre').removeAttr('readonly'); $('#agre_serie').removeAttr('readonly');
+                $('#agre_numcorre').removeAttr('readonly').attr('required','required'); $('#agre_serie').removeAttr('readonly').attr('required','required');
             }else{
-                $('#agre_numcorre').attr('readonly','true').val(''); $('#agre_serie').attr('readonly','true').val('');
+                $('#agre_numcorre').attr('readonly','true').val('').removeAttr('required'); $('#agre_serie').attr('readonly','true').val('').removeAttr('required');
             }
         });   
     })(jQuery);
